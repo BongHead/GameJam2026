@@ -27,6 +27,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 2.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0d8h1"]
