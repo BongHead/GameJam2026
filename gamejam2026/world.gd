@@ -51,7 +51,7 @@ func place_resources_on_map(x_zone: int, y_zone: int, item: Resource, ignore_ove
 
 func is_valid_position(pos: Vector2) -> bool:
 	for x in get_tree().get_nodes_in_group("existing_resources"):
-		if x.global_position.distance_to(pos) < 150:
+		if x.global_position.distance_to(pos) < 250:
 			return false
 	return true
 

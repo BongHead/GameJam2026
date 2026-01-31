@@ -1,13 +1,12 @@
-[gd_scene load_steps=13 format=4 uid="uid://bxuitaado5ppd"]
+[gd_scene load_steps=12 format=4 uid="uid://bxuitaado5ppd"]
 
 [ext_resource type="Script" path="res://camera_2d.gd" id="1_o0ekc"]
 [ext_resource type="Script" path="res://world.gd" id="1_t0vh2"]
-[ext_resource type="PackedScene" uid="uid://ce2t4l3vm53ot" path="res://Ennemy/hornet_nest.tscn" id="2_24fot"]
 [ext_resource type="FontFile" uid="uid://l54s50lamel2" path="res://fonts/AntFont-Regular (1).ttf" id="3_ufpr5"]
 [ext_resource type="Script" path="res://anthill.gd" id="4_0gpe0"]
 [ext_resource type="PackedScene" uid="uid://n4oayt84ordk" path="res://Ant.tscn" id="4_fc4m6"]
+[ext_resource type="PackedScene" path="res://Tilemap.tscn" id="6_cx25r"]
 [ext_resource type="Texture2D" uid="uid://drw7qi7fommae" path="res://assets/anthill_better.png" id="8_13ok7"]
-[ext_resource type="PackedScene" uid="uid://iausah6ji1mt" path="res://Tilemap.tscn" id="6_cx25r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6irwo"]
 atlas = ExtResource("8_13ok7")
@@ -37,9 +36,6 @@ height = 1216.0
 
 [node name="Node2D2" type="Node2D"]
 script = ExtResource("1_t0vh2")
-
-[node name="HornetNest" parent="." instance=ExtResource("2_24fot")]
-position = Vector2(2448, 2400)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("1_o0ekc")

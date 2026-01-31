@@ -2,8 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://dstukei7sfao2" path="res://assets/water.png" id="1_y4kty"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vv4tg"]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_kn5ad"]
 atlas = ExtResource("1_y4kty")
 region = Rect2(0, 0, 196, 200)
@@ -61,13 +59,19 @@ animations = [{
 "speed": 16.0
 }]
 
-[node name="Water" type="Area2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fgst4"]
+radius = 231.74
+height = 783.92
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_vv4tg")
+[node name="Water" type="Area2D"]
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_8foho")
 autoplay = "default"
 frame_progress = 0.76287
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-52, 0)
+shape = SubResource("CapsuleShape2D_fgst4")
+debug_color = Color(0.929893, 0.232916, 0.328751, 0.42)
