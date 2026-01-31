@@ -1,0 +1,16 @@
+class_name FoodConstants extends RefCounted
+
+# Hunger bar value restored
+enum FoodRestoreValue {
+	VERY_LOW = 1,
+	LOW = 3,
+	MEDIUM = 5,
+	HIGH = 10
+}
+# Time to gather in seconds
+enum FoodGatherTime {
+	VERY_LOW = 3,
+	LOW = 5,
+	MEDIUM = 10,
+	HIGH = 15
+}
