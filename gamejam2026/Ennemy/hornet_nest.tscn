@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://ce2t4l3vm53ot"]
+[gd_scene load_steps=4 format=3 uid="uid://ce2t4l3vm53ot"]
 
-[ext_resource type="Texture2D" uid="uid://csu5wflhlxllm" path="res://pngtree-wasp-nest-vespiary-png-image_10616799.png" id="1_gkfos"]
+[ext_resource type="Texture2D" uid="uid://csu5wflhlxllm" path="res://Placeholders/pngtree-wasp-nest-vespiary-png-image_10616799.png" id="1_gkfos"]
+[ext_resource type="Script" path="res://Ennemy/hornet_nest.gd" id="1_kgd3h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gbmt3"]
 
 [node name="HornetNest" type="Area2D"]
 visible = false
+script = ExtResource("1_kgd3h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_gbmt3")

@@ -1,14 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://brc0j8g0p4dry"]
+[gd_scene load_steps=4 format=3 uid="uid://brc0j8g0p4dry"]
 
+[ext_resource type="Script" path="res://Food/insect.gd" id="1_fdn0r"]
 [ext_resource type="Texture2D" uid="uid://dao67ac2ubxvp" path="res://Placeholders/pngtree-small-insect-ladybug-png-image_15739904.png" id="1_hiibs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_htc2r"]
 
 [node name="Insect" type="Area2D"]
+script = ExtResource("1_fdn0r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_htc2r")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.015, 0.015)
+scale = Vector2(0.01, 0.01)
 texture = ExtResource("1_hiibs")
