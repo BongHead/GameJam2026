@@ -60,7 +60,7 @@ script = ExtResource("4_0gpe0")
 [node name="Anthill" type="AnimatedSprite2D" parent="Anthill"]
 sprite_frames = SubResource("SpriteFrames_ll052")
 autoplay = "default"
-frame_progress = 0.0399585
+frame_progress = 0.212946
 
 [node name="Anthillbox" type="CollisionShape2D" parent="Anthill"]
 position = Vector2(-57, -13)
