@@ -27,18 +27,10 @@ func _ready() -> void:
 	for thing in uncommon_set_up:
 		for x in range(uncommon):
 			place_resources_on_map(3000,3000,thing)
-			place_resources_on_map(157, 259, thing)
-	for thing in uncommon_set_up:
-		for x in range(uncommon):
-			place_resources_on_map(689, 560, thing)
 	for thing in rare_set_up:
 		#if thing == hornet_node:
 		for x in range(rare):
 			place_resources_on_map(4000,6000,thing)
-			place_resources_on_map(408, 350, thing)
-	for thing in food:
-		for x in range(5):
-			place_resources_on_map(78, 156, thing)
 	var ant = preload("res://Ant.tscn")
 	for x in range(50):
 		place_resources_on_map(0, 50, ant, true)

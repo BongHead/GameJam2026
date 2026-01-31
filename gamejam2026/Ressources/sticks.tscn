@@ -1,15 +1,37 @@
-[gd_scene load_steps=3 format=3 uid="uid://15yqq38ha4os"]
+[gd_scene load_steps=6 format=3 uid="uid://15yqq38ha4os"]
 
-[ext_resource type="Texture2D" uid="uid://cgrvnjgxdmns3" path="res://natural-stick-found-in-a-forest-during-autumn-png.png" id="1_ttmhi"]
+[ext_resource type="Texture2D" uid="uid://43u4kxn2cc44" path="res://assets/stick.png" id="1_47d0q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vv4tg"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_gg6ss"]
+atlas = ExtResource("1_47d0q")
+region = Rect2(0, 0, 196, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3yj8"]
+atlas = ExtResource("1_47d0q")
+region = Rect2(196, 0, 196, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_olcvw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gg6ss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3yj8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
 [node name="Sticks" type="Area2D"]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_vv4tg")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.045, 0.045)
-texture = ExtResource("1_ttmhi")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_olcvw")
+autoplay = "default"
+frame_progress = 0.947659
