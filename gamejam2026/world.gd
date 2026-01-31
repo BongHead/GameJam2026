@@ -15,22 +15,22 @@ var food = [fruit_node, insect_node, worms_eggs_node]
 var common_set_up = [leaf_node, butterfly_node, fruit_node]
 var uncommon_set_up = [sticks_node, wisadel_node, insect_node]
 var rare_set_up = [water_node, ennemy_ant_node, hornet_node, worms_eggs_node]
-var common = 12
-var uncommon = 6
-var rare = 3
+var common = 9
+var uncommon = 5
+var rare = 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for thing in common_set_up:
 		for x in range(common):
-			place_resources_on_map(2000,2000,thing)
+			place_resources_on_map(1589,3457,thing)
 	for thing in uncommon_set_up:
 		for x in range(uncommon):
-			place_resources_on_map(3000,3000,thing)
+			place_resources_on_map(5908,4678,thing)
 	for thing in rare_set_up:
 		#if thing == hornet_node:
 		for x in range(rare):
-			place_resources_on_map(4000,6000,thing)
+			place_resources_on_map(8000,5689,thing)
 	var ant = preload("res://Ant.tscn")
 	for x in range(50):
 		place_resources_on_map(0, 50, ant, true)
@@ -51,7 +51,7 @@ func place_resources_on_map(x_zone: int, y_zone: int, item: Resource, ignore_ove
 
 func is_valid_position(pos: Vector2) -> bool:
 	for x in get_tree().get_nodes_in_group("existing_resources"):
-		if x.global_position.distance_to(pos) < 250:
+		if x.global_position.distance_to(pos) < 275:
 			return false
 	return true
 
