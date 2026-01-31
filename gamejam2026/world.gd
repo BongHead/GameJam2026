@@ -17,7 +17,7 @@ func _ready() -> void:
 	var food =[fruit_node,insect_node,worms_eggs_node]
 	for thing in food:
 		for x in range(5):
-			place_resources_on_map(78,156,thing)
+			place_resources_on_map(300,300,thing)
 	
 	#lets think about this, let generate a fix amount of 
 	#resources of the same tier at the beguinning, so i must tier
@@ -47,3 +47,9 @@ func get_random_vector(min, max)->Vector2:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.is_pressed():
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			print("test")	

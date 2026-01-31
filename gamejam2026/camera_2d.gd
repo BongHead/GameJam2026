@@ -31,7 +31,7 @@ func _input(mouse_event:InputEvent)->void:
 	if mouse_event is InputEventMouseMotion and _is_pressed:
 		global_position -= mouse_event.relative
 	if mouse_event is InputEventMouseButton:
-		if mouse_event.button_index == MOUSE_BUTTON_LEFT:
+		if mouse_event.button_index == MOUSE_BUTTON_MIDDLE:
 			_is_pressed = mouse_event.pressed
 		#if mouse_event.button_index == MOUSE_BUTTON_WHEEL_UP:
 		#	camera.zoom.x -= 0.25
