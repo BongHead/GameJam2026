@@ -1,15 +1,73 @@
-[gd_scene load_steps=3 format=3 uid="uid://bii4iokcleyjp"]
+[gd_scene load_steps=11 format=3 uid="uid://bii4iokcleyjp"]
 
-[ext_resource type="Texture2D" uid="uid://bjfg0smtq71ro" path="res://single-water-drop-on-transparent-background-free-png.png" id="1_l6fjp"]
+[ext_resource type="Texture2D" uid="uid://dstukei7sfao2" path="res://assets/water.png" id="1_y4kty"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vv4tg"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_kn5ad"]
+atlas = ExtResource("1_y4kty")
+region = Rect2(0, 0, 196, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1mvm2"]
+atlas = ExtResource("1_y4kty")
+region = Rect2(196, 0, 196, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xl6t7"]
+atlas = ExtResource("1_y4kty")
+region = Rect2(392, 0, 196, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ci1a4"]
+atlas = ExtResource("1_y4kty")
+region = Rect2(588, 0, 196, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7x5e"]
+atlas = ExtResource("1_y4kty")
+region = Rect2(784, 0, 196, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4v38"]
+atlas = ExtResource("1_y4kty")
+region = Rect2(980, 0, 196, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqq4m"]
+atlas = ExtResource("1_y4kty")
+region = Rect2(1176, 0, 196, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8foho"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kn5ad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1mvm2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xl6t7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ci1a4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7x5e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4v38")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqq4m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 16.0
+}]
+
 [node name="Water" type="Area2D"]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_vv4tg")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.075, 0.075)
-texture = ExtResource("1_l6fjp")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_8foho")
+autoplay = "default"
+frame_progress = 0.76287
