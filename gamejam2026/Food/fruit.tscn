@@ -1,14 +1,90 @@
-[gd_scene load_steps=3 format=3 uid="uid://der1dcajhwmht"]
+[gd_scene load_steps=14 format=3 uid="uid://der1dcajhwmht"]
 
-[ext_resource type="Texture2D" uid="uid://b20558rl1sl8f" path="res://Placeholders/fruit-strawberry-isolated-with-clipping-path-png.png" id="1_7npe8"]
+[ext_resource type="Script" path="res://Food/fruit.gd" id="1_ww5hf"]
+[ext_resource type="Texture2D" uid="uid://dfsppfqvaaswo" path="res://assets/strawberry fruit.png" id="2_7yhn1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_htc2r"]
+radius = 69.6
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_an1qq"]
+atlas = ExtResource("2_7yhn1")
+region = Rect2(0, 0, 196, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkq3e"]
+atlas = ExtResource("2_7yhn1")
+region = Rect2(196, 0, 196, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5g3f"]
+atlas = ExtResource("2_7yhn1")
+region = Rect2(392, 0, 196, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mc47i"]
+atlas = ExtResource("2_7yhn1")
+region = Rect2(588, 0, 196, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvebb"]
+atlas = ExtResource("2_7yhn1")
+region = Rect2(784, 0, 196, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8uor"]
+atlas = ExtResource("2_7yhn1")
+region = Rect2(980, 0, 196, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srqds"]
+atlas = ExtResource("2_7yhn1")
+region = Rect2(1176, 0, 196, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3b8gb"]
+atlas = ExtResource("2_7yhn1")
+region = Rect2(1372, 0, 196, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7d4xh"]
+atlas = ExtResource("2_7yhn1")
+region = Rect2(1568, 0, 196, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7qe3h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_an1qq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkq3e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5g3f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mc47i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvebb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8uor")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srqds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3b8gb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7d4xh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
 
 [node name="Fruit" type="Area2D"]
+script = ExtResource("1_ww5hf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_htc2r")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.06, 0.06)
-texture = ExtResource("1_7npe8")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -5)
+sprite_frames = SubResource("SpriteFrames_7qe3h")
+autoplay = "default"
+frame_progress = 0.258138

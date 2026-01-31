@@ -1,14 +1,41 @@
-[gd_scene load_steps=3 format=3 uid="uid://xfh0h47vghrl"]
+[gd_scene load_steps=7 format=3 uid="uid://n6cmyl33vkgt"]
 
-[ext_resource type="Texture2D" uid="uid://bbvikw0wc6x0x" path="res://Placeholders/pngtree-close-up-american-brown-cockroach-png-image_14878801.png" id="1_ydq6j"]
+[ext_resource type="Script" path="res://Ennemy/cockroach.gd" id="1_rsoaf"]
+[ext_resource type="Texture2D" uid="uid://ct7nvgl6gtbyk" path="res://assets/cockroach.png" id="2_ngtae"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gbmt3"]
+radius = 200.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2axjp"]
+atlas = ExtResource("2_ngtae")
+region = Rect2(0, 0, 196, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8aal"]
+atlas = ExtResource("2_ngtae")
+region = Rect2(196, 0, 196, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l8k6l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2axjp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8aal")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
 
 [node name="Cockroach" type="Area2D"]
+script = ExtResource("1_rsoaf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_gbmt3")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.015, 0.015)
-texture = ExtResource("1_ydq6j")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_l8k6l")
+autoplay = "default"
+frame_progress = 0.234488

@@ -8,7 +8,6 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_vv4tg"]
 
 [node name="Leaf" type="Area2D"]
-script = ExtResource("1_cc1ad")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

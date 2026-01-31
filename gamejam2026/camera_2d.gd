@@ -3,7 +3,7 @@ extends Camera2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
-var speed = 1200
+var speed = 2000
 var _is_pressed = false
 var edge_margin = 1
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,6 +25,8 @@ func _process(delta: float) -> void:
 	
 		direction += Input.get_vector("left", "right", "up", "down")
 		position += direction * speed * delta
+		
+		process_zoom()
 
 	
 func _input(mouse_event: InputEvent) -> void:
@@ -33,10 +35,28 @@ func _input(mouse_event: InputEvent) -> void:
 	if mouse_event is InputEventMouseButton:
 		if mouse_event.button_index == MOUSE_BUTTON_MIDDLE:
 			_is_pressed = mouse_event.pressed
-		#if mouse_event.button_index == MOUSE_BUTTON_WHEEL_UP:
-		#	camera.zoom.x -= 0.25
-		#if mouse_event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-		#	$Camera2D.zoom.x += 0.25
+		# if mouse_event.button_index == MOUSE_BUTTON_WHEEL_UP:
+		# 	$Camera2D.zoom.x -= 0.25
+		# if mouse_event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+		# 	$Camera2D.zoom.x += 0.25
+	if mouse_event is InputEventPanGesture:
+		zoom.x += mouse_event.delta.y * 0.01
+		zoom.y += mouse_event.delta.y * 0.01
+		zoom.x = max(zoom.x, 0.1)
+		zoom.y = max(zoom.y, 0.1)
 
 func _on_back_to_colony_pressed() -> void:
 	position = Vector2(0, 0)
+	
+
+func camera_zoom():
+	if Input.is_action_just_released('wheel_up'):
+		zoom.x += 0.25
+		zoom.y += 0.25
+	if Input.is_action_just_released('wheel_down'):
+		zoom.x -= 0.25
+		zoom.y -= 0.25
+		
+		
+func process_zoom():
+	camera_zoom()

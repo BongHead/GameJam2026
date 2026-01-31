@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://cyxee3im7uisg"]
 
 [ext_resource type="PackedScene" uid="uid://cmiwnhvhdh2xp" path="res://Ennemy/butterfly.tscn" id="1_yeudx"]
-[ext_resource type="PackedScene" uid="uid://xfh0h47vghrl" path="res://Ennemy/cockroach_nest.tscn" id="2_1pahf"]
+[ext_resource type="PackedScene" uid="uid://n6cmyl33vkgt" path="res://Ennemy/cockroach.tscn" id="2_1pahf"]
 [ext_resource type="PackedScene" uid="uid://ce2t4l3vm53ot" path="res://Ennemy/hornet_nest.tscn" id="3_c7dgu"]
 [ext_resource type="PackedScene" uid="uid://der1dcajhwmht" path="res://Food/fruit.tscn" id="4_2dfyy"]
 [ext_resource type="PackedScene" uid="uid://brc0j8g0p4dry" path="res://Food/insect.tscn" id="5_uw20n"]
@@ -21,7 +21,6 @@ position = Vector2(-236, -597)
 scale = Vector2(10, 10)
 
 [node name="HornetNest" parent="." instance=ExtResource("3_c7dgu")]
-visible = true
 position = Vector2(246, -525)
 scale = Vector2(10, 10)
 
@@ -38,16 +37,13 @@ position = Vector2(-533, -84)
 scale = Vector2(10, 10)
 
 [node name="Leaf" parent="." instance=ExtResource("7_kplog")]
-visible = true
 position = Vector2(-575, 297)
 scale = Vector2(10, 10)
 
 [node name="Sticks" parent="." instance=ExtResource("8_pgfwj")]
-visible = true
 position = Vector2(-145, 599)
 scale = Vector2(10, 10)
 
 [node name="Water" parent="." instance=ExtResource("9_7ocoj")]
-visible = true
 position = Vector2(534, 399)
 scale = Vector2(10, 10)
