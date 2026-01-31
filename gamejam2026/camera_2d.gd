@@ -25,6 +25,8 @@ func _process(delta: float) -> void:
 	
 		direction += Input.get_vector("left", "right", "up", "down")
 		position += direction * speed * delta
+		
+		process_zoom(position)
 
 	
 func _input(mouse_event: InputEvent) -> void:
@@ -40,3 +42,17 @@ func _input(mouse_event: InputEvent) -> void:
 
 func _on_back_to_colony_pressed() -> void:
 	position = Vector2(0, 0)
+	
+
+func camera_zoom():
+	if Input.is_action_just_released('wheel_up'):
+		zoom.x += 0.25
+		zoom.y += 0.25
+	if Input.is_action_just_released('wheel_down'):
+		zoom.x -= 0.25
+		zoom.y -= 0.25
+		
+		
+		
+func process_zoom(delta):	
+	camera_zoom()
