@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c05pomlqnxxsi"
-path="res://.godot/imported/pngimg.com - butterfly_PNG103822.png-8cc7a80b55cbfb126e9a1873804c6a0d.ctex"
+uid="uid://b20558rl1sl8f"
+path="res://.godot/imported/fruit-strawberry-isolated-with-clipping-path-png.png-4e3c8426bdbbeb35c398827d2d6bac5d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://pngimg.com - butterfly_PNG103822.png"
-dest_files=["res://.godot/imported/pngimg.com - butterfly_PNG103822.png-8cc7a80b55cbfb126e9a1873804c6a0d.ctex"]
+source_file="res://Placeholders/fruit-strawberry-isolated-with-clipping-path-png.png"
+dest_files=["res://.godot/imported/fruit-strawberry-isolated-with-clipping-path-png.png-4e3c8426bdbbeb35c398827d2d6bac5d.ctex"]
 
 [params]
 
