@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dihq08bs81jya"]
+[gd_scene load_steps=9 format=3 uid="uid://n4oayt84ordk"]
 
 [ext_resource type="Script" path="res://ant.gd" id="1_4s630"]
 [ext_resource type="Texture2D" uid="uid://bpjsk1tnxnch1" path="res://assets/ant march.png" id="1_a0s0r"]
@@ -45,13 +45,16 @@ animations = [{
 
 [node name="Ant" type="RigidBody2D"]
 gravity_scale = 0.0
+lock_rotation = true
 script = ExtResource("1_4s630")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
+scale = Vector2(0.4, 0.4)
 shape = SubResource("CapsuleShape2D_we5u1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_p4ia7")
 autoplay = "default"
 frame_progress = 0.580858
