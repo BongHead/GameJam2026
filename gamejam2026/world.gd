@@ -15,9 +15,11 @@ var food = [fruit_node, insect_node, worms_eggs_node]
 var common_set_up = [leaf_node, butterfly_node, fruit_node]
 var uncommon_set_up = [sticks_node, wisadel_node, insect_node]
 var rare_set_up = [water_node, ennemy_ant_node, hornet_node, worms_eggs_node]
+var renewing_resource =[leaf_node,fruit_node,insect_node,worms_eggs_node,wisadel_node]
 var common = 9
 var uncommon = 5
 var rare = 2
+var resource_regen_counter=0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -31,9 +33,10 @@ func _ready() -> void:
 		#if thing == hornet_node:
 		for x in range(rare):
 			place_resources_on_map(8000,5689,thing)
+	#is_resources_enough()
 	var ant = preload("res://Ant.tscn")
 	for x in range(50):
-		place_resources_on_map(0, 50, ant, true)
+		place_ant_on_map(0, 50, ant, true)
 	
 	#lets think about this, let generate a fix amount of 
 	#resources of the same tier at the beguinning, so i must tier
@@ -47,7 +50,20 @@ func place_resources_on_map(x_zone: int, y_zone: int, item: Resource, ignore_ove
 	to_be_placed.position = be_placed_at
 	to_be_placed.add_to_group("existing_resources")
 	add_child(to_be_placed)
-	
+func place_ant_on_map(x_zone: int, y_zone: int, item: Resource, ignore_overlap: bool = false) -> void:
+	var to_be_placed = item.instantiate()
+	var be_placed_at = get_random_vector(x_zone, y_zone)
+	while (not is_valid_position(be_placed_at) and not ignore_overlap):
+		be_placed_at = get_random_vector(x_zone, y_zone)
+	to_be_placed.position = be_placed_at
+	add_child(to_be_placed)
+
+func is_resources_enough()-> bool:
+	var tree_of_resources=get_tree().get_nodes_in_group("existing_resources")
+	var group_length=tree_of_resources.size()
+	if group_length < 50:
+		return false
+	return true
 
 func is_valid_position(pos: Vector2) -> bool:
 	for x in get_tree().get_nodes_in_group("existing_resources"):
@@ -63,4 +79,18 @@ func get_random_vector(min, max) -> Vector2:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	var not_generate_resources = is_resources_enough()	
+	if (!not_generate_resources):
+		var view_port_size = get_viewport_rect().size
+		var v= randi_range(0,4)
+		place_resources_on_map(int(view_port_size.x)+500,int(view_port_size.y)+500,renewing_resource[v])
+		resource_regen_counter +=1
+		print(resource_regen_counter)
+		if resource_regen_counter > 15 :
+			place_resources_on_map(int(view_port_size.x)+1000,int(view_port_size.y)+1000,hornet_node)
+			resource_regen_counter = 0
+		
+		
+		
+		
+	

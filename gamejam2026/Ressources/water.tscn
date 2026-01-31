@@ -60,18 +60,19 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fgst4"]
-radius = 231.74
-height = 783.92
+radius = 87.66
+height = 370.36
 
 [node name="Water" type="Area2D"]
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(5, 5)
+position = Vector2(-5.00003, 3)
+scale = Vector2(1.96939, 2.31)
 sprite_frames = SubResource("SpriteFrames_8foho")
 autoplay = "default"
 frame_progress = 0.76287
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-52, 0)
+position = Vector2(-26, 4)
 shape = SubResource("CapsuleShape2D_fgst4")
 debug_color = Color(0.929893, 0.232916, 0.328751, 0.42)
