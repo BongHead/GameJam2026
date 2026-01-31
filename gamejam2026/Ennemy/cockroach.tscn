@@ -1,10 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://n6cmyl33vkgt"]
+[gd_scene load_steps=4 format=3 uid="uid://n6cmyl33vkgt"]
 
+[ext_resource type="Script" path="res://Ennemy/cockroach.gd" id="1_rsoaf"]
 [ext_resource type="Texture2D" uid="uid://bbvikw0wc6x0x" path="res://Placeholders/pngtree-close-up-american-brown-cockroach-png-image_14878801.png" id="1_ydq6j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gbmt3"]
 
 [node name="Cockroach" type="Area2D"]
+script = ExtResource("1_rsoaf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_gbmt3")

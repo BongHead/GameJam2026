@@ -1,24 +1,35 @@
 extends Node2D
-
+var fruit_node = preload("res://Food/fruit.tscn")
+var insect_node= preload("res://Food/insect.tscn")
+var worms_eggs_node=preload("res://Food/worm_eggs.tscn")
+var leaf_node = preload("res://Ressources/leaf.tscn")
+var sticks_node= preload("res://Ressources/sticks.tscn")
+var water_node=preload("res://Ressources/water.tscn")
+var butterfly_node= preload("res://Ennemy/butterfly.tscn")
+var wisadel_node=preload("res://Ennemy/cockroach.tscn")
+var ennemy_ant_node=preload("res://Ennemy/ennemy_ant_nest.tscn")
+var hornet_node= preload("res://Ennemy/hornet_nest.tscn")
+var Resources=[leaf_node,sticks_node,water_node]
+var Enemies=[butterfly_node,wisadel_node,hornet_node,ennemy_ant_node]
+var food =[fruit_node,insect_node,worms_eggs_node]
+var common_set_up=[leaf_node,butterfly_node,fruit_node]
+var uncommon_set_up=[sticks_node,wisadel_node,insect_node]
+var rare_set_up=[water_node,hornet_node,ennemy_ant_node,worms_eggs_node]
+var common = 12
+var uncommon = 6
+var rare =3 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var fruit_node = preload("res://Food/fruit.tscn")
-	var insect_node= preload("res://Food/insect.tscn")
-	var worms_eggs_node=preload("res://Food/worm_eggs.tscn")
-	var leaf_node = preload("res://Ressources/leaf.tscn")
-	var sticks_node= preload("res://Ressources/sticks.tscn")
-	var water_node=preload("res://Ressources/water.tscn")
-	var butterfly_node= preload("res://Ennemy/butterfly.tscn")
-	var wisadel_node=preload("res://Ennemy/cockroach.tscn")
-	var ennemy_ant_node=preload("res://Ennemy/ennemy_ant_nest.tscn")
-	var hornet_node= preload("res://Ennemy/hornet_nest.tscn")
-	var Resources=[leaf_node,sticks_node,water_node]
-	var Enemies=[butterfly_node,wisadel_node,hornet_node,ennemy_ant_node]
-	var food =[fruit_node,insect_node,worms_eggs_node]
-	for thing in food:
-		for x in range(5):
-			place_resources_on_map(78,156,thing)
+	for thing in common_set_up:
+		for x in range(common):
+			place_resources_on_map(157,259,thing)
+	for thing in uncommon_set_up:
+		for x in range(uncommon):
+			place_resources_on_map(689,560,thing)
+	for thing in rare_set_up:
+		for x in range(rare):
+			place_resources_on_map(408,350,thing)
 	
 	#lets think about this, let generate a fix amount of 
 	#resources of the same tier at the beguinning, so i must tier
@@ -32,6 +43,7 @@ func place_resources_on_map(x_zone:int,y_zone:int,item:Resource)-> void:
 	to_be_placed.position=be_placed_at
 	to_be_placed.add_to_group("existing_resources")
 	add_child(to_be_placed)
+	
 
 func is_valid_position(pos: Vector2)->bool:
 	for x in get_tree().get_nodes_in_group("existing_resources"):

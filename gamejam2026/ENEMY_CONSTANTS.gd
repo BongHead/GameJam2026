@@ -23,3 +23,8 @@ enum TGH {
 	MEDIUM = 10,
 	HIGH = 15
 }
+enum EnemySpawnRate {
+	HIGHT = 12,
+	MEDIUM = 6,
+	LOW = 3,
+}
