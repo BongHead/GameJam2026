@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://xfh0h47vghrl"]
 
-[ext_resource type="Texture2D" uid="uid://csu5wflhlxllm" path="res://Placeholders/pngtree-wasp-nest-vespiary-png-image_10616799.png" id="1_m5rgh"]
+[ext_resource type="Texture2D" uid="uid://bbvikw0wc6x0x" path="res://Placeholders/pngtree-close-up-american-brown-cockroach-png-image_14878801.png" id="1_ydq6j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gbmt3"]
 
-[node name="CockroachNest" type="Area2D"]
+[node name="Cockroach" type="Area2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_gbmt3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.075, 0.075)
-texture = ExtResource("1_m5rgh")
+scale = Vector2(0.015, 0.015)
+texture = ExtResource("1_ydq6j")
