@@ -39,6 +39,11 @@ func _input(mouse_event: InputEvent) -> void:
 		# 	$Camera2D.zoom.x -= 0.25
 		# if mouse_event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 		# 	$Camera2D.zoom.x += 0.25
+	if mouse_event is InputEventPanGesture:
+		zoom.x += mouse_event.delta.y * 0.01
+		zoom.y += mouse_event.delta.y * 0.01
+		zoom.x = max(zoom.x, 0.1)
+		zoom.y = max(zoom.y, 0.1)
 
 func _on_back_to_colony_pressed() -> void:
 	position = Vector2(0, 0)
@@ -53,6 +58,5 @@ func camera_zoom():
 		zoom.y -= 0.25
 		
 		
-		
-func process_zoom():	
+func process_zoom():
 	camera_zoom()

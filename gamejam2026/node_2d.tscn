@@ -41,11 +41,9 @@ position = Vector2(-575, 297)
 scale = Vector2(10, 10)
 
 [node name="Sticks" parent="." instance=ExtResource("8_pgfwj")]
-visible = true
 position = Vector2(-145, 599)
 scale = Vector2(10, 10)
 
 [node name="Water" parent="." instance=ExtResource("9_7ocoj")]
-visible = true
 position = Vector2(534, 399)
 scale = Vector2(10, 10)

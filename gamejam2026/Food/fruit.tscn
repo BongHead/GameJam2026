@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://Food/fruit.gd" id="1_ww5hf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_htc2r"]
+radius = 69.6
 
 [node name="Fruit" type="Area2D"]
 script = ExtResource("1_ww5hf")
@@ -12,5 +13,6 @@ script = ExtResource("1_ww5hf")
 shape = SubResource("CircleShape2D_htc2r")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.06, 0.06)
+position = Vector2(-1, -5)
+scale = Vector2(0.35881, 0.330714)
 texture = ExtResource("1_7npe8")

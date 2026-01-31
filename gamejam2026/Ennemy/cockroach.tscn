@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ct7nvgl6gtbyk" path="res://assets/cockroach.png" id="2_ngtae"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gbmt3"]
+radius = 200.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2axjp"]
 atlas = ExtResource("2_ngtae")
