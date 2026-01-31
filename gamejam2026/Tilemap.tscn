@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c61yt5i7empdr"]
+
+[ext_resource type="Texture2D" uid="uid://jqmgwqooa0k5" path="res://assets/grass.png" id="1_m3jyg"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cr767"]
+texture = ExtResource("1_m3jyg")
+texture_region_size = Vector2i(192, 192)
+0:1/animation_frame_0/duration = 1.0
+0:1/animation_frame_1/duration = 1.0
+0:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_xbujr"]
+tile_size = Vector2i(192, 192)
+sources/0 = SubResource("TileSetAtlasSource_cr767")
+
+[node name="Tilemap" type="TileMapLayer"]
+tile_set = SubResource("TileSet_xbujr")
