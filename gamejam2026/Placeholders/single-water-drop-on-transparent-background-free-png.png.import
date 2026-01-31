@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgrvnjgxdmns3"
-path="res://.godot/imported/natural-stick-found-in-a-forest-during-autumn-png.png-44d2c24308dcd33d452d58b9414c52c0.ctex"
+uid="uid://bjfg0smtq71ro"
+path="res://.godot/imported/single-water-drop-on-transparent-background-free-png.png-6c8ba205a349b993e9fbd0ee3cf1836e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://natural-stick-found-in-a-forest-during-autumn-png.png"
-dest_files=["res://.godot/imported/natural-stick-found-in-a-forest-during-autumn-png.png-44d2c24308dcd33d452d58b9414c52c0.ctex"]
+source_file="res://Placeholders/single-water-drop-on-transparent-background-free-png.png"
+dest_files=["res://.godot/imported/single-water-drop-on-transparent-background-free-png.png-6c8ba205a349b993e9fbd0ee3cf1836e.ctex"]
 
 [params]
 
