@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cw2siiegg6lsf"]
+
+[ext_resource type="Texture2D" uid="uid://bh6qy2etfxfsu" path="res://pngtree-fresh-single-egg-png-image_12504967.png" id="1_mvqwp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kl535"]
+
+[node name="WormEggs" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kl535")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("1_mvqwp")

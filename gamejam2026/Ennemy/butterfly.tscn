@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmiwnhvhdh2xp"]
+
+[ext_resource type="Texture2D" uid="uid://c05pomlqnxxsi" path="res://pngimg.com - butterfly_PNG103822.png" id="1_llsot"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gbmt3"]
+
+[node name="Butterfly" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gbmt3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("1_llsot")

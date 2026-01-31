@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://15yqq38ha4os"]
+
+[ext_resource type="Texture2D" uid="uid://cgrvnjgxdmns3" path="res://natural-stick-found-in-a-forest-during-autumn-png.png" id="1_ttmhi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vv4tg"]
+
+[node name="Sticks" type="Area2D"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vv4tg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.045, 0.045)
+texture = ExtResource("1_ttmhi")

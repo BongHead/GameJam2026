@@ -1,0 +1,53 @@
+[gd_scene load_steps=10 format=3 uid="uid://ci4xklsf108sj"]
+
+[ext_resource type="PackedScene" uid="uid://cmiwnhvhdh2xp" path="res://Ennemy/butterfly.tscn" id="1_yeudx"]
+[ext_resource type="PackedScene" uid="uid://xfh0h47vghrl" path="res://Ennemy/cockroach_nest.tscn" id="2_1pahf"]
+[ext_resource type="PackedScene" uid="uid://ce2t4l3vm53ot" path="res://Ennemy/hornet_nest.tscn" id="3_c7dgu"]
+[ext_resource type="PackedScene" uid="uid://der1dcajhwmht" path="res://Food/fruit.tscn" id="4_2dfyy"]
+[ext_resource type="PackedScene" uid="uid://brc0j8g0p4dry" path="res://Food/insect.tscn" id="5_uw20n"]
+[ext_resource type="PackedScene" uid="uid://cw2siiegg6lsf" path="res://Food/worm_eggs.tscn" id="6_qt0is"]
+[ext_resource type="PackedScene" uid="uid://ck6haarhfovs3" path="res://Ressources/leaf.tscn" id="7_kplog"]
+[ext_resource type="PackedScene" uid="uid://15yqq38ha4os" path="res://Ressources/sticks.tscn" id="8_pgfwj"]
+[ext_resource type="PackedScene" uid="uid://bii4iokcleyjp" path="res://Ressources/water.tscn" id="9_7ocoj"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Butterfly" parent="." instance=ExtResource("1_yeudx")]
+position = Vector2(142, -181)
+scale = Vector2(10, 10)
+
+[node name="CockroachNest" parent="." instance=ExtResource("2_1pahf")]
+position = Vector2(-236, -597)
+scale = Vector2(10, 10)
+
+[node name="HornetNest" parent="." instance=ExtResource("3_c7dgu")]
+visible = true
+position = Vector2(246, -525)
+scale = Vector2(10, 10)
+
+[node name="Fruit" parent="." instance=ExtResource("4_2dfyy")]
+position = Vector2(197, 449)
+scale = Vector2(10, 10)
+
+[node name="Insect" parent="." instance=ExtResource("5_uw20n")]
+position = Vector2(631, -96)
+scale = Vector2(10, 10)
+
+[node name="WormEggs" parent="." instance=ExtResource("6_qt0is")]
+position = Vector2(-533, -84)
+scale = Vector2(10, 10)
+
+[node name="Leaf" parent="." instance=ExtResource("7_kplog")]
+visible = true
+position = Vector2(-575, 297)
+scale = Vector2(10, 10)
+
+[node name="Sticks" parent="." instance=ExtResource("8_pgfwj")]
+visible = true
+position = Vector2(-145, 599)
+scale = Vector2(10, 10)
+
+[node name="Water" parent="." instance=ExtResource("9_7ocoj")]
+visible = true
+position = Vector2(534, 399)
+scale = Vector2(10, 10)

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ce2t4l3vm53ot"]
+
+[ext_resource type="Texture2D" uid="uid://csu5wflhlxllm" path="res://pngtree-wasp-nest-vespiary-png-image_10616799.png" id="1_gkfos"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gbmt3"]
+
+[node name="HornetNest" type="Area2D"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gbmt3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("1_gkfos")

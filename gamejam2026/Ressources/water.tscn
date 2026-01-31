@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bii4iokcleyjp"]
+
+[ext_resource type="Texture2D" uid="uid://bjfg0smtq71ro" path="res://single-water-drop-on-transparent-background-free-png.png" id="1_l6fjp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vv4tg"]
+
+[node name="Water" type="Area2D"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vv4tg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("1_l6fjp")
