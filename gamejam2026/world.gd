@@ -14,7 +14,7 @@ func _ready() -> void:
 	var ennemy_ant_node=preload("res://Ennemy/ennemy_ant_nest.tscn")
 	var hornet_node= preload("res://Ennemy/hornet_nest.tscn")
 	var Resources=[leaf_node,sticks_node,water_node]
-	var Enemies=[butterfly_node,wisadel_node,hornet_node]
+	var Enemies=[butterfly_node,wisadel_node,hornet_node,ennemy_ant_node]
 	var food =[fruit_node,insect_node,worms_eggs_node]
 	for thing in food:
 		for x in range(5):

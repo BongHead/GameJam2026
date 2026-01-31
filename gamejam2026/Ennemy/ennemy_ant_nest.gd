@@ -1,9 +1,10 @@
 extends Area2D
 
-@onready var enemy_hp=EnemyStats.HP.HIGH
+@onready var enemy_hp=EnemyStats.HP.LOW
 @onready var enemy_atk =EnemyStats.ATK.LOW
-@onready var enemy_def =EnemyStats.DEF.MEDIUM
-@onready var enemy_tgh =EnemyStats.TGH.MEDIUM
+@onready var enemy_def =EnemyStats.DEF.LOW
+@onready var enemy_tgh =EnemyStats.TGH.LOW
+@onready var enemy_numb = 50
 
 
 
