@@ -49,9 +49,11 @@ script = ExtResource("1_4s630")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
+scale = Vector2(0.4, 0.4)
 shape = SubResource("CapsuleShape2D_we5u1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_p4ia7")
 autoplay = "default"
 frame_progress = 0.580858
