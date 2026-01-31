@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://cyxee3im7uisg"]
 
 [ext_resource type="PackedScene" uid="uid://cmiwnhvhdh2xp" path="res://Ennemy/butterfly.tscn" id="1_yeudx"]
-[ext_resource type="PackedScene" uid="uid://xfh0h47vghrl" path="res://Ennemy/cockroach_nest.tscn" id="2_1pahf"]
+[ext_resource type="PackedScene" uid="uid://n6cmyl33vkgt" path="res://Ennemy/cockroach.tscn" id="2_1pahf"]
 [ext_resource type="PackedScene" uid="uid://ce2t4l3vm53ot" path="res://Ennemy/hornet_nest.tscn" id="3_c7dgu"]
 [ext_resource type="PackedScene" uid="uid://der1dcajhwmht" path="res://Food/fruit.tscn" id="4_2dfyy"]
 [ext_resource type="PackedScene" uid="uid://brc0j8g0p4dry" path="res://Food/insect.tscn" id="5_uw20n"]
