@@ -21,7 +21,6 @@ window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/mode=2
 window/stretch/mode="viewport"
-window/stretch/scale_mode="integer"
 
 [input]
 
@@ -60,3 +59,7 @@ Interact={
 
 2d_physics/layer_1="world"
 2d_physics/layer_2="interactions"
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(1, 1, 1, 1)

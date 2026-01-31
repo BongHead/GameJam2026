@@ -17,7 +17,7 @@ func _ready() -> void:
 	var food =[fruit_node,insect_node,worms_eggs_node]
 	for thing in food:
 		for x in range(5):
-			place_resources_on_map(300,300,thing)
+			place_resources_on_map(78,156,thing)
 	
 	#lets think about this, let generate a fix amount of 
 	#resources of the same tier at the beguinning, so i must tier
