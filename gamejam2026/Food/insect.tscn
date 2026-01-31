@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://brc0j8g0p4dry"]
 
-[ext_resource type="Texture2D" uid="uid://dao67ac2ubxvp" path="res://pngtree-small-insect-ladybug-png-image_15739904.png" id="1_hiibs"]
+[ext_resource type="Texture2D" uid="uid://dao67ac2ubxvp" path="res://Placeholders/pngtree-small-insect-ladybug-png-image_15739904.png" id="1_hiibs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_htc2r"]
 

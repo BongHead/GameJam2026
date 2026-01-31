@@ -24,6 +24,5 @@ texture = ExtResource("1_f7gfw")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 texture = ExtResource("1_f7gfw")
-script = ExtResource("1_t0vh2")
 
 [connection signal="pressed" from="Hud/Back to colony" to="Camera2D" method="_on_back_to_colony_pressed"]

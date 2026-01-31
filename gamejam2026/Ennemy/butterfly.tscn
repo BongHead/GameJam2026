@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cmiwnhvhdh2xp"]
 
-[ext_resource type="Texture2D" uid="uid://c05pomlqnxxsi" path="res://pngimg.com - butterfly_PNG103822.png" id="1_llsot"]
+[ext_resource type="Texture2D" uid="uid://c05pomlqnxxsi" path="res://Placeholders/pngimg.com - butterfly_PNG103822.png" id="1_llsot"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gbmt3"]
 
