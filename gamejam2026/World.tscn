@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://anthill.gd" id="4_0gpe0"]
 [ext_resource type="PackedScene" uid="uid://n4oayt84ordk" path="res://Ant.tscn" id="4_fc4m6"]
 [ext_resource type="PackedScene" uid="uid://iausah6ji1mt" path="res://Tilemap.tscn" id="6_cx25r"]
-[ext_resource type="Texture2D" uid="uid://8k15g43jrilm" path="res://assets/waterriver2.png" id="8_3vswr"]
+[ext_resource type="Texture2D" uid="uid://de2516wen4g5o" path="res://assets/waterriver3.png" id="8_0q87a"]
 [ext_resource type="Texture2D" uid="uid://drw7qi7fommae" path="res://assets/anthill_better.png" id="8_13ok7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6irwo"]
@@ -35,50 +35,50 @@ animations = [{
 radius = 383.0
 height = 1216.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d5swn"]
-atlas = ExtResource("8_3vswr")
-region = Rect2(0, 0, 480, 321)
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3wlf"]
+atlas = ExtResource("8_0q87a")
+region = Rect2(0, 0, 721, 482)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mflej"]
-atlas = ExtResource("8_3vswr")
-region = Rect2(480, 0, 480, 321)
+[sub_resource type="AtlasTexture" id="AtlasTexture_qk856"]
+atlas = ExtResource("8_0q87a")
+region = Rect2(721, 0, 721, 482)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_x4sft"]
-atlas = ExtResource("8_3vswr")
-region = Rect2(960, 0, 480, 321)
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mbih"]
+atlas = ExtResource("8_0q87a")
+region = Rect2(1442, 0, 721, 482)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rtgfk"]
-atlas = ExtResource("8_3vswr")
-region = Rect2(1440, 0, 480, 321)
+[sub_resource type="AtlasTexture" id="AtlasTexture_x41wb"]
+atlas = ExtResource("8_0q87a")
+region = Rect2(2163, 0, 721, 482)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tljp4"]
-atlas = ExtResource("8_3vswr")
-region = Rect2(1920, 0, 480, 321)
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhe4h"]
+atlas = ExtResource("8_0q87a")
+region = Rect2(2884, 0, 721, 482)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eam2f"]
-atlas = ExtResource("8_3vswr")
-region = Rect2(2400, 0, 480, 321)
+[sub_resource type="AtlasTexture" id="AtlasTexture_6yf8f"]
+atlas = ExtResource("8_0q87a")
+region = Rect2(3605, 0, 721, 482)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_geex5"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_e8bu3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_d5swn")
+"texture": SubResource("AtlasTexture_c3wlf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mflej")
+"texture": SubResource("AtlasTexture_qk856")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_x4sft")
+"texture": SubResource("AtlasTexture_6mbih")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rtgfk")
+"texture": SubResource("AtlasTexture_x41wb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tljp4")
+"texture": SubResource("AtlasTexture_bhe4h")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_eam2f")
+"texture": SubResource("AtlasTexture_6yf8f")
 }],
 "loop": true,
 "name": &"default",
@@ -119,11 +119,11 @@ position = Vector2(-57, -13)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_0d8h1")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(5342, -2370)
-scale = Vector2(10, 10)
-sprite_frames = SubResource("SpriteFrames_geex5")
+[node name="waterbank" type="AnimatedSprite2D" parent="."]
+position = Vector2(6149, -2409)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_e8bu3")
 autoplay = "default"
-frame_progress = 0.501741
+frame_progress = 0.911204
 
 [connection signal="pressed" from="Hud/Back to colony" to="Camera2D" method="_on_back_to_colony_pressed"]

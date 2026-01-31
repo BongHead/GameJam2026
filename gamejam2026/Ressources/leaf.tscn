@@ -30,7 +30,6 @@ animations = [{
 }]
 
 [node name="Leaf" type="Area2D"]
-scale = Vector2(10, 10)
 script = ExtResource("1_uku3g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -38,6 +37,8 @@ shape = SubResource("CircleShape2D_vv4tg")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_stdtg")
+autoplay = "default"
+frame_progress = 0.23191
 
 [node name="PopupMenu" type="PopupMenu" parent="."]
 
