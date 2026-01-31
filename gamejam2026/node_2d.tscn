@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ci4xklsf108sj"]
+[gd_scene load_steps=10 format=3 uid="uid://cyxee3im7uisg"]
 
 [ext_resource type="PackedScene" uid="uid://cmiwnhvhdh2xp" path="res://Ennemy/butterfly.tscn" id="1_yeudx"]
 [ext_resource type="PackedScene" uid="uid://xfh0h47vghrl" path="res://Ennemy/cockroach_nest.tscn" id="2_1pahf"]

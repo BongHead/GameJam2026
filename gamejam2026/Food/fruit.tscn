@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://der1dcajhwmht"]
 
-[ext_resource type="Texture2D" uid="uid://b20558rl1sl8f" path="res://fruit-strawberry-isolated-with-clipping-path-png.png" id="1_7npe8"]
+[ext_resource type="Texture2D" uid="uid://b20558rl1sl8f" path="res://Placeholders/fruit-strawberry-isolated-with-clipping-path-png.png" id="1_7npe8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_htc2r"]
 

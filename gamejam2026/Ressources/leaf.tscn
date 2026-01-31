@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ck6haarhfovs3"]
 
-[ext_resource type="Texture2D" uid="uid://c7y6eyccumdh7" path="res://fresh-green-mint-leaf-with-detailed-textures-and-veins-image-isolated-transparent-peppermint-herb-foliage-cut-out-culinary-herbal-theme-cutout-element-object-photography-png.png" id="1_vyk4j"]
+[ext_resource type="Texture2D" uid="uid://c7y6eyccumdh7" path="res://Placeholders/fresh-green-mint-leaf-with-detailed-textures-and-veins-image-isolated-transparent-peppermint-herb-foliage-cut-out-culinary-herbal-theme-cutout-element-object-photography-png.png" id="1_vyk4j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vv4tg"]
 
