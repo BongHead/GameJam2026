@@ -1,0 +1,72 @@
+[gd_scene load_steps=2 format=3 uid="uid://bodtsshhxf3h6"]
+
+[ext_resource type="FontFile" uid="uid://l54s50lamel2" path="res://fonts/AntFont-Regular (1).ttf" id="1_6afh4"]
+
+[node name="base_menu_ui" type="TabContainer"]
+offset_right = 711.0
+offset_bottom = 428.0
+theme_override_fonts/font = ExtResource("1_6afh4")
+current_tab = 1
+
+[node name="Ants" type="TabBar" parent="."]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Stats" type="TabBar" parent="."]
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Fruits" type="RichTextLabel" parent="Stats"]
+visible = false
+layout_mode = 0
+offset_left = 60.0
+offset_top = 41.0
+offset_right = 249.0
+offset_bottom = 67.0
+theme_override_fonts/normal_font = ExtResource("1_6afh4")
+text = "Fruits:"
+
+[node name="Worm eggs" type="RichTextLabel" parent="Stats"]
+visible = false
+layout_mode = 0
+offset_left = 62.0
+offset_top = 68.0
+offset_right = 270.0
+offset_bottom = 95.0
+text = "Worm eggs:"
+
+[node name="Insect meat" type="RichTextLabel" parent="Stats"]
+visible = false
+layout_mode = 0
+offset_left = 61.0
+offset_top = 96.0
+offset_right = 261.0
+offset_bottom = 122.0
+text = "Insect meat:"
+
+[node name="Foods" type="RichTextLabel" parent="Stats"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 10.0
+offset_right = 254.0
+offset_bottom = 50.0
+theme_override_fonts/normal_font = ExtResource("1_6afh4")
+theme_override_font_sizes/normal_font_size = 25
+text = "Foods:"
+
+[node name="Resources" type="RichTextLabel" parent="Stats"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 135.0
+offset_right = 275.0
+offset_bottom = 175.0
+rotation = 0.00691313
+theme_override_fonts/normal_font = ExtResource("1_6afh4")
+theme_override_font_sizes/normal_font_size = 25
+text = "Resources:"
+
+[node name="Tech Tree" type="TabBar" parent="."]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
