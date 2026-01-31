@@ -1,15 +1,59 @@
-[gd_scene load_steps=3 format=3 uid="uid://ck6haarhfovs3"]
+[gd_scene load_steps=6 format=3 uid="uid://ck6haarhfovs3"]
 
+[ext_resource type="Script" path="res://Ressources/leaf.gd" id="1_cc1ad"]
 [ext_resource type="Texture2D" uid="uid://c7y6eyccumdh7" path="res://Placeholders/fresh-green-mint-leaf-with-detailed-textures-and-veins-image-isolated-transparent-peppermint-herb-foliage-cut-out-culinary-herbal-theme-cutout-element-object-photography-png.png" id="1_vyk4j"]
+[ext_resource type="Script" path="res://Ressources/v_box_container.gd" id="3_uo7lf"]
+[ext_resource type="FontFile" uid="uid://l54s50lamel2" path="res://fonts/AntFont-Regular (1).ttf" id="4_q0tyj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vv4tg"]
 
 [node name="Leaf" type="Area2D"]
-visible = false
+script = ExtResource("1_cc1ad")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_vv4tg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.055, 0.055)
 texture = ExtResource("1_vyk4j")
+
+[node name="PopupMenu" type="PopupMenu" parent="."]
+
+[node name="Button" type="Button" parent="."]
+visible = false
+z_index = 2
+z_as_relative = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 202.0
+offset_bottom = 40.0
+script = ExtResource("3_uo7lf")
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_q0tyj")
+text = "How many ants to send"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="slider_label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_q0tyj")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="value_changed" from="VBoxContainer/HSlider" to="VBoxContainer" method="_on_h_slider_value_changed"]
