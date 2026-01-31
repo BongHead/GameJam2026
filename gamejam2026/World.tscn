@@ -46,6 +46,7 @@ script = ExtResource("1_o0ekc")
 offset_right = 120.0
 offset_bottom = 31.0
 theme_override_fonts/font = ExtResource("3_ufpr5")
+theme_override_font_sizes/font_size = 60
 text = "Back to colony"
 
 [node name="Ant" parent="." instance=ExtResource("4_fc4m6")]

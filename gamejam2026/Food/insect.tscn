@@ -1,9 +1,45 @@
-[gd_scene load_steps=4 format=3 uid="uid://brc0j8g0p4dry"]
+[gd_scene load_steps=9 format=3 uid="uid://brc0j8g0p4dry"]
 
 [ext_resource type="Script" path="res://Food/insect.gd" id="1_fdn0r"]
-[ext_resource type="Texture2D" uid="uid://dao67ac2ubxvp" path="res://Placeholders/pngtree-small-insect-ladybug-png-image_15739904.png" id="1_hiibs"]
+[ext_resource type="Texture2D" uid="uid://b5hjrt0njhu6s" path="res://assets/insect eggs.png" id="2_wjpe6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_htc2r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5m26"]
+atlas = ExtResource("2_wjpe6")
+region = Rect2(0, 0, 196, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7sexn"]
+atlas = ExtResource("2_wjpe6")
+region = Rect2(196, 0, 196, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3lnn"]
+atlas = ExtResource("2_wjpe6")
+region = Rect2(392, 0, 196, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0etrn"]
+atlas = ExtResource("2_wjpe6")
+region = Rect2(588, 0, 196, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2ksyp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5m26")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7sexn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3lnn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0etrn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
 
 [node name="Insect" type="Area2D"]
 script = ExtResource("1_fdn0r")
@@ -11,6 +47,7 @@ script = ExtResource("1_fdn0r")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_htc2r")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.01, 0.01)
-texture = ExtResource("1_hiibs")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2ksyp")
+autoplay = "default"
+frame_progress = 0.767691
