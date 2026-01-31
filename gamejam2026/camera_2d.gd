@@ -33,10 +33,10 @@ func _input(mouse_event: InputEvent) -> void:
 	if mouse_event is InputEventMouseButton:
 		if mouse_event.button_index == MOUSE_BUTTON_MIDDLE:
 			_is_pressed = mouse_event.pressed
-		#if mouse_event.button_index == MOUSE_BUTTON_WHEEL_UP:
-		#	camera.zoom.x -= 0.25
-		#if mouse_event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-		#	$Camera2D.zoom.x += 0.25
+		# if mouse_event.button_index == MOUSE_BUTTON_WHEEL_UP:
+		# 	$Camera2D.zoom.x -= 0.25
+		# if mouse_event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+		# 	$Camera2D.zoom.x += 0.25
 
 func _on_back_to_colony_pressed() -> void:
 	position = Vector2(0, 0)
