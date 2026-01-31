@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxuitaado5ppd"]
+[gd_scene load_steps=6 format=3 uid="uid://bxuitaado5ppd"]
 
 [ext_resource type="Texture2D" uid="uid://b8qdm5f1602ab" path="res://icon.svg" id="1_f7gfw"]
 [ext_resource type="Script" path="res://camera_2d.gd" id="1_o0ekc"]
 [ext_resource type="Script" path="res://world.gd" id="1_t0vh2"]
+[ext_resource type="FontFile" uid="uid://l54s50lamel2" path="res://fonts/AntFont-Regular (1).ttf" id="3_ufpr5"]
 [ext_resource type="PackedScene" uid="uid://dihq08bs81jya" path="res://Ant.tscn" id="4_fc4m6"]
 
 [node name="Node2D" type="Node2D"]
@@ -16,7 +17,8 @@ script = ExtResource("1_o0ekc")
 [node name="Back to colony" type="Button" parent="Hud"]
 offset_right = 120.0
 offset_bottom = 31.0
-text = "back to colony"
+theme_override_fonts/font = ExtResource("3_ufpr5")
+text = "Back to colony"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(214, -138)
