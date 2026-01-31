@@ -17,7 +17,7 @@ func _ready() -> void:
 	var food =[fruit_node,insect_node,worms_eggs_node]
 	for thing in food:
 		for x in range(5):
-			place_resources_on_map(200,200,thing)
+			place_resources_on_map(78,156,thing)
 	
 	#lets think about this, let generate a fix amount of 
 	#resources of the same tier at the beguinning, so i must tier
@@ -33,8 +33,8 @@ func place_resources_on_map(x_zone:int,y_zone:int,item:Resource)-> void:
 	add_child(to_be_placed)
 
 func is_valid_position(pos: Vector2)->bool:
-	for enemy in get_tree().get_nodes_in_group("existing_resources"):
-		if enemy.global_position.distance_to(pos) < 15:
+	for x in get_tree().get_nodes_in_group("existing_resources"):
+		if x.global_position.distance_to(pos) < 15:
 			return false
 	return true
 
