@@ -47,7 +47,6 @@ func _input(mouse_event: InputEvent) -> void:
 
 func _on_back_to_colony_pressed() -> void:
 	position = Vector2(0, 0)
-	zoom = Vector2(1, 1)
 	
 
 func camera_zoom():
@@ -57,8 +56,6 @@ func camera_zoom():
 	if Input.is_action_just_released('wheel_down'):
 		zoom.x -= 0.25
 		zoom.y -= 0.25
-	zoom.x = max(zoom.x, 0.1)
-	zoom.y = max(zoom.y, 0.1)
 		
 		
 func process_zoom():
