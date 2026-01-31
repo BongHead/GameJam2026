@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://bxuitaado5ppd"]
+[gd_scene load_steps=13 format=4 uid="uid://bxuitaado5ppd"]
 
 [ext_resource type="Script" path="res://camera_2d.gd" id="1_o0ekc"]
 [ext_resource type="Script" path="res://world.gd" id="1_t0vh2"]
@@ -7,8 +7,33 @@
 [ext_resource type="Script" path="res://anthill.gd" id="4_0gpe0"]
 [ext_resource type="PackedScene" uid="uid://n4oayt84ordk" path="res://Ant.tscn" id="4_fc4m6"]
 [ext_resource type="PackedScene" path="res://Tilemap.tscn" id="6_cx25r"]
+[ext_resource type="Texture2D" uid="uid://drw7qi7fommae" path="res://assets/anthill_better.png" id="8_13ok7"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_trkq3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_6irwo"]
+atlas = ExtResource("8_13ok7")
+region = Rect2(0, 0, 1289, 993)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdpp4"]
+atlas = ExtResource("8_13ok7")
+region = Rect2(1289, 0, 1289, 993)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ll052"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6irwo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdpp4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0d8h1"]
+radius = 383.0
+height = 1216.0
 
 [node name="Node2D2" type="Node2D"]
 script = ExtResource("1_t0vh2")
@@ -36,9 +61,12 @@ tile_map_data = PackedByteArray("AABu/7T/AAAAAAEAAABu/7X/AAAAAAEAAABu/7f/AAAAAAE
 [node name="Anthill" type="Area2D" parent="."]
 script = ExtResource("4_0gpe0")
 
-[node name="Anthill" type="Sprite2D" parent="Anthill"]
+[node name="Anthill" type="AnimatedSprite2D" parent="Anthill"]
+sprite_frames = SubResource("SpriteFrames_ll052")
 
 [node name="Anthillbox" type="CollisionShape2D" parent="Anthill"]
-shape = SubResource("RectangleShape2D_trkq3")
+position = Vector2(-57, -13)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_0d8h1")
 
 [connection signal="pressed" from="Hud/Back to colony" to="Camera2D" method="_on_back_to_colony_pressed"]

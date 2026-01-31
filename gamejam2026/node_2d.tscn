@@ -21,7 +21,6 @@ position = Vector2(-236, -597)
 scale = Vector2(10, 10)
 
 [node name="HornetNest" parent="." instance=ExtResource("3_c7dgu")]
-visible = true
 position = Vector2(246, -525)
 scale = Vector2(10, 10)
 
@@ -38,7 +37,6 @@ position = Vector2(-533, -84)
 scale = Vector2(10, 10)
 
 [node name="Leaf" parent="." instance=ExtResource("7_kplog")]
-visible = true
 position = Vector2(-575, 297)
 scale = Vector2(10, 10)
 
