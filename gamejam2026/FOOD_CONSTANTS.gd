@@ -14,3 +14,8 @@ enum FoodGatherTime {
 	MEDIUM = 10,
 	HIGH = 15
 }
+enum FoodSpawnRate {
+	LOW = 3,
+	MEDIUM = 6,
+	HIGH = 12,
+}
