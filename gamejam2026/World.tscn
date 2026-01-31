@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxuitaado5ppd"]
+[gd_scene load_steps=5 format=3 uid="uid://bxuitaado5ppd"]
 
 [ext_resource type="Texture2D" uid="uid://b8qdm5f1602ab" path="res://icon.svg" id="1_f7gfw"]
 [ext_resource type="Script" path="res://camera_2d.gd" id="1_o0ekc"]
 [ext_resource type="Script" path="res://world.gd" id="1_t0vh2"]
+[ext_resource type="PackedScene" uid="uid://dihq08bs81jya" path="res://Ant.tscn" id="4_fc4m6"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_t0vh2")
@@ -24,5 +25,7 @@ texture = ExtResource("1_f7gfw")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 texture = ExtResource("1_f7gfw")
+
+[node name="Ant" parent="." instance=ExtResource("4_fc4m6")]
 
 [connection signal="pressed" from="Hud/Back to colony" to="Camera2D" method="_on_back_to_colony_pressed"]
