@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://xfh0h47vghrl"]
 
-[ext_resource type="Texture2D" uid="uid://csu5wflhlxllm" path="res://pngtree-wasp-nest-vespiary-png-image_10616799.png" id="1_m5rgh"]
+[ext_resource type="Texture2D" uid="uid://csu5wflhlxllm" path="res://Placeholders/pngtree-wasp-nest-vespiary-png-image_10616799.png" id="1_m5rgh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gbmt3"]
 

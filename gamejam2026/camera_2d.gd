@@ -3,7 +3,7 @@ extends Camera2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass	
-var speed = 10
+var speed = 1200
 var _is_pressed = false
 var edge_margin = 50
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 			direction.y = 1
 	
 		direction += Input.get_vector("left", "right", "up", "down")
-		position += direction * speed
+		position += direction * speed * delta
 
 	
 func _input(mouse_event:InputEvent)->void:
