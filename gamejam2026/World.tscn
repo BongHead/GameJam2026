@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cy30y8pv6o32m"]
+
+[ext_resource type="Texture2D" uid="uid://b8qdm5f1602ab" path="res://icon.svg" id="1_f7gfw"]
+[ext_resource type="Script" path="res://camera_2d.gd" id="1_o0ekc"]
+[ext_resource type="Script" path="res://world.gd" id="1_t0vh2"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_t0vh2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("1_o0ekc")
+
+[node name="Hud" type="CanvasLayer" parent="."]
+
+[node name="Back to colony" type="Button" parent="Hud"]
+offset_right = 120.0
+offset_bottom = 31.0
+text = "back to colony"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(214, -138)
+scale = Vector2(20, 20)
+texture = ExtResource("1_f7gfw")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture = ExtResource("1_f7gfw")
+
+[connection signal="pressed" from="Hud/Back to colony" to="Camera2D" method="_on_back_to_colony_pressed"]

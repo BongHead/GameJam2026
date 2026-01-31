@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bv702uhaxsvek"]
+
+[node name="Hud" type="CanvasLayer"]
+
+[node name="Back to colony" type="Button" parent="."]
+offset_right = 120.0
+offset_bottom = 31.0
+text = "back to colony"
+
+[connection signal="pressed" from="Back to colony" to="." method="_on_back_to_colony_pressed"]
