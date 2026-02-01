@@ -79,8 +79,8 @@ func get_random_vector(min, max) -> Vector2:
 	v = v * randf_range(min, max)
 	return v
 
-var ANT_INTERVAL = 20
-var FOOD_INTERVAL = 30
+var ANT_INTERVAL = 10
+var FOOD_INTERVAL = 15
 
 var worker_ants = 10
 var soldier_ants = 0
@@ -261,9 +261,9 @@ func upgrade_Soldier() -> void:
 						2: soldier_generation = 2
 						3: soldier_generation = 5
 				else:
-					$Hud/base_menu_ui/TechTree/ErrorMessageMax.text = "Technology Already at Maximum Level"
+					$Hud/base_menu_ui/TechTree/ErrorMessage.text = "Technology Already at Maximum Level"
 			else:
-				$Hud/base_menu_ui/TechTree/ErrorMessageR.text = "Insufficient Food/Materials!"
+				$Hud/base_menu_ui/TechTree/ErrorMessage.text = "Insufficient Food/Materials!"
 		else:
 			$Hud/base_menu_ui/TechTree/ErrorMessage.text = "Insufficient Colony Size!"
 		update_tech()
@@ -325,10 +325,10 @@ func upgrade_Mandibles() -> void:
 		update_tech()
 		update_hud()
 		
-func combat_calculation(number_of_worker:int, number_of_soldier:int,enemy_hp:int,enemy_atk:int,enemy_numb:int, enemy_tgh:int,enemy_str:int)->bool:
+func combat_calculation(number_of_worker: int, number_of_soldier: int, enemy_hp: int, enemy_atk: int, enemy_numb: int, enemy_tgh: int, enemy_str: int) -> bool:
 		await get_tree().create_timer(2).timeout
-		while (number_of_soldier+number_of_soldier>0 && enemy_hp*enemy_numb>0):
-			var combat_effectiveness_w_e = combat_effectiveness_calculator(AntsStats.Worker_Ant.STR,enemy_tgh)
+		while (number_of_soldier + number_of_soldier > 0 && enemy_hp * enemy_numb > 0):
+			var combat_effectiveness_w_e = combat_effectiveness_calculator(AntsStats.Worker_Ant.STR, enemy_tgh)
 			for x in range(number_of_worker):
 				var result = DiceRollService.rollOneD6()
 				if (result >= combat_effectiveness_w_e):
