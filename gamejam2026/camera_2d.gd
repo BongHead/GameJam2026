@@ -42,8 +42,8 @@ func _input(mouse_event: InputEvent) -> void:
 	if mouse_event is InputEventPanGesture:
 		zoom.x += mouse_event.delta.y * 0.01
 		zoom.y += mouse_event.delta.y * 0.01
-		zoom.x = max(zoom.x, 0.1)
-		zoom.y = max(zoom.y, 0.1)
+		zoom.x = max(zoom.x, .2)
+		zoom.y = max(zoom.y, .2)
 
 func _on_back_to_colony_pressed() -> void:
 	$AudioStreamPlayer2D.play()
@@ -58,8 +58,8 @@ func camera_zoom():
 	if Input.is_action_just_released('wheel_down'):
 		zoom.x -= 0.25
 		zoom.y -= 0.25
-	zoom.x = max(zoom.x, 0.1)
-	zoom.y = max(zoom.y, 0.1)
+	zoom.x = max(zoom.x, .2)
+	zoom.y = max(zoom.y, .2)
 		
 		
 func process_zoom():
