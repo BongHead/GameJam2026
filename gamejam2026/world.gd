@@ -80,19 +80,37 @@ func get_random_vector(min, max) -> Vector2:
 var ANT_INTERVAL = 20
 var FOOD_INTERVAL = 30
 
+var worker_ants = 10
+var soldier_ants = 0
+var worker_generation = 1
+var soldier_generation = 0
+var total_generation = worker_generation + soldier_generation
+var worker_upkeep = 1
+var soldier_upkeep = 4
+var upkeep_modifier = 1
+var Hatcheries_Level = 0
+var Farms_Level = 0
+var Soldier_Hatch_Level = 0
+var Formic_Level = 0
+var Keratin_Level = 0
+var Mandible_Level = 0
+
 var ants
+var max_ants
 var next_ant
 var food_amount
 var next_food
 var materials
 
 func new_game():
-	ants = 10
+	ants = worker_ants + soldier_ants
+	max_ants = ants
 	next_ant = ANT_INTERVAL
 	food_amount = 20
 	materials = 0
 	next_food = FOOD_INTERVAL
 	update_hud()
+	##update_tech()
 
 func _process(delta: float) -> void:
 	var not_generate_resources = is_resources_enough()
@@ -111,11 +129,14 @@ func _process(delta: float) -> void:
 	next_food -= delta
 	if next_ant <= 0:
 		next_ant += ANT_INTERVAL
-		ants += 1
+		ants += total_generation
+		max_ants = max(ants,max_ants)
 		update_hud()
 	if next_food <= 0:
 		next_food += FOOD_INTERVAL
-		food_amount -= ants
+		food_amount = max(food_amount-(worker_ants*worker_upkeep+soldier_ants*soldier_upkeep)*upkeep_modifier,0)
+		if food_amount == 0:
+			ants -= round(0.1*max_ants)
 		update_hud()
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -124,11 +145,19 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func update_hud():
 	$Hud/HBoxContainer/VBoxContainer/Ants.text = "Ants: %d" % ants
-	$Hud/HBoxContainer/VBoxContainer/Ants2.text = "+1 every %d seconds" % ANT_INTERVAL
+	$Hud/HBoxContainer/VBoxContainer/Ants2.text = "+%d every %d seconds" % [total_generation,ANT_INTERVAL]
 	$Hud/HBoxContainer/VBoxContainer2/Food.text = "Food: %d" % food_amount
 	$Hud/HBoxContainer/VBoxContainer2/Food2.text = "-%d every %d seconds" % [ants, FOOD_INTERVAL]
 	$Hud/HBoxContainer/Materials.text = "Materials: %d" % materials
 	
+"""func update_tech():
+	$Hud/base_menu_ui/TechTree/HatchLevel.text = "%d/%d" % [Hatcheries_Level, TechTree.Hatcheries.max_level]
+	$Hud/base_menu_ui/TechTree/FarmsLevel.text = "%d/%d" % [Farms_Level, TechTree.Farms.max_level]
+	$Hud/base_menu_ui/TechTree/SoldierLevel.text = "%d/%d" % [Soldier_Hatch_Level, TechTree.Soldier_Hatcheries.max_level]
+	$Hud/base_menu_ui/TechTree/FormicLevel.text = "%d/%d" % [Formic_Level, TechTree.Formic_concentration.max_level]
+	$Hud/base_menu_ui/TechTree/KeratinLevel.text = "%d/%d" % [Keratin_Level, TechTree.Keratin_Reinforcement.max_level]
+	$Hud/base_menu_ui/TechTree/MandiblesLevel.text = "%d/%d" % [Mandible_Level, TechTree.Crushing_Mandibles.max_level]
+	"""
 func send_ants(num: int, location: Vector2) -> void:
 	var instance = active_ant.instantiate()
 	add_child(instance)

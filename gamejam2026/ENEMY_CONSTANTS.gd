@@ -1,27 +1,27 @@
 class_name EnemyStats extends RefCounted
 
 enum HP {
-	LOW = 5,
-	MEDIUM = 10,
-	HIGH = 15
+	LOW = 10,
+	MEDIUM = 50,
+	HIGH = 150
 }
 
 enum ATK {
-	LOW = 5,
-	MEDIUM = 10,
-	HIGH = 15
+	LOW = 2,
+	MEDIUM = 5,
+	HIGH = 10
 }
 
-enum DEF {
-	LOW = 5,
+enum DMG {
+	LOW = 1,
 	MEDIUM = 10,
-	HIGH = 15
+	HIGH = 25
 }
 
 enum TGH {
-	LOW = 5,
-	MEDIUM = 10,
-	HIGH = 15
+	LOW = 1,
+	MEDIUM = 5,
+	HIGH = 10
 }
 enum EnemySpawnRate {
 	HIGHT = 12,

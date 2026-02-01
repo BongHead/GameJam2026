@@ -90,11 +90,11 @@ theme_override_fonts/font = ExtResource("1_6afh4")
 theme_override_font_sizes/font_size = 25
 text = "esc to close"
 
-[node name="Tech Tree" type="TabBar" parent="."]
+[node name="TechTree" type="TabBar" parent="."]
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="Label2" type="Label" parent="Tech Tree"]
+[node name="Label2" type="Label" parent="TechTree"]
 layout_mode = 0
 offset_left = 1267.0
 offset_top = -31.0
@@ -105,7 +105,7 @@ theme_override_fonts/font = ExtResource("1_6afh4")
 theme_override_font_sizes/font_size = 25
 text = "esc to close"
 
-[node name="Button" type="Button" parent="Tech Tree"]
+[node name="Hatcheries" type="Button" parent="TechTree"]
 layout_mode = 0
 offset_left = 176.0
 offset_top = 63.0
@@ -113,54 +113,135 @@ offset_right = 508.0
 offset_bottom = 237.0
 theme_override_fonts/font = ExtResource("1_6afh4")
 theme_override_font_sizes/font_size = 35
-text = "Upgrade 1"
+text = "Hatcheries"
 
-[node name="Button2" type="Button" parent="Tech Tree"]
-offset_left = 958.0
-offset_top = 308.0
-offset_right = 1290.0
-offset_bottom = 482.0
+[node name="HatchLevel" type="Label" parent="TechTree"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 221.0
+offset_right = 473.0
+offset_bottom = 298.0
 theme_override_fonts/font = ExtResource("1_6afh4")
 theme_override_font_sizes/font_size = 35
-text = "Upgrade 1"
+text = "/3"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Button3" type="Button" parent="Tech Tree"]
-offset_left = 566.0
-offset_top = 309.0
-offset_right = 898.0
-offset_bottom = 483.0
-theme_override_fonts/font = ExtResource("1_6afh4")
-theme_override_font_sizes/font_size = 35
-text = "Upgrade 1"
-
-[node name="Button4" type="Button" parent="Tech Tree"]
-offset_left = 173.0
-offset_top = 307.0
-offset_right = 505.0
-offset_bottom = 481.0
-theme_override_fonts/font = ExtResource("1_6afh4")
-theme_override_font_sizes/font_size = 35
-text = "Upgrade 1"
-
-[node name="Button5" type="Button" parent="Tech Tree"]
-offset_left = 958.0
-offset_top = 63.0
-offset_right = 1290.0
-offset_bottom = 237.0
-theme_override_fonts/font = ExtResource("1_6afh4")
-theme_override_font_sizes/font_size = 35
-text = "Upgrade 1"
-
-[node name="Button6" type="Button" parent="Tech Tree"]
+[node name="Farms" type="Button" parent="TechTree"]
+layout_mode = 0
 offset_left = 572.0
 offset_top = 66.0
 offset_right = 904.0
 offset_bottom = 240.0
 theme_override_fonts/font = ExtResource("1_6afh4")
 theme_override_font_sizes/font_size = 35
-text = "Upgrade 1"
+text = "Farms"
 
-[node name="Resources" type="Label" parent="Tech Tree"]
+[node name="FarmsLevel" type="Label" parent="TechTree"]
+layout_mode = 0
+offset_left = 609.0
+offset_top = 221.0
+offset_right = 874.0
+offset_bottom = 298.0
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 35
+text = "/3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SoldierHatch" type="Button" parent="TechTree"]
+layout_mode = 0
+offset_left = 958.0
+offset_top = 63.0
+offset_right = 1290.0
+offset_bottom = 237.0
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 35
+text = "Soldier Hatcheries"
+autowrap_mode = 2
+
+[node name="SoldierLevel" type="Label" parent="TechTree"]
+layout_mode = 0
+offset_left = 993.0
+offset_top = 220.0
+offset_right = 1258.0
+offset_bottom = 297.0
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 35
+text = "/3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Formic" type="Button" parent="TechTree"]
+layout_mode = 0
+offset_left = 173.0
+offset_top = 307.0
+offset_right = 505.0
+offset_bottom = 481.0
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 35
+text = "Formic Concentration"
+autowrap_mode = 2
+
+[node name="FormicLevel" type="Label" parent="TechTree"]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 467.0
+offset_right = 467.0
+offset_bottom = 544.0
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 35
+text = "/3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Keratin" type="Button" parent="TechTree"]
+layout_mode = 0
+offset_left = 566.0
+offset_top = 309.0
+offset_right = 898.0
+offset_bottom = 483.0
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 35
+text = "Keratin Reinforcement"
+autowrap_mode = 2
+
+[node name="KeratinLevel" type="Label" parent="TechTree"]
+layout_mode = 0
+offset_left = 595.0
+offset_top = 465.0
+offset_right = 860.0
+offset_bottom = 542.0
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 35
+text = "/3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mandibles" type="Button" parent="TechTree"]
+layout_mode = 0
+offset_left = 958.0
+offset_top = 308.0
+offset_right = 1290.0
+offset_bottom = 482.0
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 35
+text = "Crushing Mandibles"
+autowrap_mode = 2
+
+[node name="MandibleLevel" type="Label" parent="TechTree"]
+layout_mode = 0
+offset_left = 995.0
+offset_top = 469.0
+offset_right = 1260.0
+offset_bottom = 546.0
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 35
+text = "/3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Resources" type="Label" parent="TechTree"]
 layout_mode = 0
 offset_left = 176.0
 offset_top = 593.0
@@ -170,7 +251,7 @@ theme_override_fonts/font = ExtResource("1_6afh4")
 theme_override_font_sizes/font_size = 35
 text = "Resources"
 
-[node name="Food" type="Label" parent="Tech Tree"]
+[node name="Food" type="Label" parent="TechTree"]
 layout_mode = 0
 offset_left = 796.0
 offset_top = 585.0
@@ -180,7 +261,7 @@ theme_override_fonts/font = ExtResource("1_6afh4")
 theme_override_font_sizes/font_size = 35
 text = "Food"
 
-[node name="ErrorMessage" type="Label" parent="Tech Tree"]
+[node name="ErrorMessageAnts" type="Label" parent="TechTree"]
 layout_mode = 0
 offset_left = 401.0
 offset_top = 695.0
@@ -188,4 +269,14 @@ offset_right = 1003.0
 offset_bottom = 767.0
 theme_override_fonts/font = ExtResource("1_6afh4")
 theme_override_font_sizes/font_size = 35
-text = "Insufficient Food/Resources!"
+text = "Insufficient Colony Size!"
+
+[node name="ErrorMessageResources" type="Label" parent="TechTree"]
+layout_mode = 0
+offset_left = 402.0
+offset_top = 686.0
+offset_right = 1004.0
+offset_bottom = 758.0
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 35
+text = "Insufficient Food/Materials!"
