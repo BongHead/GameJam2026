@@ -156,7 +156,8 @@ func _process(delta: float) -> void:
 		next_food += FOOD_INTERVAL
 		food_amount = max(food_amount - (max_workers * worker_upkeep + max_soldiers * soldier_upkeep) * upkeep_modifier, 0)
 		if food_amount == 0:
-			ants -= round(0.1 * max_ants)
+			soldier_ants -= round(0.1 * max_soldiers)
+			worker_ants -= round(0.1 * max_workers)
 		update_hud()
 
 func _unhandled_input(event: InputEvent) -> void:
