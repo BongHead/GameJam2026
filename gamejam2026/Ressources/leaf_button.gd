@@ -6,14 +6,15 @@ extends Area2D
 
 
 func _on_button_pressed() -> void:
-	var _antcount = get_parent().ants
+	var _worker_antcount = get_parent().worker_ants
+	var _warrior_antcount = get_parent().soldier_ants
 	$Button/AudioStreamPlayer2D.play()
 	print("leaf pressed")
 	print(material_count)
 	_pcon.visible = not _pcon.visible
 	
-	$Background/VBoxContainer/HSlider_worker.max_value = _antcount
-	$Background/VBoxContainer/HSlider_warrior.max_value = 0
+	$Background/VBoxContainer/HSlider_worker.max_value = _worker_antcount
+	$Background/VBoxContainer/HSlider_warrior.max_value = _warrior_antcount
 
 func _on_gather_pressed() -> void:
 	var num_workers = $Background/VBoxContainer/HSlider_worker.value
