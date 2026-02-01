@@ -84,7 +84,7 @@ var FOOD_INTERVAL = 15
 
 var worker_ants = 10
 var soldier_ants = 0
-var worker_generation = 1
+var worker_generation = 10
 var soldier_generation = 0
 var total_generation = worker_generation + soldier_generation
 var worker_upkeep = 1
