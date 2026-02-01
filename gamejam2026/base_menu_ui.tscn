@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bodtsshhxf3h6"]
+[gd_scene load_steps=8 format=3 uid="uid://cxs5jmsi7hff4"]
 
 [ext_resource type="FontFile" uid="uid://vtq2j2itl4j2" path="res://fonts/AntFont-Regular (1).ttf" id="1_6afh4"]
 [ext_resource type="Script" path="res://hatcheries.gd" id="2_nrav7"]
@@ -96,6 +96,7 @@ theme_override_font_sizes/font_size = 25
 text = "esc to close"
 
 [node name="TechTree" type="TabBar" parent="."]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
