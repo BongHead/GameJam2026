@@ -32,9 +32,8 @@ func _on_gather_pressed() -> void:
 	var worker_count = $Background/VBoxContainer/HSlider_worker.value
 	var soldier_count = $Background/VBoxContainer/HSlider_warrior.value
 	var location = position
-	get_parent().send_ants(worker_count, soldier_count, location, self)
+	get_parent().send_ants(soldier_count, worker_count, location, self)
 	#await get_tree().create_timer(5).timeout
-	
 	
 	_pcon.visible = false
 

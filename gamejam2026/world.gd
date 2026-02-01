@@ -156,7 +156,8 @@ func _process(delta: float) -> void:
 		next_food += FOOD_INTERVAL
 		food_amount = max(food_amount - (max_workers * worker_upkeep + max_soldiers * soldier_upkeep) * upkeep_modifier, 0)
 		if food_amount == 0:
-			ants -= round(0.1 * max_ants)
+			soldier_ants -= round(0.1 * max_soldiers)
+			worker_ants -= round(0.1 * max_workers)
 		update_hud()
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -165,8 +166,10 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func update_hud():
 	ants = worker_ants + soldier_ants
-	$Hud/HBoxContainer/VBoxContainer/Ants.text = "Ants: %d" % ants
-	$Hud/HBoxContainer/VBoxContainer/Ants2.text = "+%d every %d seconds" % [total_generation, ANT_INTERVAL]
+	$Hud/HBoxContainer/VBoxContainer/Ants.text = "Worker ants: %d" % worker_ants
+	$Hud/HBoxContainer/VBoxContainer/Ants2.text = "+%d every %d seconds" % [worker_generation, ANT_INTERVAL]
+	$Hud/HBoxContainer/VBoxContainer3/Ants.text = "Soldier ants: %d" % soldier_ants
+	$Hud/HBoxContainer/VBoxContainer3/Ants2.text = "+%d every %d seconds" % [soldier_generation, ANT_INTERVAL]
 	$Hud/HBoxContainer/VBoxContainer2/Food.text = "Food: %d" % food_amount
 	$Hud/HBoxContainer/VBoxContainer2/Food2.text = "-%d every %d seconds" % [ants, FOOD_INTERVAL]
 	$Hud/HBoxContainer/Materials.text = "Materials: %d" % materials
@@ -180,7 +183,7 @@ func update_tech():
 	$Hud/base_menu_ui/TechTree/MandibleLevel.text = "%d/%d" % [Mandible_Level, TechTree.Crushing_Mandibles.max_level]
 	
 func send_ants(num_warrior: int, num_worker, location: Vector2, target) -> void:
-	if (num_warrior > soldier_ants and num_worker > worker_ants):
+	if (num_warrior > soldier_ants or num_worker > worker_ants):
 		return
 	worker_ants -= num_worker
 	soldier_ants -= num_warrior
@@ -321,46 +324,35 @@ func combat_calculation(number_of_worker:int, number_of_soldier:int,enemy_hp:int
 			var combat_effectiveness_w_e = combat_effectiveness_calculator(AntsStats.Worker_Ant.STR,enemy_tgh)
 			for x in range(number_of_worker):
 				var result = DiceRollService.rollOneD6()
-				if (result>=combat_effectiveness_w_e):
-					enemy_hp -=AntsStats.Worker_Ant.DMG
-			var combat_effectiveness_s_e = combat_effectiveness_calculator(AntsStats.Soldier_Ant.STR,enemy_tgh)
+				if (result >= combat_effectiveness_w_e):
+					enemy_hp -= AntsStats.Worker_Ant.DMG
+			var combat_effectiveness_s_e = combat_effectiveness_calculator(AntsStats.Soldier_Ant.STR, enemy_tgh)
 			for x in range(number_of_soldier):
 				var result = DiceRollService.rollOneD6()
-				if (result>=combat_effectiveness_s_e):
-					enemy_hp -=AntsStats.Soldier_Ant.DMG
-			var combat_effectiveness_e_w = combat_effectiveness_calculator(enemy_str,AntsStats.Worker_Ant.TGH)
-			for x in range(enemy_numb*enemy_atk):
+				if (result >= combat_effectiveness_s_e):
+					enemy_hp -= AntsStats.Soldier_Ant.DMG
+			var combat_effectiveness_e_w = combat_effectiveness_calculator(enemy_str, AntsStats.Worker_Ant.TGH)
+			for x in range(enemy_numb * enemy_atk):
 				var result = DiceRollService.rollOneD6()
-				if (result>=combat_effectiveness_e_w):
-					if(number_of_worker>0):
-						number_of_worker -=1
-					else: 
-						var combat_effectiveness_e_s = combat_effectiveness_calculator(enemy_str,AntsStats.Soldier_Ant.TGH)
-						while (x<enemy_atk*enemy_numb):
+				if (result >= combat_effectiveness_e_w):
+					if (number_of_worker > 0):
+						number_of_worker -= 1
+					else:
+						var combat_effectiveness_e_s = combat_effectiveness_calculator(enemy_str, AntsStats.Soldier_Ant.TGH)
+						while (x < enemy_atk * enemy_numb):
 							x += 1
-							if (result>=combat_effectiveness_e_s):
-								number_of_soldier -=1
-		return (number_of_soldier+number_of_worker) != 0
+							if (result >= combat_effectiveness_e_s):
+								number_of_soldier -= 1
+		return (number_of_soldier + number_of_worker) != 0
 		
-func combat_effectiveness_calculator(my_str:int,enemy_tgh:int)->int:
-	
-	if (my_str> (int)(enemy_tgh/2)):
+func combat_effectiveness_calculator(my_str: int, enemy_tgh: int) -> int:
+	if (my_str > (int)(enemy_tgh / 2)):
 		return 2
-	elif (my_str>enemy_tgh):
+	elif (my_str > enemy_tgh):
 		return 3
-	elif (my_str==enemy_tgh):
+	elif (my_str == enemy_tgh):
 		return 4
-	elif (my_str*2<enemy_tgh):
+	elif (my_str * 2 < enemy_tgh):
 		return 6
 	else:
-		return 5 
-	
-
-	
-		
-		
-		
-				
-			
-			
-	 
+		return 5

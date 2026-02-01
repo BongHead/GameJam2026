@@ -55,7 +55,7 @@ scale = Vector2(3, 3)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Button"]
 stream = ExtResource("3_v6k2w")
-volume_db = 24.0
+volume_db = 12.0
 
 [node name="Background" type="PanelContainer" parent="."]
 visible = false
