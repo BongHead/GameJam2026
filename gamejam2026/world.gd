@@ -144,16 +144,17 @@ func _process(delta: float) -> void:
 	next_food -= delta
 	if next_ant <= 0:
 		next_ant += ANT_INTERVAL
-		if Hatcheries_Level == 3:
-			worker_ants = round(1.05 * worker_ants) + worker_generation
-		else:
-			worker_ants += worker_generation
-		if Soldier_Hatch_Level != 0:
-			soldier_ants += soldier_generation
-		ants = soldier_ants + worker_ants
-		max_ants = max(ants, max_ants)
-		max_workers = max(worker_ants, max_workers)
-		max_soldiers = max(soldier_ants, max_soldiers)
+		if food_amount > 0:
+			if Hatcheries_Level == 3:
+				worker_ants = round(1.05 * worker_ants) + worker_generation
+			else:
+				worker_ants += worker_generation
+			if Soldier_Hatch_Level != 0:
+				soldier_ants += soldier_generation
+			ants = soldier_ants + worker_ants
+			max_ants = max(ants, max_ants)
+			max_workers = max(worker_ants, max_workers)
+			max_soldiers = max(soldier_ants, max_soldiers)
 		update_hud()
 	if next_food <= 0:
 		next_food += FOOD_INTERVAL
@@ -163,8 +164,13 @@ func _process(delta: float) -> void:
 			var p = popup.instantiate()
 			add_child(p)
 		if food_amount == 0:
-			soldier_ants -= round(0.1 * max_soldiers)
-			worker_ants -= round(0.1 * max_workers)
+			soldier_ants -= ceil(0.1 * max_soldiers)
+			worker_ants -= ceil(0.1 * max_workers)
+			if soldier_ants < 0 or worker_ants < 0:
+				var gameover = preload("res://gameover.tscn")
+				var gn = gameover.instantiate()
+				add_child(gn)
+				get_tree().paused = true
 		update_hud()
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -183,6 +189,9 @@ func update_hud():
 	$Hud/HBoxContainer/VBoxContainer2/Food.text = "Food: %d" % food_amount
 	$Hud/HBoxContainer/VBoxContainer2/Food2.text = "-%d every %d seconds" % [(max_workers * worker_upkeep + max_soldiers * soldier_upkeep) * upkeep_modifier, FOOD_INTERVAL]
 	$Hud/HBoxContainer/Materials.text = "Materials: %d" % materials
+	if food_amount == 0:
+		$Hud/HBoxContainer/VBoxContainer/Ants2.text = "Losing ants!"
+		$Hud/HBoxContainer/VBoxContainer3/Ants2.text = "Losing ants!"
 	
 func update_tech():
 	$Hud/base_menu_ui/TechTree/HatchLevel.text = "%d/%d" % [Hatcheries_Level, TechTree.Hatcheries.max_level]

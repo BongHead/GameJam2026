@@ -99,11 +99,13 @@ animations = [{
 script = ExtResource("1_t0vh2")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("10_80100")
 volume_db = -10.0
 autoplay = true
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("3_vqyvh")
 volume_db = -10.0
 
