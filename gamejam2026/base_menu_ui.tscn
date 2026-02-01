@@ -96,6 +96,7 @@ theme_override_font_sizes/font_size = 25
 text = "esc to close"
 
 [node name="TechTree" type="TabBar" parent="."]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 

@@ -167,9 +167,11 @@ func update_tech():
 	$Hud/base_menu_ui/TechTree/MandibleLevel.text = "%d/%d" % [Mandible_Level, TechTree.Crushing_Mandibles.max_level]
 	
 func send_ants(num: int, location: Vector2) -> void:
-	var instance = active_ant.instantiate()
-	add_child(instance)
-	instance.set_destination(location)
+	for i in range(min(num, 5)):
+		var instance = active_ant.instantiate()
+		add_child(instance)
+		instance.set_destination(location)
+		await get_tree().create_timer(0.4).timeout
 
 func upgrade_hatchery()->void:
 		print("hit")
