@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Ressources/sticks_button.gd" id="1_m5r6j"]
 [ext_resource type="Script" path="res://Ressources/sticks_sliders.gd" id="3_mokre"]
 [ext_resource type="AudioStream" uid="uid://dekqwdomm8i6j" path="res://music_n_sounds/pencil hit table idk.wav" id="3_v746x"]
-[ext_resource type="FontFile" uid="uid://b8ha28010iwbh" path="res://fonts/AntFont-Regular (1).ttf" id="4_3jwhf"]
+[ext_resource type="FontFile" uid="uid://vtq2j2itl4j2" path="res://fonts/AntFont-Regular (1).ttf" id="4_3jwhf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vv4tg"]
 

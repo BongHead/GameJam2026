@@ -1,5 +1,6 @@
 extends Area2D
 
+@onready var base_menu_ui = $"../Hud/base_menu_ui"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -17,6 +18,6 @@ func _process(delta: float) -> void:
 			
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.is_pressed():
-		if event.button_index == MOUSE_BUTTON_RIGHT:
-			pass
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			base_menu_ui.visible = not base_menu_ui.visible
 			

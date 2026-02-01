@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dfsppfqvaaswo" path="res://assets/strawberry fruit.png" id="2_7yhn1"]
 [ext_resource type="Script" path="res://Ressources/leaf_sliders.gd" id="3_8gjar"]
 [ext_resource type="AudioStream" uid="uid://dekqwdomm8i6j" path="res://music_n_sounds/pencil hit table idk.wav" id="3_pmqfr"]
-[ext_resource type="FontFile" uid="uid://b8ha28010iwbh" path="res://fonts/AntFont-Regular (1).ttf" id="4_8sbc5"]
+[ext_resource type="FontFile" uid="uid://vtq2j2itl4j2" path="res://fonts/AntFont-Regular (1).ttf" id="4_8sbc5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_htc2r"]
 radius = 69.6

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ccsyrfl62tgu8" path="res://assets/insect eggs.png" id="2_8s8sb"]
 [ext_resource type="AudioStream" uid="uid://dekqwdomm8i6j" path="res://music_n_sounds/pencil hit table idk.wav" id="3_a4knn"]
 [ext_resource type="Script" path="res://Ressources/leaf_sliders.gd" id="3_dfvq6"]
-[ext_resource type="FontFile" uid="uid://b8ha28010iwbh" path="res://fonts/AntFont-Regular (1).ttf" id="4_0m08n"]
+[ext_resource type="FontFile" uid="uid://vtq2j2itl4j2" path="res://fonts/AntFont-Regular (1).ttf" id="4_0m08n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kl535"]
 
