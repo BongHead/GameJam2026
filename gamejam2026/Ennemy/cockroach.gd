@@ -24,12 +24,29 @@ func _on_button_pressed() -> void:
 	
 	$Background/VBoxContainer/HSlider_worker.max_value = _antcount
 	$Background/VBoxContainer/HSlider_warrior.max_value = 0
+	get_parent().send_ants(num_warriors, num_workers, location, self )
+	_pcon.visible = not _pcon.visible
+
 
 func _on_gather_pressed() -> void:
 	var num_workers = $Background/VBoxContainer/HSlider_worker.value
 	var num_warriors = $Background/VBoxContainer/HSlider_warrior.value
 	var location = position
+	get_parent().send_ants(num, location)
+	await get_tree().create_timer(5).timeout
+	if get_parent().combat_calculation(num, num, enemy_hp, enemy_atk, enemy_numb, enemy_tgh, enemy_str):
+		print("won combat")
+		
+		queue_free()
+	else: 
+		print("lost combat")
 	
+<<<<<<< HEAD
 	get_parent().send_ants(num_warriors, num_workers, location, self )
 	_pcon.visible = not _pcon.visible
 	
+=======
+	_pcon.visible = false
+	
+	
+>>>>>>> a099cdf5d9c7c737029901c79853eb56226a4a74

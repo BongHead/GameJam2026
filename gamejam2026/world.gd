@@ -164,6 +164,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		$Hud/base_menu_ui.visible = false
 
 func update_hud():
+	ants = worker_ants + soldier_ants
 	$Hud/HBoxContainer/VBoxContainer/Ants.text = "Ants: %d" % ants
 	$Hud/HBoxContainer/VBoxContainer/Ants2.text = "+%d every %d seconds" % [total_generation, ANT_INTERVAL]
 	$Hud/HBoxContainer/VBoxContainer2/Food.text = "Food: %d" % food_amount
@@ -179,21 +180,19 @@ func update_tech():
 	$Hud/base_menu_ui/TechTree/MandibleLevel.text = "%d/%d" % [Mandible_Level, TechTree.Crushing_Mandibles.max_level]
 	
 func send_ants(num_warrior: int, num_worker, location: Vector2, target) -> void:
-	var worker = num_worker
-	var warrior = num_warrior
-	var num = num_warrior + num_worker
-	if (num > ants):
+	if (num_warrior > soldier_ants and num_worker > worker_ants):
 		return
-	ants -= num
+	worker_ants -= num_worker
+	soldier_ants -= num_warrior
 	update_hud()
 	var this_id = ant_id
 	ant_id += 1
 	# for i in range(min(num, 20)):
-	if worker + warrior > 0: # send 1 ant
+	if num_worker + num_warrior > 0: # send 1 ant
 		var instance = active_ant.instantiate()
 		add_child(instance)
 		instance.set_destination(location)
-		instance.set_num(warrior, worker)
+		instance.set_num(num_warrior, num_worker)
 		instance.target = target
 		instance.add_to_group("ant%d" % this_id)
 		await get_tree().create_timer(0.4).timeout
@@ -315,3 +314,54 @@ func upgrade_Mandibles() -> void:
 			$Hud/base_menu_ui/TechTree/ErrorMessage.text = "Insufficient Colony Size!"
 		update_tech()
 		update_hud()
+		
+func combat_calculation(number_of_worker:int, number_of_soldier:int,enemy_hp:int,enemy_atk:int,enemy_numb:int,
+enemy_tgh:int,enemy_str:int)->bool:
+		while (number_of_soldier+number_of_soldier>0 && enemy_hp*enemy_numb>0):
+			print("loop")
+			var combat_effectiveness_w_e = combat_effectiveness_calculator(AntsStats.Worker_Ant.STR,enemy_tgh)
+			for x in range(number_of_worker):
+				var result = DiceRollService.rollOneD6()
+				if (result>=combat_effectiveness_w_e):
+					enemy_hp -=AntsStats.Worker_Ant.DMG
+			var combat_effectiveness_s_e = combat_effectiveness_calculator(AntsStats.Soldier_Ant.STR,enemy_tgh)
+			for x in range(number_of_soldier):
+				var result = DiceRollService.rollOneD6()
+				if (result>=combat_effectiveness_s_e):
+					enemy_hp -=AntsStats.Soldier_Ant.DMG
+			var combat_effectiveness_e_w = combat_effectiveness_calculator(enemy_str,AntsStats.Worker_Ant.TGH)
+			for x in range(enemy_numb*enemy_atk):
+				var result = DiceRollService.rollOneD6()
+				if (result>=combat_effectiveness_e_w):
+					if(number_of_worker>0):
+						number_of_worker -=1
+					else: 
+						var combat_effectiveness_e_s = combat_effectiveness_calculator(enemy_str,AntsStats.Soldier_Ant.TGH)
+						while (x<enemy_atk*enemy_numb):
+							x += 1
+							if (result>=combat_effectiveness_e_s):
+								number_of_soldier -=1
+		return (number_of_soldier+number_of_worker)!=0
+		
+func combat_effectiveness_calculator(my_str:int,enemy_tgh:int)->int:
+	
+	if (my_str> (int)(enemy_tgh/2)):
+		return 2
+	elif (my_str>enemy_tgh):
+		return 3
+	elif (my_str==enemy_tgh):
+		return 4
+	elif (my_str*2<enemy_tgh):
+		return 6
+	else:
+		return 5 
+	
+
+	
+		
+		
+		
+				
+			
+			
+	 
