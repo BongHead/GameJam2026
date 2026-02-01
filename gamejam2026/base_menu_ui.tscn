@@ -1,10 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpt286u1dvbw1"]
+[gd_scene load_steps=8 format=3 uid="uid://bodtsshhxf3h6"]
 
 [ext_resource type="FontFile" uid="uid://vtq2j2itl4j2" path="res://fonts/AntFont-Regular (1).ttf" id="1_6afh4"]
+[ext_resource type="Script" path="res://hatcheries.gd" id="2_nrav7"]
+[ext_resource type="Script" path="res://farms.gd" id="3_43u3y"]
+[ext_resource type="Script" path="res://soldier_hatch.gd" id="4_7crsu"]
+[ext_resource type="Script" path="res://formic.gd" id="5_65gcb"]
+[ext_resource type="Script" path="res://keratin.gd" id="6_2gpmo"]
+[ext_resource type="Script" path="res://mandibles.gd" id="7_58ws4"]
 
 [node name="base_menu_ui" type="TabContainer"]
-offset_right = 711.0
-offset_bottom = 428.0
+offset_right = 1447.0
+offset_bottom = 836.0
 theme_override_fonts/font = ExtResource("1_6afh4")
 theme_override_font_sizes/font_size = 25
 current_tab = 0
@@ -89,12 +95,11 @@ theme_override_fonts/font = ExtResource("1_6afh4")
 theme_override_font_sizes/font_size = 25
 text = "esc to close"
 
-[node name="Tech Tree" type="TabBar" parent="."]
-visible = false
+[node name="TechTree" type="TabBar" parent="."]
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="Label2" type="Label" parent="Tech Tree"]
+[node name="Label2" type="Label" parent="TechTree"]
 layout_mode = 0
 offset_left = 1267.0
 offset_top = -31.0
@@ -104,3 +109,181 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_6afh4")
 theme_override_font_sizes/font_size = 25
 text = "esc to close"
+
+[node name="Hatcheries" type="Button" parent="TechTree"]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 63.0
+offset_right = 508.0
+offset_bottom = 237.0
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 35
+text = "Hatcheries"
+script = ExtResource("2_nrav7")
+
+[node name="HatchLevel" type="Label" parent="TechTree"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 221.0
+offset_right = 473.0
+offset_bottom = 298.0
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 35
+text = "/3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Farms" type="Button" parent="TechTree"]
+layout_mode = 0
+offset_left = 572.0
+offset_top = 66.0
+offset_right = 904.0
+offset_bottom = 240.0
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 35
+text = "Farms"
+script = ExtResource("3_43u3y")
+
+[node name="FarmsLevel" type="Label" parent="TechTree"]
+layout_mode = 0
+offset_left = 609.0
+offset_top = 221.0
+offset_right = 874.0
+offset_bottom = 298.0
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 35
+text = "/3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SoldierHatch" type="Button" parent="TechTree"]
+layout_mode = 0
+offset_left = 958.0
+offset_top = 63.0
+offset_right = 1290.0
+offset_bottom = 237.0
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 35
+text = "Soldier Hatcheries"
+autowrap_mode = 2
+script = ExtResource("4_7crsu")
+
+[node name="SoldierLevel" type="Label" parent="TechTree"]
+layout_mode = 0
+offset_left = 993.0
+offset_top = 220.0
+offset_right = 1258.0
+offset_bottom = 297.0
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 35
+text = "/3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Formic" type="Button" parent="TechTree"]
+layout_mode = 0
+offset_left = 173.0
+offset_top = 307.0
+offset_right = 505.0
+offset_bottom = 481.0
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 35
+text = "Formic Concentration"
+autowrap_mode = 2
+script = ExtResource("5_65gcb")
+
+[node name="FormicLevel" type="Label" parent="TechTree"]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 467.0
+offset_right = 467.0
+offset_bottom = 544.0
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 35
+text = "/3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Keratin" type="Button" parent="TechTree"]
+layout_mode = 0
+offset_left = 566.0
+offset_top = 309.0
+offset_right = 898.0
+offset_bottom = 483.0
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 35
+text = "Keratin Reinforcement"
+autowrap_mode = 2
+script = ExtResource("6_2gpmo")
+
+[node name="KeratinLevel" type="Label" parent="TechTree"]
+layout_mode = 0
+offset_left = 595.0
+offset_top = 465.0
+offset_right = 860.0
+offset_bottom = 542.0
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 35
+text = "/3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mandibles" type="Button" parent="TechTree"]
+layout_mode = 0
+offset_left = 958.0
+offset_top = 308.0
+offset_right = 1290.0
+offset_bottom = 482.0
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 35
+text = "Crushing Mandibles"
+autowrap_mode = 2
+script = ExtResource("7_58ws4")
+
+[node name="MandibleLevel" type="Label" parent="TechTree"]
+layout_mode = 0
+offset_left = 995.0
+offset_top = 469.0
+offset_right = 1260.0
+offset_bottom = 546.0
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 35
+text = "/3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Resources" type="Label" parent="TechTree"]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 593.0
+offset_right = 543.0
+offset_bottom = 670.0
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 35
+text = "Resources"
+
+[node name="Food" type="Label" parent="TechTree"]
+layout_mode = 0
+offset_left = 796.0
+offset_top = 585.0
+offset_right = 1164.0
+offset_bottom = 651.0
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 35
+text = "Food"
+
+[node name="ErrorMessage" type="Label" parent="TechTree"]
+layout_mode = 0
+offset_left = 401.0
+offset_top = 695.0
+offset_right = 1003.0
+offset_bottom = 767.0
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 35
+
+[connection signal="pressed" from="TechTree/Hatcheries" to="TechTree/Hatcheries" method="_on_pressed"]
+[connection signal="pressed" from="TechTree/Farms" to="TechTree/Farms" method="_on_pressed"]
+[connection signal="pressed" from="TechTree/SoldierHatch" to="TechTree/SoldierHatch" method="_on_soldier_hatch_pressed"]
+[connection signal="pressed" from="TechTree/Formic" to="TechTree/Formic" method="_on_pressed"]
+[connection signal="pressed" from="TechTree/Keratin" to="TechTree/Keratin" method="_on_pressed"]
+[connection signal="pressed" from="TechTree/Mandibles" to="TechTree/Mandibles" method="_on_pressed"]
