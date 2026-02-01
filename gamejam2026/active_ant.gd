@@ -6,6 +6,7 @@ var storage_capacity = 3
 var collected = 0
 var number_of_warrior = 0
 var number_of_worker = 0
+var done_action = false
 
 @onready var target_material = $"./Ressources/"
 
@@ -30,7 +31,8 @@ func _process(delta: float) -> void:
 		elif position.direction_to(destination).x <= 0:
 			$AnimatedSprite2D.flip_h = false
 		position += position.direction_to(destination) * distance_to_move
-	else:
+	elif not done_action:
+		done_action = true
 		target.gather(number_of_warrior, number_of_worker)
 	
 		
