@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://brc0j8g0p4dry"]
 
 [ext_resource type="Script" path="res://Food/insect.gd" id="1_fdn0r"]
-[ext_resource type="Texture2D" uid="uid://b5hjrt0njhu6s" path="res://assets/insect eggs.png" id="2_wjpe6"]
+[ext_resource type="Texture2D" uid="uid://ccsyrfl62tgu8" path="res://assets/insect eggs.png" id="2_wjpe6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_htc2r"]
 

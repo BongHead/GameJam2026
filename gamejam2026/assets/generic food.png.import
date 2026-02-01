@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccsyrfl62tgu8"
-path="res://.godot/imported/insect eggs.png-4c36dd52e14c76d3515a9993aeb1ecf7.ctex"
+uid="uid://bb1f1tluy1vsm"
+path="res://.godot/imported/generic food.png-5bac6eacc6cc55de0bacae5f32e31cdb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/insect eggs.png"
-dest_files=["res://.godot/imported/insect eggs.png-4c36dd52e14c76d3515a9993aeb1ecf7.ctex"]
+source_file="res://assets/generic food.png"
+dest_files=["res://.godot/imported/generic food.png-5bac6eacc6cc55de0bacae5f32e31cdb.ctex"]
 
 [params]
 
