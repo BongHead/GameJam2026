@@ -1,3 +1,6 @@
-[gd_resource type="Theme" format=3 uid="uid://c2yiyxsh5ytct"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://c2yiyxsh5ytct"]
+
+[ext_resource type="FontFile" uid="uid://vtq2j2itl4j2" path="res://fonts/AntFont-Regular (1).ttf" id="1_rqxg0"]
 
 [resource]
+default_font = ExtResource("1_rqxg0")

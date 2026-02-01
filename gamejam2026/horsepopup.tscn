@@ -1,0 +1,92 @@
+[gd_scene load_steps=11 format=3 uid="uid://blklt15bcwjyq"]
+
+[ext_resource type="Script" path="res://horsepopup.gd" id="1_l7ce2"]
+[ext_resource type="FontFile" uid="uid://vtq2j2itl4j2" path="res://fonts/AntFont-Regular (1).ttf" id="2_nb1fn"]
+[ext_resource type="Texture2D" uid="uid://dutp0c8op2p0a" path="res://assets/honse.jpg" id="2_wvjtv"]
+[ext_resource type="Theme" uid="uid://c2yiyxsh5ytct" path="res://new_theme.tres" id="2_x4k8o"]
+[ext_resource type="AudioStream" uid="uid://bj17lwtb7wqvj" path="res://assets/ahhhh-37191 (1).mp3" id="5_2tdhp"]
+[ext_resource type="AudioStream" uid="uid://cu5e3xqmpiiqo" path="res://assets/horse-whinny-sound-effect-322958.mp3" id="6_hf1st"]
+[ext_resource type="AudioStream" uid="uid://bivjthas2waeh" path="res://music_n_sounds/your ants are very hungry.mp3" id="7_xqap6"]
+[ext_resource type="AudioStream" uid="uid://c80vxf1bsemlb" path="res://music_n_sounds/so hungry.mp3" id="8_w4dvi"]
+[ext_resource type="AudioStream" uid="uid://dkerfi1yqdxl4" path="res://music_n_sounds/dont give up.mp3" id="9_43qc3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2igd3"]
+bg_color = Color(0, 0, 0, 1)
+expand_margin_left = 20.0
+expand_margin_top = 10.0
+expand_margin_right = 20.0
+expand_margin_bottom = 10.0
+
+[node name="Horsepopup" type="CanvasLayer"]
+script = ExtResource("1_l7ce2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1264, 720)
+scale = Vector2(0.467448, 0.467448)
+texture = ExtResource("2_wvjtv")
+
+[node name="RichTextLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -704.0
+offset_top = -568.0
+offset_right = 704.0
+offset_bottom = -456.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.887801, 3.77826e-06, 1.05888e-06, 1)
+theme_override_fonts/font = ExtResource("2_nb1fn")
+theme_override_font_sizes/font_size = 60
+text = "Your ants are very hungry..."
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = -376.0
+offset_right = 137.0
+offset_bottom = -285.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_x4k8o")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxFlat_2igd3")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_2igd3")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_2igd3")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_2igd3")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_2igd3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2igd3")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_2igd3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2igd3")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_2igd3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2igd3")
+text = "...a what?"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_2tdhp")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_hf1st")
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_xqap6")
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_w4dvi")
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_43qc3")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
