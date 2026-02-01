@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ycla8h2p6scs" path="res://assets/leaf.png" id="2_awd1x"]
 [ext_resource type="Script" path="res://Ressources/leaf_sliders.gd" id="3_uo7lf"]
 [ext_resource type="FontFile" uid="uid://l54s50lamel2" path="res://fonts/AntFont-Regular (1).ttf" id="4_q0tyj"]
+[ext_resource type="FontFile" uid="uid://iig0pua3re0p" path="res://fonts/AntFont-Regular (1).ttf" id="4_q0tyj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vv4tg"]
 
