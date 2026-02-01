@@ -97,6 +97,8 @@ var Mandible_Level = 0
 
 var ants
 var max_ants
+var max_workers
+var max_soldiers
 var next_ant
 var food_amount
 var next_food
@@ -105,6 +107,8 @@ var materials
 func new_game():
 	ants = worker_ants + soldier_ants
 	max_ants = ants
+	max_workers = worker_ants
+	max_soldiers = soldier_ants
 	next_ant = ANT_INTERVAL
 	food_amount = 2000
 	materials = 2000
@@ -139,10 +143,12 @@ func _process(delta: float) -> void:
 			worker_ants = round(1.05*worker_ants)+worker_generation
 		ants += total_generation
 		max_ants = max(ants,max_ants)
+		max_workers = max(worker_ants,max_workers)
+		max_soldiers = max(soldier_ants,max_soldiers)
 		update_hud()
 	if next_food <= 0:
 		next_food += FOOD_INTERVAL
-		food_amount = max(food_amount-(worker_ants*worker_upkeep+soldier_ants*soldier_upkeep)*upkeep_modifier,0)
+		food_amount = max(food_amount-(max_workers*worker_upkeep+max_soldiers*soldier_upkeep)*upkeep_modifier,0)
 		if food_amount == 0:
 			ants -= round(0.1*max_ants)
 		update_hud()
