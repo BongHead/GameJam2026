@@ -16,6 +16,10 @@ func _process(delta: float) -> void:
 		distance_to_move = SPEED * delta
 		if abs(distance_to_destination) < abs(distance_to_move): # if we are close, just move to destination
 			distance_to_move = distance_to_destination
+		if position.direction_to(destination).x > 0:
+			$AnimatedSprite2D.flip_h = true
+		elif position.direction_to(destination).x <= 0:
+			$AnimatedSprite2D.flip_h = false
 		position += position.direction_to(destination) * distance_to_move
 
 func set_destination(new_destination):
