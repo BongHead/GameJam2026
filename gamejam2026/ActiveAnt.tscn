@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bds8y4uaps1bx"]
+[gd_scene load_steps=15 format=3 uid="uid://cuxuhr1jtvl4x"]
 
 [ext_resource type="Script" path="res://active_ant.gd" id="1_lx2n7"]
 [ext_resource type="Texture2D" uid="uid://bpjsk1tnxnch1" path="res://assets/ant march.png" id="2_2jb53"]

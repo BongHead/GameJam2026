@@ -6,6 +6,7 @@ extends Area2D
 @onready var enemy_def = EnemyStats.DMG.LOW
 @onready var enemy_tgh = EnemyStats.TGH.LOW
 @onready var enemy_numb = 50
+@onready var material_count = MATERIAL_CONSTANT.MaterialCount.HIGH
 
 
 # Called when the node enters the scene tree for the first time.

@@ -1,13 +1,11 @@
 extends Area2D
 
 @onready var _pcon = $Background
-@onready var enemy_hp=EnemyStats.HP.HIGH
-@onready var enemy_atk =EnemyStats.ATK.LOW
-@onready var enemy_dmg =EnemyStats.DMG.LOW
-@onready var enemy_tgh =EnemyStats.TGH.HIGH
-@onready var enemy_str = EnemyStats.STR.LOW
-@onready var enemy_numb = 1 
-
+@onready var enemy_hp = EnemyStats.HP.HIGH
+@onready var enemy_atk = EnemyStats.ATK.LOW
+@onready var enemy_dmg = EnemyStats.DMG.LOW
+@onready var enemy_tgh = EnemyStats.TGH.HIGH
+@onready var material_count = MATERIAL_CONSTANT.MaterialCount.HIGH
 
 
 # Called when the node enters the scene tree for the first time.
@@ -43,6 +41,12 @@ func _on_gather_pressed() -> void:
 	else: 
 		print("lost combat")
 	
+<<<<<<< HEAD
+	get_parent().send_ants(num_warriors, num_workers, location, self )
+	_pcon.visible = not _pcon.visible
+	
+=======
 	_pcon.visible = false
 	
 	
+>>>>>>> a099cdf5d9c7c737029901c79853eb56226a4a74
