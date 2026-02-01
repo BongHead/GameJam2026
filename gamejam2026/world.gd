@@ -20,6 +20,8 @@ var rare = 2
 var resource_regen_counter = 0
 var ant = preload("res://Ant.tscn")
 var active_ant = preload("res://ActiveAnt.tscn")
+var popup = preload("res://horsepopup.tscn")
+var popped
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -120,6 +122,7 @@ func new_game():
 	AntsStats.Worker_Ant["TGH"] = 2
 	AntsStats.Soldier_Ant["TGH"] = 4
 	AntsStats.Soldier_Ant["DMG"] = 4
+	popped = false
 
 	update_hud()
 	update_tech()
@@ -155,6 +158,10 @@ func _process(delta: float) -> void:
 	if next_food <= 0:
 		next_food += FOOD_INTERVAL
 		food_amount = max(food_amount - (max_workers * worker_upkeep + max_soldiers * soldier_upkeep) * upkeep_modifier, 0)
+		if food_amount < 2000 and not popped:
+			popped = true
+			var p = popup.instantiate()
+			add_child(p)
 		if food_amount == 0:
 			soldier_ants -= round(0.1 * max_soldiers)
 			worker_ants -= round(0.1 * max_workers)
