@@ -11,7 +11,9 @@ func _on_button_pressed() -> void:
 	$Background/VBoxContainer/HSlider_warrior.max_value = 0
 
 func _on_gather_pressed() -> void:
-	var num = $Background/VBoxContainer/HSlider_worker.value
+	var num_workers = $Background/VBoxContainer/HSlider_worker.value
+	var num_warriors = $Background/VBoxContainer/HSlider_warrior.value
 	var location = position
-	get_parent().send_ants(num, location)
-	_pcon.visible = false
+	
+	get_parent().send_ants(num_warriors, num_workers, location, self )
+	_pcon.visible = not _pcon.visible

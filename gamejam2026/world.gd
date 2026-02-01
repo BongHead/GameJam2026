@@ -97,14 +97,20 @@ var Mandible_Level = 0
 
 var ants
 var max_ants
+var max_workers
+var max_soldiers
 var next_ant
 var food_amount
 var next_food
 var materials
 
+var ant_id = 0
+
 func new_game():
 	ants = worker_ants + soldier_ants
 	max_ants = ants
+	max_workers = worker_ants
+	max_soldiers = soldier_ants
 	next_ant = ANT_INTERVAL
 	food_amount = 2000
 	materials = 2000
@@ -136,15 +142,21 @@ func _process(delta: float) -> void:
 	if next_ant <= 0:
 		next_ant += ANT_INTERVAL
 		if Hatcheries_Level == 3:
-			worker_ants = round(1.05*worker_ants)+worker_generation
-		ants += total_generation
-		max_ants = max(ants,max_ants)
+			worker_ants = round(1.05 * worker_ants) + worker_generation
+		else:
+			worker_ants += worker_generation
+		if Soldier_Hatch_Level != 0:
+			soldier_ants += soldier_generation
+		ants = soldier_ants + worker_ants
+		max_ants = max(ants, max_ants)
+		max_workers = max(worker_ants, max_workers)
+		max_soldiers = max(soldier_ants, max_soldiers)
 		update_hud()
 	if next_food <= 0:
 		next_food += FOOD_INTERVAL
-		food_amount = max(food_amount-(worker_ants*worker_upkeep+soldier_ants*soldier_upkeep)*upkeep_modifier,0)
+		food_amount = max(food_amount - (max_workers * worker_upkeep + max_soldiers * soldier_upkeep) * upkeep_modifier, 0)
 		if food_amount == 0:
-			ants -= round(0.1*max_ants)
+			ants -= round(0.1 * max_ants)
 		update_hud()
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -153,7 +165,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func update_hud():
 	$Hud/HBoxContainer/VBoxContainer/Ants.text = "Ants: %d" % ants
-	$Hud/HBoxContainer/VBoxContainer/Ants2.text = "+%d every %d seconds" % [total_generation,ANT_INTERVAL]
+	$Hud/HBoxContainer/VBoxContainer/Ants2.text = "+%d every %d seconds" % [total_generation, ANT_INTERVAL]
 	$Hud/HBoxContainer/VBoxContainer2/Food.text = "Food: %d" % food_amount
 	$Hud/HBoxContainer/VBoxContainer2/Food2.text = "-%d every %d seconds" % [ants, FOOD_INTERVAL]
 	$Hud/HBoxContainer/Materials.text = "Materials: %d" % materials
@@ -166,28 +178,37 @@ func update_tech():
 	$Hud/base_menu_ui/TechTree/KeratinLevel.text = "%d/%d" % [Keratin_Level, TechTree.Keratin_Reinforcement.max_level]
 	$Hud/base_menu_ui/TechTree/MandibleLevel.text = "%d/%d" % [Mandible_Level, TechTree.Crushing_Mandibles.max_level]
 	
-func send_ants(num: int, location: Vector2) -> void:
+func send_ants(num_warrior: int, num_worker, location: Vector2, target) -> void:
+	var worker = num_worker
+	var warrior = num_warrior
+	var num = num_warrior + num_worker
 	if (num > ants):
 		return
 	ants -= num
 	update_hud()
-	for i in range(min(num, 20)):
+	var this_id = ant_id
+	ant_id += 1
+	# for i in range(min(num, 20)):
+	if worker + warrior > 0: # send 1 ant
 		var instance = active_ant.instantiate()
 		add_child(instance)
 		instance.set_destination(location)
+		instance.set_num(warrior, worker)
+		instance.target = target
+		instance.add_to_group("ant%d" % this_id)
 		await get_tree().create_timer(0.4).timeout
 
-func upgrade_hatchery()->void:
+func upgrade_hatchery() -> void:
 		print("hit")
 		if ants >= TechTree.Hatcheries.unlock:
 			if materials >= TechTree.Hatcheries.material_cost && food_amount >= TechTree.Hatcheries.food_cost:
 				if Hatcheries_Level < TechTree.Hatcheries.max_level:
 					Hatcheries_Level += 1
 					materials -= TechTree.Hatcheries.material_cost
-					food_amount -= TechTree.Hatcheries.food_cost 
+					food_amount -= TechTree.Hatcheries.food_cost
 					match Hatcheries_Level:
-						1: worker_generation = round(worker_generation*2)
-						2: worker_generation = round(worker_generation*1.75)
+						1: worker_generation = round(worker_generation * 2)
+						2: worker_generation = round(worker_generation * 1.75)
 				else:
 					$Hud/base_menu_ui/TechTree/ErrorMessage.text = "Technology Already at Maximum Level"
 			else:
@@ -197,7 +218,7 @@ func upgrade_hatchery()->void:
 		update_tech()
 		update_hud()
 
-func upgrade_farms()->void:
+func upgrade_farms() -> void:
 		print("farm")
 		if ants >= TechTree.Farms.unlock:
 			if materials >= TechTree.Farms.material_cost && food_amount >= TechTree.Farms.food_cost:
@@ -218,7 +239,7 @@ func upgrade_farms()->void:
 		update_tech()
 		update_hud()
 		
-func upgrade_Soldier()->void:
+func upgrade_Soldier() -> void:
 		print("soldier")
 		if ants >= TechTree.Soldier_Hatcheries.unlock:
 			if materials >= TechTree.Soldier_Hatcheries.material_cost && food_amount >= TechTree.Soldier_Hatcheries.food_cost:
@@ -239,16 +260,16 @@ func upgrade_Soldier()->void:
 		update_tech()
 		update_hud()
 		
-func upgrade_Formic()->void:
+func upgrade_Formic() -> void:
 		print("Formic")
 		if ants >= TechTree.Formic_concentration.unlock:
 			if materials >= TechTree.Formic_concentration.material_cost && food_amount >= TechTree.Formic_concentration.food_cost:
 				if Formic_Level < TechTree.Formic_concentration.max_level:
 					Formic_Level += 1
-					materials -=TechTree.Formic_concentration.material_cost
-					food_amount -=TechTree.Formic_concentration.food_cost
-					AntsStats.Worker_Ant["STR"] +=1
-					AntsStats.Soldier_Ant["STR"] +=1
+					materials -= TechTree.Formic_concentration.material_cost
+					food_amount -= TechTree.Formic_concentration.food_cost
+					AntsStats.Worker_Ant["STR"] += 1
+					AntsStats.Soldier_Ant["STR"] += 1
 				else:
 					$Hud/base_menu_ui/TechTree/ErrorMessage.text = "Technology Already at Maximum Level"
 			else:
@@ -258,16 +279,16 @@ func upgrade_Formic()->void:
 		update_tech()
 		update_hud()
 		
-func upgrade_Keratin()->void:
+func upgrade_Keratin() -> void:
 		print("Keratin")
 		if ants >= TechTree.Keratin_Reinforcement.unlock:
 			if materials >= TechTree.Keratin_Reinforcement.material_cost && food_amount >= TechTree.Keratin_Reinforcement.food_cost:
 				if Keratin_Level < TechTree.Keratin_Reinforcement.max_level:
 					Keratin_Level += 1
-					materials -=TechTree.Keratin_Reinforcement.material_cost
-					food_amount -=TechTree.Keratin_Reinforcement.food_cost
+					materials -= TechTree.Keratin_Reinforcement.material_cost
+					food_amount -= TechTree.Keratin_Reinforcement.food_cost
 					AntsStats.Worker_Ant["TGH"] += 1
-					AntsStats.Soldier_Ant["TGH"] +=1
+					AntsStats.Soldier_Ant["TGH"] += 1
 				else:
 					$Hud/base_menu_ui/TechTree/ErrorMessage.text = "Technology Already at Maximum Level"
 			else:
@@ -277,7 +298,7 @@ func upgrade_Keratin()->void:
 		update_tech()
 		update_hud()
 		
-func upgrade_Mandibles()->void:
+func upgrade_Mandibles() -> void:
 		print("Mandibles")
 		if ants >= TechTree.Crushing_Mandibles.unlock:
 			if materials >= TechTree.Crushing_Mandibles.material_cost && food_amount >= TechTree.Crushing_Mandibles.food_cost:
@@ -285,7 +306,7 @@ func upgrade_Mandibles()->void:
 					Mandible_Level += 1
 					materials -= TechTree.Crushing_Mandibles.material_cost
 					food_amount -= TechTree.Crushing_Mandibles.food_cost
-					AntsStats.Soldier_Ant["DMG"] +=1
+					AntsStats.Soldier_Ant["DMG"] += 1
 				else:
 					$Hud/base_menu_ui/TechTree/ErrorMessage.text = "Technology Already at Maximum Level"
 			else:

@@ -1,11 +1,29 @@
-[gd_scene load_steps=9 format=3 uid="uid://cuxuhr1jtvl4x"]
+[gd_scene load_steps=15 format=3 uid="uid://cuxuhr1jtvl4x"]
 
 [ext_resource type="Script" path="res://active_ant.gd" id="1_lx2n7"]
 [ext_resource type="Texture2D" uid="uid://bpjsk1tnxnch1" path="res://assets/ant march.png" id="2_2jb53"]
+[ext_resource type="Texture2D" uid="uid://d204e8y11iyb6" path="res://assets/ant carry.png" id="2_8mw5q"]
+[ext_resource type="FontFile" uid="uid://vtq2j2itl4j2" path="res://fonts/AntFont-Regular (1).ttf" id="3_r3dug"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_we5u1"]
 radius = 30.0
 height = 126.98
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcafc"]
+atlas = ExtResource("2_8mw5q")
+region = Rect2(166, 0, 192, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p64el"]
+atlas = ExtResource("2_8mw5q")
+region = Rect2(358, 0, 192, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2v5jf"]
+atlas = ExtResource("2_8mw5q")
+region = Rect2(550, 0, 192, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rl31r"]
+atlas = ExtResource("2_8mw5q")
+region = Rect2(742, 0, 192, 200)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dvj0o"]
 atlas = ExtResource("2_2jb53")
@@ -25,6 +43,23 @@ region = Rect2(734, 0, 200, 200)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p4ia7"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcafc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p64el")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2v5jf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rl31r")
+}],
+"loop": true,
+"name": &"carry",
+"speed": 7.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dvj0o")
@@ -55,4 +90,22 @@ shape = SubResource("CapsuleShape2D_we5u1")
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_p4ia7")
 autoplay = "default"
-frame_progress = 0.580858
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -128.5
+offset_right = 21.0
+offset_bottom = 8.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_r3dug")
+theme_override_font_sizes/font_size = 40
+text = "1
+b"
+horizontal_alignment = 1
