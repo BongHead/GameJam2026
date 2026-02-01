@@ -38,11 +38,13 @@ func _process(delta: float) -> void:
 		var g = await target.gather(number_of_warrior, number_of_worker)
 		food = g[0]
 		materials = g[1]
-
+		if food == 0 and materials == 0:
+			queue_free()
 		destination = Vector2.ZERO
 		$Label.text = "food: %d\nmaterials: %d" % [food, materials]
 	elif destination == Vector2.ZERO and not back_home:
 		back_home = true
+		
 		print("back home")
 	
 		

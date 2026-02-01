@@ -315,10 +315,9 @@ func upgrade_Mandibles() -> void:
 		update_tech()
 		update_hud()
 		
-func combat_calculation(number_of_worker:int, number_of_soldier:int,enemy_hp:int,enemy_atk:int,enemy_numb:int,
-enemy_tgh:int,enemy_str:int)->bool:
+func combat_calculation(number_of_worker:int, number_of_soldier:int,enemy_hp:int,enemy_atk:int,enemy_numb:int, enemy_tgh:int,enemy_str:int)->bool:
+		await get_tree().create_timer(2).timeout
 		while (number_of_soldier+number_of_soldier>0 && enemy_hp*enemy_numb>0):
-			print("loop")
 			var combat_effectiveness_w_e = combat_effectiveness_calculator(AntsStats.Worker_Ant.STR,enemy_tgh)
 			for x in range(number_of_worker):
 				var result = DiceRollService.rollOneD6()
@@ -341,7 +340,7 @@ enemy_tgh:int,enemy_str:int)->bool:
 							x += 1
 							if (result>=combat_effectiveness_e_s):
 								number_of_soldier -=1
-		return (number_of_soldier+number_of_worker)!=0
+		return (number_of_soldier+number_of_worker) != 0
 		
 func combat_effectiveness_calculator(my_str:int,enemy_tgh:int)->int:
 	
