@@ -4,7 +4,8 @@ const SPEED = 200
 var destination = Vector2(0, 0)
 var storage_capacity = 3
 var collected = 0
-var number_of_ants = 0
+var number_of_warrior = 0
+var number_of_worker = 0
 
 @onready var target_material = $"./Ressources/"
 
@@ -34,7 +35,7 @@ func _process(delta: float) -> void:
 			if not str(group).begins_with("_"):
 				print(group)
 				get_tree().call_group(group, "queue_free")
-		target.gather(number_of_ants)
+		target.gather(number_of_warrior, number_of_worker)
 	
 		
 func set_destination(new_destination):
@@ -44,9 +45,10 @@ func gather(gathered):
 	if collected < storage_capacity:
 		collected += gathered
 
-func set_num(num):
-	number_of_ants = num
-	$Label.text = str(num)
+func set_num(a, b):
+	number_of_warrior = a
+	number_of_worker = b
+	$Label.text = "warrior: %d\nworker: %d" % [a, b]
 	
 
 func attack():
