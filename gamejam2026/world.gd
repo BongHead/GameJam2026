@@ -174,7 +174,10 @@ func _unhandled_input(event: InputEvent) -> void:
 func update_hud():
 	ants = worker_ants + soldier_ants
 	$Hud/HBoxContainer/VBoxContainer/Ants.text = "Worker ants: %d" % worker_ants
-	$Hud/HBoxContainer/VBoxContainer/Ants2.text = "+%d every %d seconds" % [worker_generation, ANT_INTERVAL]
+	if Hatcheries_Level == 3:
+		$Hud/HBoxContainer/VBoxContainer/Ants2.text = "+5%% and %d every %d seconds" % [worker_generation, ANT_INTERVAL]
+	else:
+		$Hud/HBoxContainer/VBoxContainer/Ants2.text = "+%d every %d seconds" % [worker_generation, ANT_INTERVAL]
 	$Hud/HBoxContainer/VBoxContainer3/Ants.text = "Soldier ants: %d" % soldier_ants
 	$Hud/HBoxContainer/VBoxContainer3/Ants2.text = "+%d every %d seconds" % [soldier_generation, ANT_INTERVAL]
 	$Hud/HBoxContainer/VBoxContainer2/Food.text = "Food: %d" % food_amount
@@ -327,13 +330,13 @@ func upgrade_Mandibles() -> void:
 		
 func combat_calculation(number_of_worker: int, number_of_soldier: int, enemy_hp: int, enemy_atk: int, enemy_numb: int, enemy_tgh: int, enemy_str: int) -> bool:
 		await get_tree().create_timer(2).timeout
-		while (number_of_worker+number_of_soldier>0 && enemy_hp*enemy_numb>0):
-			var combat_effectiveness_w_e = combat_effectiveness_calculator(AntsStats.Worker_Ant.STR,enemy_tgh)
+		while (number_of_worker + number_of_soldier > 0 && enemy_hp * enemy_numb > 0):
+			var combat_effectiveness_w_e = combat_effectiveness_calculator(AntsStats.Worker_Ant.STR, enemy_tgh)
 			for x in range(number_of_worker):
 				var result = DiceRollService.rollOneD6()
 				if (result >= combat_effectiveness_w_e):
 					enemy_hp -= AntsStats.Worker_Ant.DMG
-			print ("worker done")
+			print("worker done")
 			var combat_effectiveness_s_e = combat_effectiveness_calculator(AntsStats.Soldier_Ant.STR, enemy_tgh)
 			for x in range(number_of_soldier):
 				var result = DiceRollService.rollOneD6()
@@ -366,5 +369,5 @@ func combat_effectiveness_calculator(my_str: int, enemy_tgh: int) -> int:
 		return 6
 	elif (my_str < enemy_tgh):
 		return 5
-	else: 
+	else:
 		return 0
