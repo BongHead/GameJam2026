@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://world.gd" id="1_t0vh2"]
 [ext_resource type="FontFile" uid="uid://l54s50lamel2" path="res://fonts/AntFont-Regular (1).ttf" id="3_ufpr5"]
 [ext_resource type="Script" path="res://anthill.gd" id="4_0gpe0"]
-[ext_resource type="PackedScene" uid="uid://n4oayt84ordk" path="res://Ant.tscn" id="4_fc4m6"]
+[ext_resource type="Theme" uid="uid://c2yiyxsh5ytct" path="res://new_theme.tres" id="4_1jx7j"]
 [ext_resource type="PackedScene" uid="uid://iausah6ji1mt" path="res://Tilemap.tscn" id="6_cx25r"]
 [ext_resource type="Texture2D" uid="uid://de2516wen4g5o" path="res://assets/waterriver3.png" id="8_0q87a"]
 [ext_resource type="Texture2D" uid="uid://drw7qi7fommae" path="res://assets/anthill_better.png" id="8_13ok7"]
@@ -100,7 +100,68 @@ theme_override_fonts/font = ExtResource("3_ufpr5")
 theme_override_font_sizes/font_size = 60
 text = "Back to colony"
 
-[node name="Ant" parent="." instance=ExtResource("4_fc4m6")]
+[node name="HBoxContainer" type="HBoxContainer" parent="Hud"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -463.5
+offset_top = -104.0
+offset_right = 463.5
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 60
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Hud/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Ants" type="Label" parent="Hud/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_1jx7j")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ufpr5")
+theme_override_font_sizes/font_size = 60
+text = "Food: 20"
+
+[node name="Ants2" type="Label" parent="Hud/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_1jx7j")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ufpr5")
+theme_override_font_sizes/font_size = 40
+text = "+1"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Hud/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Food" type="Label" parent="Hud/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("4_1jx7j")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ufpr5")
+theme_override_font_sizes/font_size = 60
+text = "Food: 20"
+
+[node name="Food2" type="Label" parent="Hud/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("4_1jx7j")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ufpr5")
+theme_override_font_sizes/font_size = 40
+text = "-1"
+
+[node name="Materials" type="Label" parent="Hud/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("4_1jx7j")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ufpr5")
+theme_override_font_sizes/font_size = 60
+text = "Food: 20"
 
 [node name="Tilemap" parent="." instance=ExtResource("6_cx25r")]
 z_index = -1
