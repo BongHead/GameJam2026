@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ck6haarhfovs3"]
+[gd_scene load_steps=7 format=3 uid="uid://ck6haarhfovs3"]
 
 [ext_resource type="Script" path="res://Ressources/leaf.gd" id="1_uku3g"]
 [ext_resource type="Texture2D" uid="uid://c7y6eyccumdh7" path="res://Placeholders/fresh-green-mint-leaf-with-detailed-textures-and-veins-image-isolated-transparent-peppermint-herb-foliage-cut-out-culinary-herbal-theme-cutout-element-object-photography-png.png" id="1_vyk4j"]
@@ -6,6 +6,9 @@
 [ext_resource type="FontFile" uid="uid://l54s50lamel2" path="res://fonts/AntFont-Regular (1).ttf" id="4_q0tyj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vv4tg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8e3ur"]
+bg_color = Color(0.9, 0.9, 0.9, 1)
 
 [node name="Leaf" type="Area2D"]
 scale = Vector2(10, 10)
@@ -18,43 +21,64 @@ shape = SubResource("CircleShape2D_vv4tg")
 scale = Vector2(0.055, 0.055)
 texture = ExtResource("1_vyk4j")
 
-[node name="PopupMenu" type="PopupMenu" parent="."]
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -12.0
+offset_top = -12.0
+offset_right = -4.0
+offset_bottom = -4.0
+scale = Vector2(3, 3)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Background" type="PanelContainer" parent="."]
 visible = false
-offset_right = 202.0
-offset_bottom = 40.0
+z_index = 1
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 193.0
+offset_bottom = 151.0
+scale = Vector2(0.3, 0.3)
+theme_override_styles/panel = SubResource("StyleBoxFlat_8e3ur")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background"]
+layout_mode = 2
 script = ExtResource("3_uo7lf")
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label_worker" type="Label" parent="Background/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_q0tyj")
-text = "How many ants to send"
+text = "Worker ants to send"
 
-[node name="HSlider" type="HSlider" parent="VBoxContainer"]
+[node name="HSlider_worker" type="HSlider" parent="Background/VBoxContainer"]
 layout_mode = 2
 
-[node name="slider_label" type="Label" parent="VBoxContainer"]
+[node name="slider_label_worker" type="Label" parent="Background/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_q0tyj")
+horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="."]
-z_index = 2
-z_as_relative = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 30.0
-offset_bottom = 16.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2, 2)
+[node name="Label_warrior" type="Label" parent="Background/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_q0tyj")
+text = "Warrior ants to send"
 
-[connection signal="value_changed" from="VBoxContainer/HSlider" to="VBoxContainer" method="_on_h_slider_value_changed"]
+[node name="HSlider_warrior" type="HSlider" parent="Background/VBoxContainer"]
+layout_mode = 2
+
+[node name="slider_label_warrior" type="Label" parent="Background/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_q0tyj")
+horizontal_alignment = 1
+
+[node name="Gather" type="Button" parent="Background/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_q0tyj")
+text = "SEND"
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button" to="Background/VBoxContainer" method="_on_button_pressed"]
+[connection signal="value_changed" from="Background/VBoxContainer/HSlider_worker" to="Background/VBoxContainer" method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="Background/VBoxContainer/HSlider_warrior" to="Background/VBoxContainer" method="_on_h_slider_value_changed"]
