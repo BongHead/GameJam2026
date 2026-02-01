@@ -15,9 +15,9 @@ enum MaterialGatherTime {
 }
 enum MaterialCount {
 	#LEAF
-	LOW = 5,
+	LOW = 100,
 	#STICK
-	MEDIUM = 10,
+	MEDIUM = 250,
 	#WATER
-	HIGH = 15
+	HIGH = 500
 }
