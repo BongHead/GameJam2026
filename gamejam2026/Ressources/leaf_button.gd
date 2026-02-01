@@ -21,6 +21,8 @@ func _on_gather_pressed() -> void:
 	var location = position
 	
 	get_parent().send_ants(num, location)
+	_pcon.visible = not _pcon.visible
+	
 	
 	
 		
