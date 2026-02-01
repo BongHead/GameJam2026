@@ -2,8 +2,7 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://l54s50lamel2"
-uid="uid://iig0pua3re0p"
+uid="uid://vtq2j2itl4j2"
 path="res://.godot/imported/AntFont-Regular (1).ttf-a587cf6e738dcedd4941887890b47eb2.fontdata"
 
 [deps]
@@ -14,7 +13,6 @@ dest_files=["res://.godot/imported/AntFont-Regular (1).ttf-a587cf6e738dcedd49418
 [params]
 
 Rendering=null
-antialiasing=0
 antialiasing=1
 generate_mipmaps=false
 disable_embedded_bitmaps=true
@@ -27,17 +25,9 @@ hinting=1
 subpixel_positioning=1
 oversampling=0.0
 Fallbacks=null
-fallbacks=[Resource("res://fonts/PixelifySans-Regular.ttf")]
 fallbacks=[]
 Compress=null
 compress=true
-preload=[{
-"chars": [],
-"glyphs": [],
-"name": "New Configuration",
-"size": Vector2i(16, 0),
-"variation_embolden": 0.0
-}]
 preload=[]
 language_support={}
 script_support={}
