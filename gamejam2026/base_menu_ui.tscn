@@ -269,7 +269,6 @@ offset_right = 1003.0
 offset_bottom = 767.0
 theme_override_fonts/font = ExtResource("1_6afh4")
 theme_override_font_sizes/font_size = 35
-text = "Insufficient Colony Size!"
 
 [node name="ErrorMessageResources" type="Label" parent="TechTree"]
 layout_mode = 0
@@ -279,4 +278,12 @@ offset_right = 1004.0
 offset_bottom = 758.0
 theme_override_fonts/font = ExtResource("1_6afh4")
 theme_override_font_sizes/font_size = 35
-text = "Insufficient Food/Materials!"
+
+[node name="ErrorMessageMaxLevel" type="Label" parent="TechTree"]
+layout_mode = 0
+offset_left = 402.0
+offset_top = 686.0
+offset_right = 1004.0
+offset_bottom = 758.0
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 35

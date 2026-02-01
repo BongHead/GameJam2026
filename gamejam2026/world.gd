@@ -110,7 +110,7 @@ func new_game():
 	materials = 0
 	next_food = FOOD_INTERVAL
 	update_hud()
-	##update_tech()
+	update_tech()
 
 func _process(delta: float) -> void:
 	var not_generate_resources = is_resources_enough()
@@ -150,15 +150,34 @@ func update_hud():
 	$Hud/HBoxContainer/VBoxContainer2/Food2.text = "-%d every %d seconds" % [ants, FOOD_INTERVAL]
 	$Hud/HBoxContainer/Materials.text = "Materials: %d" % materials
 	
-"""func update_tech():
+func update_tech():
 	$Hud/base_menu_ui/TechTree/HatchLevel.text = "%d/%d" % [Hatcheries_Level, TechTree.Hatcheries.max_level]
 	$Hud/base_menu_ui/TechTree/FarmsLevel.text = "%d/%d" % [Farms_Level, TechTree.Farms.max_level]
 	$Hud/base_menu_ui/TechTree/SoldierLevel.text = "%d/%d" % [Soldier_Hatch_Level, TechTree.Soldier_Hatcheries.max_level]
 	$Hud/base_menu_ui/TechTree/FormicLevel.text = "%d/%d" % [Formic_Level, TechTree.Formic_concentration.max_level]
 	$Hud/base_menu_ui/TechTree/KeratinLevel.text = "%d/%d" % [Keratin_Level, TechTree.Keratin_Reinforcement.max_level]
-	$Hud/base_menu_ui/TechTree/MandiblesLevel.text = "%d/%d" % [Mandible_Level, TechTree.Crushing_Mandibles.max_level]
-	"""
+	$Hud/base_menu_ui/TechTree/MandibleLevel.text = "%d/%d" % [Mandible_Level, TechTree.Crushing_Mandibles.max_level]
+	
 func send_ants(num: int, location: Vector2) -> void:
 	var instance = active_ant.instantiate()
 	add_child(instance)
 	instance.set_destination(location)
+
+func upgrade_hatchery(event: InputEventMouseButton)->void:
+	if event.is_action_pressed("Hatcheries"):
+		print("hit")
+		if ants >= TechTree.Hatcheries.unlock:
+			if materials >= TechTree.Hatcheries.material_cost && food_amount >= TechTree.Hatcheries.food_cost:
+				if Hatcheries_Level < TechTree.Hatcheries.max_level:
+					Hatcheries_Level += 1
+					match Hatcheries_Level:
+						1: worker_generation = round(worker_generation*2)
+						2: worker_generation = round(worker_generation*1.75)
+						3: worker_generation = round(worker_generation*1.5)
+				else:
+					$Hud/base_menu_ui/TechTree/ErrorMessageMaxLevel.text = "Technology Already at Maximum Level"
+			else:
+				$Hud/base_menu_ui/TechTree/ErrorMessageResources.text = "Insufficient Food/Materials!"
+		else:
+			$Hud/base_menu_ui/TechTree/ErrorMessageAnts.text = "Insufficient Colony Size!"
+		update_tech()
