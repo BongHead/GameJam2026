@@ -2,7 +2,7 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://b8ha28010iwbh"
+uid="uid://vtq2j2itl4j2"
 path="res://.godot/imported/AntFont-Regular (1).ttf-a587cf6e738dcedd4941887890b47eb2.fontdata"
 
 [deps]
@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/AntFont-Regular (1).ttf-a587cf6e738dcedd49418
 [params]
 
 Rendering=null
-antialiasing=1
+antialiasing=0
 generate_mipmaps=false
 disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
@@ -28,7 +28,12 @@ Fallbacks=null
 fallbacks=[]
 Compress=null
 compress=true
-preload=[]
+preload=[{
+"chars": [],
+"glyphs": [],
+"name": "New Configuration",
+"size": Vector2i(16, 0)
+}]
 language_support={}
 script_support={}
 opentype_features={}
