@@ -41,11 +41,13 @@ func gather(num_warrior, num_worker):
 		
 	
 	await get_tree().create_timer(time).timeout
-	
+	var completed = material_count
 	material_count -= total_taken
 	
 	if material_count <= 0:
+		
 		queue_free()
+		return [0, completed] 
 	
 	return [0, total_taken] # food, materials
 

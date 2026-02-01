@@ -5,6 +5,7 @@ extends Area2D
 @onready var enemy_atk = EnemyStats.ATK.LOW
 @onready var enemy_dmg = EnemyStats.DMG.LOW
 @onready var enemy_tgh = EnemyStats.TGH.HIGH
+@onready var material_count = MATERIAL_CONSTANT.MaterialCount.HIGH
 
 
 # Called when the node enters the scene tree for the first time.
@@ -31,3 +32,4 @@ func _on_gather_pressed() -> void:
 	
 	get_parent().send_ants(num_warriors, num_workers, location, self )
 	_pcon.visible = not _pcon.visible
+	

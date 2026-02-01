@@ -5,7 +5,7 @@ extends Area2D
 @onready var enemy_atk = EnemyStats.ATK.HIGH
 @onready var enemy_def = EnemyStats.DMG.MEDIUM
 @onready var enemy_tgh = EnemyStats.TGH.LOW
-
+@onready var material_count = MATERIAL_CONSTANT.MaterialCount.HIGH
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
