@@ -240,7 +240,7 @@ func upgrade_farms() -> void:
 						2: upkeep_modifier = 0.9
 						3: upkeep_modifier = 0.85
 				else:
-					$Hud/base_menu_ui/TechTree/ErrorMessageMax.text = "Technology Already at Maximum Level"
+					$Hud/base_menu_ui/TechTree/ErrorMessage.text = "Technology Already at Maximum Level"
 			else:
 				$Hud/base_menu_ui/TechTree/ErrorMessage.text = "Insufficient Food/Materials!"
 		else:
