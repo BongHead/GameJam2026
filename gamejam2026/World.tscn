@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://mp1rj5olqocm" path="res://assets/text ui border.png" id="3_mnkc4"]
 [ext_resource type="FontFile" uid="uid://l54s50lamel2" path="res://fonts/AntFont-Regular (1).ttf" id="3_ufpr5"]
 [ext_resource type="Script" path="res://anthill.gd" id="4_0gpe0"]
-[ext_resource type="Theme" path="res://new_theme.tres" id="4_1jx7j"]
+[ext_resource type="Theme" uid="uid://c2yiyxsh5ytct" path="res://new_theme.tres" id="4_1jx7j"]
 [ext_resource type="PackedScene" uid="uid://iausah6ji1mt" path="res://Tilemap.tscn" id="6_cx25r"]
 [ext_resource type="Texture2D" uid="uid://b8jja88i5ql7r" path="res://assets/waterriver3.png" id="8_0q87a"]
 [ext_resource type="Texture2D" uid="uid://drw7qi7fommae" path="res://assets/anthill_better.png" id="8_13ok7"]
@@ -100,11 +100,12 @@ script = ExtResource("1_o0ekc")
 [node name="Hud" type="CanvasLayer" parent="."]
 
 [node name="TextureRect" type="TextureRect" parent="Hud"]
-offset_left = 217.0
-offset_top = 659.0
-offset_right = 2708.0
-offset_bottom = 2873.0
+offset_left = 216.0
+offset_top = 656.0
+offset_right = 2707.0
+offset_bottom = 2870.0
 scale = Vector2(0.913328, 1.28101)
+mouse_filter = 2
 texture = ExtResource("3_mnkc4")
 
 [node name="TextureRect2" type="TextureRect" parent="Hud"]
@@ -114,6 +115,7 @@ offset_right = 3316.0
 offset_bottom = 2901.0
 rotation = 3.16201
 scale = Vector2(1.04223, 1.26196)
+mouse_filter = 2
 texture = ExtResource("3_mnkc4")
 
 [node name="Back to colony" type="Button" parent="Hud"]
@@ -215,7 +217,7 @@ autoplay = "default"
 frame_progress = 0.156271
 
 [node name="Anthillbox" type="CollisionShape2D" parent="Anthill"]
-position = Vector2(-57, -13)
+position = Vector2(-56, -16)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_0d8h1")
 
