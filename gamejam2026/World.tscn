@@ -1,17 +1,18 @@
-[gd_scene load_steps=26 format=4 uid="uid://bxuitaado5ppd"]
+[gd_scene load_steps=27 format=4 uid="uid://bxuitaado5ppd"]
 
 [ext_resource type="Script" path="res://camera_2d.gd" id="1_o0ekc"]
 [ext_resource type="Script" path="res://world.gd" id="1_t0vh2"]
 [ext_resource type="Texture2D" uid="uid://mp1rj5olqocm" path="res://assets/text ui border.png" id="3_mnkc4"]
 [ext_resource type="FontFile" uid="uid://vtq2j2itl4j2" path="res://fonts/AntFont-Regular (1).ttf" id="3_ufpr5"]
 [ext_resource type="Script" path="res://anthill.gd" id="4_0gpe0"]
-[ext_resource type="Theme" path="res://new_theme.tres" id="4_1jx7j"]
+[ext_resource type="Theme" uid="uid://c2yiyxsh5ytct" path="res://new_theme.tres" id="4_1jx7j"]
 [ext_resource type="AudioStream" uid="uid://cym852ris2ric" path="res://music_n_sounds/back_to_col.mp3" id="4_t8wgy"]
 [ext_resource type="PackedScene" uid="uid://iausah6ji1mt" path="res://Tilemap.tscn" id="6_cx25r"]
 [ext_resource type="Texture2D" uid="uid://b8jja88i5ql7r" path="res://assets/waterriver3.png" id="8_0q87a"]
 [ext_resource type="Texture2D" uid="uid://drw7qi7fommae" path="res://assets/anthill_better.png" id="8_13ok7"]
 [ext_resource type="AudioStream" uid="uid://hhqwfy8ws5kd" path="res://music_n_sounds/GameJam2026BGM.wav" id="10_80100"]
 [ext_resource type="PackedScene" uid="uid://bpt286u1dvbw1" path="res://base_menu_ui.tscn" id="11_u3l0b"]
+[ext_resource type="AudioStream" uid="uid://cc2bo5taeit3f" path="res://music_n_sounds/ws-eating_SMINPPez.mp3" id="13_vsv3q"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a7u50"]
 
@@ -246,6 +247,10 @@ scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_e8bu3")
 autoplay = "default"
 frame_progress = 0.911204
+
+[node name="backhomesound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_vsv3q")
+volume_db = 12.0
 
 [connection signal="pressed" from="Hud/Back to colony" to="Camera2D" method="_on_back_to_colony_pressed"]
 [connection signal="input_event" from="Anthill" to="Anthill" method="_on_input_event"]
