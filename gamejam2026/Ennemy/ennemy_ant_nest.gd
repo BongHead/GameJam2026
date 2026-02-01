@@ -30,3 +30,4 @@ func _on_gather_pressed() -> void:
 	var num = $Background/VBoxContainer/HSlider_worker.value
 	var location = position
 	get_parent().send_ants(num, location)
+	_pcon.visible = false
