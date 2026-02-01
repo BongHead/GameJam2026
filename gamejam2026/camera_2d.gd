@@ -13,14 +13,14 @@ func _process(delta: float) -> void:
 		var screen_rect = viewport.get_visible_rect()
 		var direction = Vector2(0, 0)
 	
-		if mouse_pos.x < edge_margin:
+		if mouse_pos.x < edge_margin and not _is_pressed:
 			direction.x = -1
-		elif mouse_pos.x > screen_rect.size.x - edge_margin:
+		elif mouse_pos.x > screen_rect.size.x - edge_margin and not _is_pressed:
 			direction.x = 1
 		
-		if mouse_pos.y < edge_margin:
+		if mouse_pos.y < edge_margin and not _is_pressed:
 			direction.y = -1
-		elif mouse_pos.y > screen_rect.size.y - edge_margin:
+		elif mouse_pos.y > screen_rect.size.y - edge_margin and not _is_pressed:
 			direction.y = 1
 	
 		direction += Input.get_vector("left", "right", "up", "down")
