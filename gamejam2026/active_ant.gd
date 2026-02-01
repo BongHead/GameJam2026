@@ -31,10 +31,6 @@ func _process(delta: float) -> void:
 			$AnimatedSprite2D.flip_h = false
 		position += position.direction_to(destination) * distance_to_move
 	else:
-		for group in get_groups():
-			if not str(group).begins_with("_"):
-				print(group)
-				get_tree().call_group(group, "queue_free")
 		target.gather(number_of_warrior, number_of_worker)
 	
 		
@@ -48,7 +44,7 @@ func gather(gathered):
 func set_num(a, b):
 	number_of_warrior = a
 	number_of_worker = b
-	$Label.text = "warrior: %d\nworker: %d" % [a, b]
+	$Label.text = "soldier: %d\nworker: %d" % [a, b]
 	
 
 func attack():

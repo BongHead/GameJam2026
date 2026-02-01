@@ -143,7 +143,11 @@ func _process(delta: float) -> void:
 		next_ant += ANT_INTERVAL
 		if Hatcheries_Level == 3:
 			worker_ants = round(1.05 * worker_ants) + worker_generation
-		ants += total_generation
+		else:
+			worker_ants += worker_generation
+		if Soldier_Hatch_Level != 0:
+			soldier_ants += soldier_generation
+		ants = soldier_ants + worker_ants
 		max_ants = max(ants, max_ants)
 		max_workers = max(worker_ants, max_workers)
 		max_soldiers = max(soldier_ants, max_soldiers)
