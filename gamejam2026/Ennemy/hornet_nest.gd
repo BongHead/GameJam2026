@@ -5,6 +5,7 @@ extends Area2D
 @onready var enemy_atk =EnemyStats.ATK.HIGH
 @onready var enemy_def =EnemyStats.DMG.MEDIUM
 @onready var enemy_tgh =EnemyStats.TGH.LOW
+@onready var enemy_numb =5
 
 
 # Called when the node enters the scene tree for the first time.

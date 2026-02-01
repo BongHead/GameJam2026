@@ -14,6 +14,3 @@ var Soldier_Ant = {
 	DMG = 4,
 	CRY = 5
 }
-enum LLL{
-	a=3
-}

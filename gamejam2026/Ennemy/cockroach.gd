@@ -5,7 +5,8 @@ extends Area2D
 @onready var enemy_atk =EnemyStats.ATK.LOW
 @onready var enemy_dmg =EnemyStats.DMG.LOW
 @onready var enemy_tgh =EnemyStats.TGH.HIGH
-
+@onready var enemy_str = EnemyStats.STR.LOW
+@onready var enemy_numb = 1 
 
 
 
@@ -30,4 +31,12 @@ func _on_gather_pressed() -> void:
 	var num = $Background/VBoxContainer/HSlider_worker.value
 	var location = position
 	get_parent().send_ants(num, location)
+	await get_tree().create_timer(5).timeout
+	if get_parent().combat_calculation(num, num, enemy_hp, enemy_atk, enemy_numb, enemy_tgh, enemy_str):
+		print("won combat")
+		
+		queue_free()
+	else: 
+		print("lost combat")
+	
 	_pcon.visible = false
