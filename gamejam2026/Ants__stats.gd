@@ -1,4 +1,4 @@
-extends Node
+AntStats extends Node
 var Worker_Ant = {
 	HP = 1,
 	TGH = 2,
