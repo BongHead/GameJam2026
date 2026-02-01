@@ -1,7 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://der1dcajhwmht"]
+[gd_scene load_steps=17 format=3 uid="uid://der1dcajhwmht"]
 
 [ext_resource type="Script" path="res://Food/fruit.gd" id="1_ww5hf"]
 [ext_resource type="Texture2D" uid="uid://dfsppfqvaaswo" path="res://assets/strawberry fruit.png" id="2_7yhn1"]
+[ext_resource type="Script" path="res://Ressources/leaf_sliders.gd" id="3_8gjar"]
+[ext_resource type="FontFile" uid="uid://l54s50lamel2" path="res://fonts/AntFont-Regular (1).ttf" id="4_8sbc5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_htc2r"]
 radius = 69.6
@@ -77,14 +79,80 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cs7pp"]
+bg_color = Color(0.9, 0.9, 0.9, 1)
+
 [node name="Fruit" type="Area2D"]
+scale = Vector2(10, 10)
 script = ExtResource("1_ww5hf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.1, 0.1)
 shape = SubResource("CircleShape2D_htc2r")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1, -5)
+scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_7qe3h")
 autoplay = "default"
 frame_progress = 0.258138
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -12.0
+offset_top = -12.0
+offset_right = -4.0
+offset_bottom = -4.0
+scale = Vector2(3, 3)
+
+[node name="Background" type="PanelContainer" parent="."]
+visible = false
+z_index = 1
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 193.0
+offset_bottom = 151.0
+scale = Vector2(0.3, 0.3)
+theme_override_styles/panel = SubResource("StyleBoxFlat_cs7pp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background"]
+layout_mode = 2
+script = ExtResource("3_8gjar")
+
+[node name="Label_worker" type="Label" parent="Background/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_8sbc5")
+text = "Worker ants to send"
+
+[node name="HSlider_worker" type="HSlider" parent="Background/VBoxContainer"]
+layout_mode = 2
+
+[node name="slider_label_worker" type="Label" parent="Background/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_8sbc5")
+horizontal_alignment = 1
+
+[node name="Label_warrior" type="Label" parent="Background/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_8sbc5")
+text = "Warrior ants to send"
+
+[node name="HSlider_warrior" type="HSlider" parent="Background/VBoxContainer"]
+layout_mode = 2
+
+[node name="slider_label_warrior" type="Label" parent="Background/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_8sbc5")
+horizontal_alignment = 1
+
+[node name="Gather" type="Button" parent="Background/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_8sbc5")
+text = "SEND"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="value_changed" from="Background/VBoxContainer/HSlider_worker" to="Background/VBoxContainer" method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="Background/VBoxContainer/HSlider_warrior" to="Background/VBoxContainer" method="_on_h_slider_value_changed"]

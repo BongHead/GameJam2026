@@ -1,5 +1,6 @@
 extends Area2D
 
+@onready var _pcon = $Background
 @onready var food_restore_value = FoodConstants.FoodRestoreValue.MEDIUM
 @onready var food_gather_time = FoodConstants.FoodGatherTime.MEDIUM
 @onready var food_spawn_number_on_start_up = FoodConstants.FoodSpawnRate.LOW
@@ -16,3 +17,6 @@ func _get_start_up_number()-> int:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func _on_button_pressed() -> void:
+	_pcon.visible = not _pcon.visible

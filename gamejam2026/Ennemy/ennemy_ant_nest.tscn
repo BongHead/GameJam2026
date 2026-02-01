@@ -1,16 +1,104 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccd8u01kabonh"]
+[gd_scene load_steps=10 format=3 uid="uid://bpl2tscl8j2gm"]
 
-[ext_resource type="Texture2D" uid="uid://csu5wflhlxllm" path="res://Placeholders/pngtree-wasp-nest-vespiary-png-image_10616799.png" id="1_324lt"]
 [ext_resource type="Script" path="res://Ennemy/ennemy_ant_nest.gd" id="1_dgdc1"]
+[ext_resource type="Texture2D" uid="uid://drw7qi7fommae" path="res://assets/anthill_better.png" id="2_vgstj"]
+[ext_resource type="Script" path="res://Ressources/leaf_sliders.gd" id="3_3f45g"]
+[ext_resource type="FontFile" uid="uid://l54s50lamel2" path="res://fonts/AntFont-Regular (1).ttf" id="4_7tuue"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gbmt3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wai6"]
+atlas = ExtResource("2_vgstj")
+region = Rect2(0, 0, 1289, 993)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjs11"]
+atlas = ExtResource("2_vgstj")
+region = Rect2(1289, 0, 1289, 993)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_esgd5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5wai6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjs11")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wrj7h"]
+bg_color = Color(0.9, 0.9, 0.9, 1)
 
 [node name="EnnemyAntNest" type="Area2D"]
 script = ExtResource("1_dgdc1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(50, 50)
 shape = SubResource("CircleShape2D_gbmt3")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.075, 0.075)
-texture = ExtResource("1_324lt")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_esgd5")
+autoplay = "default"
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -200.0
+offset_top = -200.0
+offset_right = -192.0
+offset_bottom = -192.0
+scale = Vector2(50, 50)
+
+[node name="Background" type="PanelContainer" parent="."]
+z_index = 1
+offset_left = 200.0
+offset_top = 200.0
+offset_right = 391.0
+offset_bottom = 349.0
+scale = Vector2(3, 3)
+theme_override_styles/panel = SubResource("StyleBoxFlat_wrj7h")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background"]
+layout_mode = 2
+script = ExtResource("3_3f45g")
+
+[node name="Label_worker" type="Label" parent="Background/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_7tuue")
+text = "Worker ants to send"
+
+[node name="HSlider_worker" type="HSlider" parent="Background/VBoxContainer"]
+layout_mode = 2
+
+[node name="slider_label_worker" type="Label" parent="Background/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_7tuue")
+horizontal_alignment = 1
+
+[node name="Label_warrior" type="Label" parent="Background/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_7tuue")
+text = "Warrior ants to send"
+
+[node name="HSlider_warrior" type="HSlider" parent="Background/VBoxContainer"]
+layout_mode = 2
+
+[node name="slider_label_warrior" type="Label" parent="Background/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_7tuue")
+horizontal_alignment = 1
+
+[node name="Gather" type="Button" parent="Background/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_7tuue")
+text = "SEND"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="value_changed" from="Background/VBoxContainer/HSlider_worker" to="Background/VBoxContainer" method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="Background/VBoxContainer/HSlider_warrior" to="Background/VBoxContainer" method="_on_h_slider_value_changed"]
