@@ -1,10 +1,13 @@
 extends Area2D
 
 @onready var _pcon = $Background
-@onready var enemy_hp = EnemyStats.HP.HIGH
-@onready var enemy_atk = EnemyStats.ATK.LOW
-@onready var enemy_dmg = EnemyStats.DMG.LOW
-@onready var enemy_tgh = EnemyStats.TGH.HIGH
+@onready var enemy_hp=EnemyStats.HP.HIGH
+@onready var enemy_atk =EnemyStats.ATK.LOW
+@onready var enemy_dmg =EnemyStats.DMG.LOW
+@onready var enemy_tgh =EnemyStats.TGH.HIGH
+@onready var enemy_str = EnemyStats.STR.LOW
+@onready var enemy_numb = 1 
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -23,11 +26,23 @@ func _on_button_pressed() -> void:
 	
 	$Background/VBoxContainer/HSlider_worker.max_value = _antcount
 	$Background/VBoxContainer/HSlider_warrior.max_value = 0
+	get_parent().send_ants(num_warriors, num_workers, location, self )
+	_pcon.visible = not _pcon.visible
+
 
 func _on_gather_pressed() -> void:
 	var num_workers = $Background/VBoxContainer/HSlider_worker.value
 	var num_warriors = $Background/VBoxContainer/HSlider_warrior.value
 	var location = position
+	get_parent().send_ants(num, location)
+	await get_tree().create_timer(5).timeout
+	if get_parent().combat_calculation(num, num, enemy_hp, enemy_atk, enemy_numb, enemy_tgh, enemy_str):
+		print("won combat")
+		
+		queue_free()
+	else: 
+		print("lost combat")
 	
-	get_parent().send_ants(num_warriors, num_workers, location, self )
-	_pcon.visible = not _pcon.visible
+	_pcon.visible = false
+	
+	
