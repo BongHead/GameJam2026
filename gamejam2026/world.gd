@@ -106,8 +106,8 @@ func new_game():
 	ants = worker_ants + soldier_ants
 	max_ants = ants
 	next_ant = ANT_INTERVAL
-	food_amount = 200
-	materials = 200
+	food_amount = 2000
+	materials = 2000
 	next_food = FOOD_INTERVAL
 	AntsStats.Worker_Ant["STR"] = 2
 	AntsStats.Soldier_Ant["STR"] = 5
