@@ -3,7 +3,7 @@ extends Area2D
 @onready var _pcon = $Background
 @onready var enemy_hp=EnemyStats.HP.LOW
 @onready var enemy_atk =EnemyStats.ATK.HIGH
-@onready var enemy_def =EnemyStats.DEF.MEDIUM
+@onready var enemy_def =EnemyStats.DMG.MEDIUM
 @onready var enemy_tgh =EnemyStats.TGH.LOW
 
 

@@ -1,14 +1,14 @@
 [gd_scene load_steps=10 format=3 uid="uid://cyxee3im7uisg"]
 
-[ext_resource type="PackedScene" uid="uid://cmiwnhvhdh2xp" path="res://Ennemy/butterfly.tscn" id="1_yeudx"]
+[ext_resource type="PackedScene" path="res://Ennemy/butterfly.tscn" id="1_yeudx"]
 [ext_resource type="PackedScene" uid="uid://n6cmyl33vkgt" path="res://Ennemy/cockroach.tscn" id="2_1pahf"]
 [ext_resource type="PackedScene" uid="uid://ce2t4l3vm53ot" path="res://Ennemy/hornet_nest.tscn" id="3_c7dgu"]
 [ext_resource type="PackedScene" uid="uid://der1dcajhwmht" path="res://Food/fruit.tscn" id="4_2dfyy"]
-[ext_resource type="PackedScene" uid="uid://brc0j8g0p4dry" path="res://Food/insect.tscn" id="5_uw20n"]
+[ext_resource type="PackedScene" path="res://Food/insect.tscn" id="5_uw20n"]
 [ext_resource type="PackedScene" uid="uid://cw2siiegg6lsf" path="res://Food/worm_eggs.tscn" id="6_qt0is"]
 [ext_resource type="PackedScene" uid="uid://ck6haarhfovs3" path="res://Ressources/leaf.tscn" id="7_kplog"]
 [ext_resource type="PackedScene" uid="uid://15yqq38ha4os" path="res://Ressources/sticks.tscn" id="8_pgfwj"]
-[ext_resource type="PackedScene" uid="uid://bii4iokcleyjp" path="res://Ressources/water.tscn" id="9_7ocoj"]
+[ext_resource type="PackedScene" uid="uid://dn1m8vj73as7r" path="res://Ressources/water.tscn" id="9_7ocoj"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -38,7 +38,6 @@ scale = Vector2(10, 10)
 
 [node name="Leaf" parent="." instance=ExtResource("7_kplog")]
 position = Vector2(-575, 297)
-scale = Vector2(10, 10)
 
 [node name="Sticks" parent="." instance=ExtResource("8_pgfwj")]
 position = Vector2(-145, 599)
