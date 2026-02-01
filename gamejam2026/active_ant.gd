@@ -1,6 +1,6 @@
 extends Area2D
 
-const SPEED = 200
+const SPEED = 400
 var destination = Vector2(0, 0)
 var storage_capacity = 3
 var food = 0

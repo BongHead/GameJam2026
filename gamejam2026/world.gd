@@ -371,3 +371,11 @@ func combat_effectiveness_calculator(my_str: int, enemy_tgh: int) -> int:
 		return 5
 	else:
 		return 0
+
+func boss_music(b: bool):
+	if b:
+		$AudioStreamPlayer.stop()
+		$AudioStreamPlayer2.play()
+	else:
+		$AudioStreamPlayer.play()
+		$AudioStreamPlayer2.stop()
