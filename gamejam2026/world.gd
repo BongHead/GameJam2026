@@ -180,7 +180,7 @@ func update_tech():
 	$Hud/base_menu_ui/TechTree/MandibleLevel.text = "%d/%d" % [Mandible_Level, TechTree.Crushing_Mandibles.max_level]
 	
 func send_ants(num_warrior: int, num_worker, location: Vector2, target) -> void:
-	if (num_warrior > soldier_ants and num_worker > worker_ants):
+	if (num_warrior > soldier_ants or num_worker > worker_ants):
 		return
 	worker_ants -= num_worker
 	soldier_ants -= num_warrior
