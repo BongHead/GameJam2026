@@ -1,6 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dn1m8vj73as7r"]
+[gd_scene load_steps=15 format=3 uid="uid://dn1m8vj73as7r"]
 
+[ext_resource type="Script" path="res://Ressources/water_button.gd" id="1_xqnfg"]
 [ext_resource type="Texture2D" uid="uid://dstukei7sfao2" path="res://assets/water.png" id="1_y4kty"]
+[ext_resource type="FontFile" uid="uid://l54s50lamel2" path="res://fonts/AntFont-Regular (1).ttf" id="3_iwai3"]
+[ext_resource type="Script" path="res://Ressources/water_sliders.gd" id="3_q8ngc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kn5ad"]
 atlas = ExtResource("1_y4kty")
@@ -63,16 +66,81 @@ animations = [{
 radius = 87.66
 height = 370.36
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m0icg"]
+bg_color = Color(0.9, 0.9, 0.9, 1)
+
 [node name="Water" type="Area2D"]
+scale = Vector2(10, 10)
+script = ExtResource("1_xqnfg")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-5.00003, 3)
-scale = Vector2(1.96939, 2.31)
+scale = Vector2(0.1, 0.117)
 sprite_frames = SubResource("SpriteFrames_8foho")
 autoplay = "default"
 frame_progress = 0.76287
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-26, 4)
+scale = Vector2(0.1, 0.1)
 shape = SubResource("CapsuleShape2D_fgst4")
 debug_color = Color(0.929893, 0.232916, 0.328751, 0.42)
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -12.0
+offset_top = -12.0
+offset_right = -4.0
+offset_bottom = -4.0
+scale = Vector2(3, 3)
+
+[node name="Background" type="PanelContainer" parent="."]
+visible = false
+z_index = 1
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 193.0
+offset_bottom = 151.0
+scale = Vector2(0.3, 0.3)
+theme_override_styles/panel = SubResource("StyleBoxFlat_m0icg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background"]
+layout_mode = 2
+script = ExtResource("3_q8ngc")
+
+[node name="Label_worker" type="Label" parent="Background/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_iwai3")
+text = "Worker ants to send"
+
+[node name="HSlider_worker" type="HSlider" parent="Background/VBoxContainer"]
+layout_mode = 2
+
+[node name="slider_label_worker" type="Label" parent="Background/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_iwai3")
+horizontal_alignment = 1
+
+[node name="Label_warrior" type="Label" parent="Background/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_iwai3")
+text = "Warrior ants to send"
+
+[node name="HSlider_warrior" type="HSlider" parent="Background/VBoxContainer"]
+layout_mode = 2
+
+[node name="slider_label_warrior" type="Label" parent="Background/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_iwai3")
+horizontal_alignment = 1
+
+[node name="Gather" type="Button" parent="Background/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_iwai3")
+text = "SEND"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="value_changed" from="Background/VBoxContainer/HSlider_worker" to="Background/VBoxContainer" method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="Background/VBoxContainer/HSlider_warrior" to="Background/VBoxContainer" method="_on_h_slider_value_changed"]
