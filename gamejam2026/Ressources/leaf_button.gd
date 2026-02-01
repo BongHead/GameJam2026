@@ -47,7 +47,7 @@ func gather(num_warrior, num_worker):
 	if material_count <= 0:
 		queue_free()
 	
-	return [total_taken, 0]
+	return [0, total_taken] # food, materials
 
 func take_material(take_amount):
 	if material_count - take_amount <= 0:
