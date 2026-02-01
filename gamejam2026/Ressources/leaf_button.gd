@@ -4,6 +4,7 @@ extends Area2D
 @onready var material_count = MATERIAL_CONSTANT.MaterialCount.LOW
 
 
+
 func _on_button_pressed() -> void:
 	var _antcount = get_parent().ants
 	$Button/AudioStreamPlayer2D.play()
@@ -15,24 +16,27 @@ func _on_button_pressed() -> void:
 	$Background/VBoxContainer/HSlider_warrior.max_value = 0
 
 func _on_gather_pressed() -> void:
-	var num = $Background/VBoxContainer/HSlider_worker.value
+	var num_workers = $Background/VBoxContainer/HSlider_worker.value
+	var num_warriors = $Background/VBoxContainer/HSlider_warrior.value
 	var location = position
 	
-	get_parent().send_ants(num, location, self )
+	get_parent().send_ants(num_warriors, num_workers, location, self )
 	_pcon.visible = not _pcon.visible
 	
-	
-func gather(num):
-	var ant_capacity = AntsStats.Worker_Ant["CRY"]
-	var total_taken = num * ant_capacity
+@onready var gather_flag = true
+func gather(num_warrior, num_worker):
+	var ant_cap_worker = AntsStats.Worker_Ant["CRY"]
+	var ant_cap_warrior = AntsStats.Soldier_Ant["CRY"]
+	var total_taken = num_warrior * ant_cap_warrior + num_worker * ant_cap_worker
+	var total_ants = num_worker + num_warrior
 	var time = 0
 	if material_count < total_taken:
 		time = MATERIAL_CONSTANT.MaterialGatherTime.VERY_LOW
-	elif num < 2:
+	elif total_ants < 2:
 		time = MATERIAL_CONSTANT.MaterialGatherTime.MEDIUM
-	elif num < 5:
+	elif total_ants < 5:
 		time = MATERIAL_CONSTANT.MaterialGatherTime.LOW
-	elif num < 10:
+	elif total_ants < 10:
 		time = MATERIAL_CONSTANT.MaterialGatherTime.VERY_LOW
 		
 	

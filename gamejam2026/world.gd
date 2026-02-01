@@ -174,10 +174,10 @@ func update_tech():
 	$Hud/base_menu_ui/TechTree/KeratinLevel.text = "%d/%d" % [Keratin_Level, TechTree.Keratin_Reinforcement.max_level]
 	$Hud/base_menu_ui/TechTree/MandibleLevel.text = "%d/%d" % [Mandible_Level, TechTree.Crushing_Mandibles.max_level]
 	
-func send_ants(num: int, location: Vector2, target) -> void:
-	var worker = num
-	var warrior = 0
-
+func send_ants(num_warrior: int, num_worker, location: Vector2, target) -> void:
+	var worker = num_worker
+	var warrior = num_warrior
+	var num = num_warrior + num_worker
 	if (num > ants):
 		return
 	ants -= num
