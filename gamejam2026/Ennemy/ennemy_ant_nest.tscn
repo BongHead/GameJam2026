@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ccd8u01kabonh"]
+[gd_scene load_steps=10 format=3 uid="uid://bpl2tscl8j2gm"]
 
 [ext_resource type="Script" path="res://Ennemy/ennemy_ant_nest.gd" id="1_dgdc1"]
 [ext_resource type="Texture2D" uid="uid://drw7qi7fommae" path="res://assets/anthill_better.png" id="2_vgstj"]
@@ -84,7 +84,7 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_7tuue")
-text = "Warrior ants to send"
+text = "Soldier ants to send"
 
 [node name="HSlider_warrior" type="HSlider" parent="Background/VBoxContainer"]
 layout_mode = 2

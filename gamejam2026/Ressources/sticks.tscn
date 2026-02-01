@@ -91,7 +91,7 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_3jwhf")
-text = "Warrior ants to send"
+text = "Soldier ants to send"
 
 [node name="HSlider_warrior" type="HSlider" parent="Background/VBoxContainer"]
 layout_mode = 2

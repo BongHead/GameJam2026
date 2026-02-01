@@ -24,7 +24,7 @@ func _on_gather_pressed() -> void:
 	get_parent().send_ants(num_warriors, num_workers, location, self )
 	_pcon.visible = not _pcon.visible
 	
-@onready var gather_flag = true
+
 func gather(num_warrior, num_worker):
 	var ant_cap_worker = AntsStats.Worker_Ant["CRY"]
 	var ant_cap_warrior = AntsStats.Soldier_Ant["CRY"]
@@ -50,12 +50,3 @@ func gather(num_warrior, num_worker):
 	
 		
 	_pcon.visible = false
-
-func take_material(take_amount):
-	if material_count - take_amount <= 0:
-		_pcon.visible = not _pcon.visible
-		return material_count - take_amount
-	else:
-		material_count -= take_amount
-	
-	return take_amount
