@@ -41,9 +41,16 @@ func _process(delta: float) -> void:
 
 		destination = Vector2.ZERO
 		$Label.text = "food: %d\nmaterials: %d" % [food, materials]
+		$AnimatedSprite2D.play("carry")
 	elif destination == Vector2.ZERO and not back_home:
 		back_home = true
-		print("back home")
+		var parent = get_parent()
+		parent.food_amount += food
+		parent.materials += materials
+		parent.worker_ants += number_of_worker
+		parent.soldier_ants += number_of_warrior
+		parent.update_hud()
+		queue_free()
 	
 		
 func set_destination(new_destination):
