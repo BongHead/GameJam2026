@@ -114,8 +114,8 @@ func new_game():
 	max_workers = worker_ants
 	max_soldiers = soldier_ants
 	next_ant = ANT_INTERVAL
-	food_amount = 2000
-	materials = 2000
+	food_amount = 200
+	materials = 200
 	next_food = FOOD_INTERVAL
 	AntsStats.Worker_Ant["STR"] = 2
 	AntsStats.Soldier_Ant["STR"] = 5
@@ -158,7 +158,7 @@ func _process(delta: float) -> void:
 	if next_food <= 0:
 		next_food += FOOD_INTERVAL
 		food_amount = max(food_amount - (max_workers * worker_upkeep + max_soldiers * soldier_upkeep) * upkeep_modifier, 0)
-		if food_amount < 2000 and not popped:
+		if food_amount < 150 and not popped:
 			popped = true
 			var p = popup.instantiate()
 			add_child(p)
@@ -181,7 +181,7 @@ func update_hud():
 	$Hud/HBoxContainer/VBoxContainer3/Ants.text = "Soldier ants: %d" % soldier_ants
 	$Hud/HBoxContainer/VBoxContainer3/Ants2.text = "+%d every %d seconds" % [soldier_generation, ANT_INTERVAL]
 	$Hud/HBoxContainer/VBoxContainer2/Food.text = "Food: %d" % food_amount
-	$Hud/HBoxContainer/VBoxContainer2/Food2.text = "-%d every %d seconds" % [ants, FOOD_INTERVAL]
+	$Hud/HBoxContainer/VBoxContainer2/Food2.text = "-%d every %d seconds" % [(max_workers * worker_upkeep + max_soldiers * soldier_upkeep) * upkeep_modifier, FOOD_INTERVAL]
 	$Hud/HBoxContainer/Materials.text = "Materials: %d" % materials
 	
 func update_tech():
