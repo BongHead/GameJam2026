@@ -113,9 +113,9 @@ volume_db = 24.0
 [node name="Hud" type="CanvasLayer" parent="."]
 
 [node name="TextureRect" type="TextureRect" parent="Hud"]
-offset_left = 216.0
+offset_left = -240.0
 offset_top = 656.0
-offset_right = 2707.0
+offset_right = 3317.0
 offset_bottom = 2870.0
 scale = Vector2(0.913328, 1.28101)
 mouse_filter = 2
@@ -181,6 +181,26 @@ theme_override_font_sizes/font_size = 60
 text = "Food: 20"
 
 [node name="Ants2" type="Label" parent="Hud/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_1jx7j")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ufpr5")
+theme_override_font_sizes/font_size = 40
+text = "+1"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Hud/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Ants" type="Label" parent="Hud/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme = ExtResource("4_1jx7j")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ufpr5")
+theme_override_font_sizes/font_size = 60
+text = "Food: 20"
+
+[node name="Ants2" type="Label" parent="Hud/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 theme = ExtResource("4_1jx7j")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
