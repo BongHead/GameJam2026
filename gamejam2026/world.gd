@@ -1,26 +1,25 @@
 extends Node2D
 var fruit_node = preload("res://Food/fruit.tscn")
-var insect_node = preload("res://Food/insect.tscn")
 var worms_eggs_node = preload("res://Food/worm_eggs.tscn")
 var leaf_node = preload("res://Ressources/leaf.tscn")
 var sticks_node = preload("res://Ressources/sticks.tscn")
 var water_node = preload("res://Ressources/water.tscn")
-var butterfly_node = preload("res://Ennemy/butterfly.tscn")
 var wisadel_node = preload("res://Ennemy/cockroach.tscn")
 var ennemy_ant_node = preload("res://Ennemy/ennemy_ant_nest.tscn")
 var hornet_node = preload("res://Ennemy/hornet_nest.tscn")
 var Resources = [leaf_node, sticks_node, water_node]
-var Enemies = [butterfly_node, wisadel_node, ennemy_ant_node]
-var food = [fruit_node, insect_node, worms_eggs_node]
-var common_set_up = [leaf_node, butterfly_node, fruit_node]
-var uncommon_set_up = [sticks_node, wisadel_node, insect_node]
+var Enemies = [wisadel_node, ennemy_ant_node]
+var food = [fruit_node, worms_eggs_node]
+var common_set_up = [leaf_node, fruit_node]
+var uncommon_set_up = [sticks_node, wisadel_node]
 var rare_set_up = [water_node, ennemy_ant_node, hornet_node, worms_eggs_node]
-var renewing_resource = [leaf_node, fruit_node, insect_node, worms_eggs_node, wisadel_node]
+var renewing_resource = [leaf_node, fruit_node, worms_eggs_node, wisadel_node]
 var common = 9
 var uncommon = 5
 var rare = 2
 var resource_regen_counter = 0
 var ant = preload("res://Ant.tscn")
+var active_ant = preload("res://ActiveAnt.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -99,7 +98,7 @@ func _process(delta: float) -> void:
 	var not_generate_resources = is_resources_enough()
 	if (!not_generate_resources):
 		var view_port_size = get_viewport_rect().size
-		var v = randi_range(0, 4)
+		var v = randi_range(0, 3)
 		place_resources_on_map(int(view_port_size.x) + 500, int(view_port_size.y) + 500, renewing_resource[v])
 		resource_regen_counter += 1
 		print(resource_regen_counter)
@@ -125,3 +124,8 @@ func update_hud():
 	$Hud/HBoxContainer/VBoxContainer2/Food.text = "Food: %d" % food_amount
 	$Hud/HBoxContainer/VBoxContainer2/Food2.text = "-%d every %d seconds" % [ants, FOOD_INTERVAL]
 	$Hud/HBoxContainer/Materials.text = "Materials: %d" % materials
+	
+func send_ants(num: int, location: Vector2) -> void:
+	var instance = active_ant.instantiate()
+	add_child(instance)
+	instance.set_destination(location)

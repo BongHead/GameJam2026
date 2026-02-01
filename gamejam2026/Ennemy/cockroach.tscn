@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Ennemy/cockroach.gd" id="1_rsoaf"]
 [ext_resource type="Texture2D" uid="uid://ct7nvgl6gtbyk" path="res://assets/cockroach.png" id="2_ngtae"]
 [ext_resource type="Script" path="res://Ressources/leaf_sliders.gd" id="3_kq12f"]
-[ext_resource type="FontFile" uid="uid://l54s50lamel2" path="res://fonts/AntFont-Regular (1).ttf" id="4_s800j"]
+[ext_resource type="FontFile" uid="uid://vtq2j2itl4j2" path="res://fonts/AntFont-Regular (1).ttf" id="4_s800j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gbmt3"]
 radius = 200.0
@@ -105,3 +105,4 @@ text = "SEND"
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="value_changed" from="Background/VBoxContainer/HSlider_worker" to="Background/VBoxContainer" method="_on_h_slider_value_changed"]
 [connection signal="value_changed" from="Background/VBoxContainer/HSlider_warrior" to="Background/VBoxContainer" method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="Background/VBoxContainer/Gather" to="." method="_on_gather_pressed"]

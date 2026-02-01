@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" uid="uid://vtq2j2itl4j2" path="res://fonts/AntFont-Regular (1).ttf" id="3_ufpr5"]
 [ext_resource type="Script" path="res://anthill.gd" id="4_0gpe0"]
 [ext_resource type="Theme" path="res://new_theme.tres" id="4_1jx7j"]
-[ext_resource type="PackedScene" path="res://Tilemap.tscn" id="6_cx25r"]
+[ext_resource type="PackedScene" uid="uid://iausah6ji1mt" path="res://Tilemap.tscn" id="6_cx25r"]
 [ext_resource type="Texture2D" uid="uid://b8jja88i5ql7r" path="res://assets/waterriver3.png" id="8_0q87a"]
 [ext_resource type="Texture2D" uid="uid://drw7qi7fommae" path="res://assets/anthill_better.png" id="8_13ok7"]
 [ext_resource type="AudioStream" uid="uid://hhqwfy8ws5kd" path="res://music_n_sounds/GameJam2026BGM.wav" id="10_80100"]
