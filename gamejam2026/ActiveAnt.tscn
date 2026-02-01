@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bds8y4uaps1bx"]
+[gd_scene load_steps=10 format=3 uid="uid://bds8y4uaps1bx"]
 
 [ext_resource type="Script" path="res://active_ant.gd" id="1_lx2n7"]
 [ext_resource type="Texture2D" uid="uid://bpjsk1tnxnch1" path="res://assets/ant march.png" id="2_2jb53"]
+[ext_resource type="FontFile" uid="uid://vtq2j2itl4j2" path="res://fonts/AntFont-Regular (1).ttf" id="3_r3dug"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_we5u1"]
 radius = 30.0
@@ -56,3 +57,21 @@ scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_p4ia7")
 autoplay = "default"
 frame_progress = 0.580858
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -76.5
+offset_right = 20.0
+offset_bottom = -3.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_r3dug")
+theme_override_font_sizes/font_size = 60
+text = "1"
+horizontal_alignment = 1

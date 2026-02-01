@@ -43,6 +43,10 @@ func set_destination(new_destination):
 func gather(gathered):
 	if collected < storage_capacity:
 		collected += gathered
+
+func set_num(num):
+	number_of_ants = num
+	$Label.text = str(num)
 	
 
 func attack():

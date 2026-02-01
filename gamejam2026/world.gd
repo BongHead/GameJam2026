@@ -181,11 +181,12 @@ func send_ants(num: int, location: Vector2, target) -> void:
 	update_hud()
 	var this_id = ant_id
 	ant_id += 1
-	for i in range(min(num, 20)):
+	# for i in range(min(num, 20)):
+	if num > 0: # send 1 ant
 		var instance = active_ant.instantiate()
 		add_child(instance)
 		instance.set_destination(location)
-		instance.number_of_ants = num
+		instance.set_num(num)
 		instance.target = target
 		instance.add_to_group("ant%d" % this_id)
 		await get_tree().create_timer(0.4).timeout
