@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://bxuitaado5ppd"]
+[gd_scene load_steps=24 format=4 uid="uid://bxuitaado5ppd"]
 
 [ext_resource type="Script" path="res://camera_2d.gd" id="1_o0ekc"]
 [ext_resource type="Script" path="res://world.gd" id="1_t0vh2"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://iausah6ji1mt" path="res://Tilemap.tscn" id="6_cx25r"]
 [ext_resource type="Texture2D" uid="uid://b8jja88i5ql7r" path="res://assets/waterriver3.png" id="8_0q87a"]
 [ext_resource type="Texture2D" uid="uid://drw7qi7fommae" path="res://assets/anthill_better.png" id="8_13ok7"]
+[ext_resource type="AudioStream" uid="uid://hhqwfy8ws5kd" path="res://music_n_sounds/GameJam2026BGM.wav" id="10_80100"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a7u50"]
 
@@ -107,17 +108,19 @@ scale = Vector2(0.913328, 1.28101)
 texture = ExtResource("3_mnkc4")
 
 [node name="TextureRect2" type="TextureRect" parent="Hud"]
-offset_left = 810.0
-offset_top = 680.0
-offset_right = 3301.0
-offset_bottom = 2894.0
+offset_left = 825.0
+offset_top = 687.0
+offset_right = 3316.0
+offset_bottom = 2901.0
 rotation = 3.16201
 scale = Vector2(1.04223, 1.26196)
 texture = ExtResource("3_mnkc4")
 
 [node name="Back to colony" type="Button" parent="Hud"]
-offset_right = 120.0
-offset_bottom = 31.0
+offset_left = 20.0
+offset_top = 13.0
+offset_right = 510.0
+offset_bottom = 74.0
 theme_override_colors/font_hover_pressed_color = Color(0.605274, 0.605274, 0.605274, 1)
 theme_override_colors/font_hover_color = Color(0.605274, 0.605274, 0.605274, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
@@ -222,5 +225,10 @@ scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_e8bu3")
 autoplay = "default"
 frame_progress = 0.911204
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_80100")
+volume_db = 10.0
+autoplay = true
 
 [connection signal="pressed" from="Hud/Back to colony" to="Camera2D" method="_on_back_to_colony_pressed"]
