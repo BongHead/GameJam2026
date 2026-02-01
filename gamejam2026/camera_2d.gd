@@ -46,6 +46,7 @@ func _input(mouse_event: InputEvent) -> void:
 		zoom.y = max(zoom.y, 0.1)
 
 func _on_back_to_colony_pressed() -> void:
+	$AudioStreamPlayer2D.play()
 	position = Vector2(0, 0)
 	zoom = Vector2(1, 1)
 	
