@@ -1,10 +1,10 @@
 extends Area2D
 
 @onready var _pcon = $Background
-@onready var enemy_hp=EnemyStats.HP.LOW
-@onready var enemy_atk =EnemyStats.ATK.HIGH
-@onready var enemy_def =EnemyStats.DMG.MEDIUM
-@onready var enemy_tgh =EnemyStats.TGH.LOW
+@onready var enemy_hp = EnemyStats.HP.LOW
+@onready var enemy_atk = EnemyStats.ATK.HIGH
+@onready var enemy_def = EnemyStats.DMG.MEDIUM
+@onready var enemy_tgh = EnemyStats.TGH.LOW
 
 
 # Called when the node enters the scene tree for the first time.
@@ -27,5 +27,5 @@ func _on_button_pressed() -> void:
 func _on_gather_pressed() -> void:
 	var num = $Background/VBoxContainer/HSlider_worker.value
 	var location = position
-	get_parent().send_ants(num, location)
+	get_parent().send_ants(num, location, self )
 	_pcon.visible = false

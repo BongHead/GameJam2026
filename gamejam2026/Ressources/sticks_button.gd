@@ -14,5 +14,5 @@ func _on_button_pressed() -> void:
 func _on_gather_pressed() -> void:
 	var num = $Background/VBoxContainer/HSlider_worker.value
 	var location = position
-	get_parent().send_ants(num, location)
+	get_parent().send_ants(num, location, self )
 	_pcon.visible = false

@@ -4,8 +4,6 @@ extends Area2D
 @onready var material_count = MATERIAL_CONSTANT.MaterialCount.LOW
 
 
-
-
 func _on_button_pressed() -> void:
 	var _antcount = get_parent().ants
 	$Button/AudioStreamPlayer2D.play()
@@ -20,14 +18,11 @@ func _on_gather_pressed() -> void:
 	var num = $Background/VBoxContainer/HSlider_worker.value
 	var location = position
 	
-	get_parent().send_ants(num, location)
+	get_parent().send_ants(num, location, self )
 	_pcon.visible = not _pcon.visible
 	
 	
-	
-		
 func gather(num):
-	
 	var ant_capacity = AntsStats.Worker_Ant["CRY"]
 	var total_taken = num * ant_capacity
 	var time = 0
@@ -48,11 +43,13 @@ func gather(num):
 		queue_free()
 	
 		
-		
-		
-	
-	
-	
-	
+	_pcon.visible = false
 
+func take_material(take_amount):
+	if material_count - take_amount <= 0:
+		_pcon.visible = not _pcon.visible
+		return material_count - take_amount
+	else:
+		material_count -= take_amount
 	
+	return take_amount
