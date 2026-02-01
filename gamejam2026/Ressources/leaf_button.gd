@@ -4,7 +4,6 @@ extends Area2D
 @onready var material_count = MATERIAL_CONSTANT.MaterialCount.LOW
 
 
-
 func _on_button_pressed() -> void:
 	var _worker_antcount = get_parent().worker_ants
 	var _warrior_antcount = get_parent().soldier_ants
@@ -48,5 +47,13 @@ func gather(num_warrior, num_worker):
 	if material_count <= 0:
 		queue_free()
 	
-		
-	_pcon.visible = false
+	return [total_taken, 0]
+
+func take_material(take_amount):
+	if material_count - take_amount <= 0:
+		_pcon.visible = not _pcon.visible
+		return material_count - take_amount
+	else:
+		material_count -= take_amount
+	
+	return take_amount
