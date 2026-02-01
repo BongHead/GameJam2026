@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxs5jmsi7hff4"]
+[gd_scene load_steps=8 format=3 uid="uid://bodtsshhxf3h6"]
 
 [ext_resource type="FontFile" uid="uid://vtq2j2itl4j2" path="res://fonts/AntFont-Regular (1).ttf" id="1_6afh4"]
 [ext_resource type="Script" path="res://hatcheries.gd" id="2_nrav7"]
@@ -273,30 +273,12 @@ theme_override_fonts/font = ExtResource("1_6afh4")
 theme_override_font_sizes/font_size = 35
 text = "Food"
 
-[node name="ErrorMessageAnts" type="Label" parent="TechTree"]
+[node name="ErrorMessage" type="Label" parent="TechTree"]
 layout_mode = 0
 offset_left = 401.0
 offset_top = 695.0
 offset_right = 1003.0
 offset_bottom = 767.0
-theme_override_fonts/font = ExtResource("1_6afh4")
-theme_override_font_sizes/font_size = 35
-
-[node name="ErrorMessageResources" type="Label" parent="TechTree"]
-layout_mode = 0
-offset_left = 402.0
-offset_top = 686.0
-offset_right = 1004.0
-offset_bottom = 758.0
-theme_override_fonts/font = ExtResource("1_6afh4")
-theme_override_font_sizes/font_size = 35
-
-[node name="ErrorMessageMaxLevel" type="Label" parent="TechTree"]
-layout_mode = 0
-offset_left = 402.0
-offset_top = 686.0
-offset_right = 1004.0
-offset_bottom = 758.0
 theme_override_fonts/font = ExtResource("1_6afh4")
 theme_override_font_sizes/font_size = 35
 

@@ -20,7 +20,6 @@ var rare = 2
 var resource_regen_counter = 0
 var ant = preload("res://Ant.tscn")
 var active_ant = preload("res://ActiveAnt.tscn")
-@onready var AntStats: Node = %Ants__stats
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -81,7 +80,7 @@ func get_random_vector(min, max) -> Vector2:
 var ANT_INTERVAL = 20
 var FOOD_INTERVAL = 30
 
-var worker_ants = 1000
+var worker_ants = 10
 var soldier_ants = 0
 var worker_generation = 1
 var soldier_generation = 0
@@ -107,9 +106,15 @@ func new_game():
 	ants = worker_ants + soldier_ants
 	max_ants = ants
 	next_ant = ANT_INTERVAL
-	food_amount = 2000
-	materials = 2000
+	food_amount = 200
+	materials = 200
 	next_food = FOOD_INTERVAL
+	AntsStats.Worker_Ant["STR"] = 2
+	AntsStats.Soldier_Ant["STR"] = 5
+	AntsStats.Worker_Ant["TGH"] = 2
+	AntsStats.Soldier_Ant["TGH"] = 4
+	AntsStats.Soldier_Ant["DMG"] = 4
+
 	update_hud()
 	update_tech()
 
@@ -178,11 +183,11 @@ func upgrade_hatchery()->void:
 						1: worker_generation = round(worker_generation*2)
 						2: worker_generation = round(worker_generation*1.75)
 				else:
-					$Hud/base_menu_ui/TechTree/ErrorMessageMaxLevel.text = "Technology Already at Maximum Level"
+					$Hud/base_menu_ui/TechTree/ErrorMessage.text = "Technology Already at Maximum Level"
 			else:
-				$Hud/base_menu_ui/TechTree/ErrorMessageResources.text = "Insufficient Food/Materials!"
+				$Hud/base_menu_ui/TechTree/ErrorMessage.text = "Insufficient Food/Materials!"
 		else:
-			$Hud/base_menu_ui/TechTree/ErrorMessageAnts.text = "Insufficient Colony Size!"
+			$Hud/base_menu_ui/TechTree/ErrorMessage.text = "Insufficient Colony Size!"
 		update_tech()
 		update_hud()
 
@@ -199,11 +204,11 @@ func upgrade_farms()->void:
 						2: upkeep_modifier = 0.9
 						3: upkeep_modifier = 0.85
 				else:
-					$Hud/base_menu_ui/TechTree/ErrorMessageMaxLevel.text = "Technology Already at Maximum Level"
+					$Hud/base_menu_ui/TechTree/ErrorMessageMax.text = "Technology Already at Maximum Level"
 			else:
-				$Hud/base_menu_ui/TechTree/ErrorMessageResources.text = "Insufficient Food/Materials!"
+				$Hud/base_menu_ui/TechTree/ErrorMessage.text = "Insufficient Food/Materials!"
 		else:
-			$Hud/base_menu_ui/TechTree/ErrorMessageAnts.text = "Insufficient Colony Size!"
+			$Hud/base_menu_ui/TechTree/ErrorMessage.text = "Insufficient Colony Size!"
 		update_tech()
 		update_hud()
 		
@@ -220,11 +225,11 @@ func upgrade_Soldier()->void:
 						2: soldier_generation = 2
 						3: soldier_generation = 5
 				else:
-					$Hud/base_menu_ui/TechTree/ErrorMessageMaxLevel.text = "Technology Already at Maximum Level"
+					$Hud/base_menu_ui/TechTree/ErrorMessageMax.text = "Technology Already at Maximum Level"
 			else:
-				$Hud/base_menu_ui/TechTree/ErrorMessageResources.text = "Insufficient Food/Materials!"
+				$Hud/base_menu_ui/TechTree/ErrorMessageR.text = "Insufficient Food/Materials!"
 		else:
-			$Hud/base_menu_ui/TechTree/ErrorMessageAnts.text = "Insufficient Colony Size!"
+			$Hud/base_menu_ui/TechTree/ErrorMessage.text = "Insufficient Colony Size!"
 		update_tech()
 		update_hud()
 		
@@ -236,14 +241,14 @@ func upgrade_Formic()->void:
 					Formic_Level += 1
 					materials -=TechTree.Formic_concentration.material_cost
 					food_amount -=TechTree.Formic_concentration.food_cost
-					AntStats.Worker_Ant.STR +=1
-					AntStats.Soldier_Ant.STR +=1
+					AntsStats.Worker_Ant["STR"] +=1
+					AntsStats.Soldier_Ant["STR"] +=1
 				else:
-					$Hud/base_menu_ui/TechTree/ErrorMessageMaxLevel.text = "Technology Already at Maximum Level"
+					$Hud/base_menu_ui/TechTree/ErrorMessage.text = "Technology Already at Maximum Level"
 			else:
-				$Hud/base_menu_ui/TechTree/ErrorMessageResources.text = "Insufficient Food/Materials!"
+				$Hud/base_menu_ui/TechTree/ErrorMessage.text = "Insufficient Food/Materials!"
 		else:
-			$Hud/base_menu_ui/TechTree/ErrorMessageAnts.text = "Insufficient Colony Size!"
+			$Hud/base_menu_ui/TechTree/ErrorMessage.text = "Insufficient Colony Size!"
 		update_tech()
 		update_hud()
 		
@@ -255,14 +260,14 @@ func upgrade_Keratin()->void:
 					Keratin_Level += 1
 					materials -=TechTree.Keratin_Reinforcement.material_cost
 					food_amount -=TechTree.Keratin_Reinforcement.food_cost
-					AntStats.Worker_Ant.DEF +=1
-					AntStats.Soldier_Ant.DEF +=1
+					AntsStats.Worker_Ant["TGH"] += 1
+					AntsStats.Soldier_Ant["TGH"] +=1
 				else:
-					$Hud/base_menu_ui/TechTree/ErrorMessageMaxLevel.text = "Technology Already at Maximum Level"
+					$Hud/base_menu_ui/TechTree/ErrorMessage.text = "Technology Already at Maximum Level"
 			else:
-				$Hud/base_menu_ui/TechTree/ErrorMessageResources.text = "Insufficient Food/Materials!"
+				$Hud/base_menu_ui/TechTree/ErrorMessage.text = "Insufficient Food/Materials!"
 		else:
-			$Hud/base_menu_ui/TechTree/ErrorMessageAnts.text = "Insufficient Colony Size!"
+			$Hud/base_menu_ui/TechTree/ErrorMessage.text = "Insufficient Colony Size!"
 		update_tech()
 		update_hud()
 		
@@ -274,12 +279,12 @@ func upgrade_Mandibles()->void:
 					Mandible_Level += 1
 					materials -= TechTree.Crushing_Mandibles.material_cost
 					food_amount -= TechTree.Crushing_Mandibles.food_cost
-					AntStats.Soldier_Ant.DMG +=1
+					AntsStats.Soldier_Ant["DMG"] +=1
 				else:
-					$Hud/base_menu_ui/TechTree/ErrorMessageMaxLevel.text = "Technology Already at Maximum Level"
+					$Hud/base_menu_ui/TechTree/ErrorMessage.text = "Technology Already at Maximum Level"
 			else:
-				$Hud/base_menu_ui/TechTree/ErrorMessageResources.text = "Insufficient Food/Materials!"
+				$Hud/base_menu_ui/TechTree/ErrorMessage.text = "Insufficient Food/Materials!"
 		else:
-			$Hud/base_menu_ui/TechTree/ErrorMessageAnts.text = "Insufficient Colony Size!"
+			$Hud/base_menu_ui/TechTree/ErrorMessage.text = "Insufficient Colony Size!"
 		update_tech()
 		update_hud()

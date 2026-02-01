@@ -1,4 +1,4 @@
-AntStats extends Node
+extends Node
 var Worker_Ant = {
 	HP = 1,
 	TGH = 2,
@@ -13,4 +13,7 @@ var Soldier_Ant = {
 	STR = 5,
 	DMG = 4,
 	CRY = 5
+}
+enum LLL{
+	a=3
 }
