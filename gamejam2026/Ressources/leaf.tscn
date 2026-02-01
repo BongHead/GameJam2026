@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ck6haarhfovs3"]
+[gd_scene load_steps=10 format=3 uid="uid://ck6haarhfovs3"]
 
 [ext_resource type="Script" path="res://Ressources/leaf.gd" id="1_uku3g"]
 [ext_resource type="Texture2D" uid="uid://ycla8h2p6scs" path="res://assets/leaf.png" id="2_awd1x"]
@@ -7,22 +7,25 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vv4tg"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_21ry6"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8e3ur"]
+bg_color = Color(0.9, 0.9, 0.9, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21nmc"]
 atlas = ExtResource("2_awd1x")
 region = Rect2(0, 0, 196, 200)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uuflm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3307"]
 atlas = ExtResource("2_awd1x")
 region = Rect2(196, 0, 196, 200)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_stdtg"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_muumb"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_21ry6")
+"texture": SubResource("AtlasTexture_21nmc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_uuflm")
+"texture": SubResource("AtlasTexture_l3307")
 }],
 "loop": true,
 "name": &"default",
@@ -30,15 +33,11 @@ animations = [{
 }]
 
 [node name="Leaf" type="Area2D"]
+scale = Vector2(10, 10)
 script = ExtResource("1_uku3g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_vv4tg")
-
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_stdtg")
-autoplay = "default"
-frame_progress = 0.23191
 
 [node name="Button" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -96,6 +95,11 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_q0tyj")
 text = "SEND"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_muumb")
+autoplay = "default"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button" to="Background/VBoxContainer" method="_on_button_pressed"]
