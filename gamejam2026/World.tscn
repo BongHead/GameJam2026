@@ -7,11 +7,11 @@
 [ext_resource type="Script" path="res://anthill.gd" id="4_0gpe0"]
 [ext_resource type="Theme" uid="uid://c2yiyxsh5ytct" path="res://new_theme.tres" id="4_1jx7j"]
 [ext_resource type="AudioStream" uid="uid://cym852ris2ric" path="res://music_n_sounds/back_to_col.mp3" id="4_t8wgy"]
-[ext_resource type="PackedScene" path="res://Tilemap.tscn" id="6_cx25r"]
+[ext_resource type="PackedScene" uid="uid://iausah6ji1mt" path="res://Tilemap.tscn" id="6_cx25r"]
 [ext_resource type="Texture2D" uid="uid://b8jja88i5ql7r" path="res://assets/waterriver3.png" id="8_0q87a"]
 [ext_resource type="Texture2D" uid="uid://drw7qi7fommae" path="res://assets/anthill_better.png" id="8_13ok7"]
 [ext_resource type="AudioStream" uid="uid://hhqwfy8ws5kd" path="res://music_n_sounds/GameJam2026BGM.wav" id="10_80100"]
-[ext_resource type="PackedScene" uid="uid://cxs5jmsi7hff4" path="res://base_menu_ui.tscn" id="11_u3l0b"]
+[ext_resource type="PackedScene" uid="uid://bpt286u1dvbw1" path="res://base_menu_ui.tscn" id="11_u3l0b"]
 [ext_resource type="AudioStream" uid="uid://cc2bo5taeit3f" path="res://music_n_sounds/ws-eating_SMINPPez.mp3" id="13_vsv3q"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a7u50"]
