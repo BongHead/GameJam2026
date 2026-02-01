@@ -1,13 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpt286u1dvbw1"]
+[gd_scene load_steps=2 format=3 uid="uid://bodtsshhxf3h6"]
 
 [ext_resource type="FontFile" uid="uid://vtq2j2itl4j2" path="res://fonts/AntFont-Regular (1).ttf" id="1_6afh4"]
 
 [node name="base_menu_ui" type="TabContainer"]
-offset_right = 711.0
-offset_bottom = 428.0
+offset_right = 1447.0
+offset_bottom = 836.0
 theme_override_fonts/font = ExtResource("1_6afh4")
 theme_override_font_sizes/font_size = 25
-current_tab = 1
+current_tab = 2
 
 [node name="Ants" type="TabBar" parent="."]
 visible = false
@@ -26,6 +26,7 @@ theme_override_font_sizes/font_size = 25
 text = "esc to close"
 
 [node name="Stats" type="TabBar" parent="."]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -90,7 +91,6 @@ theme_override_font_sizes/font_size = 25
 text = "esc to close"
 
 [node name="Tech Tree" type="TabBar" parent="."]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
@@ -104,3 +104,88 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_6afh4")
 theme_override_font_sizes/font_size = 25
 text = "esc to close"
+
+[node name="Button" type="Button" parent="Tech Tree"]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 63.0
+offset_right = 508.0
+offset_bottom = 237.0
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 35
+text = "Upgrade 1"
+
+[node name="Button2" type="Button" parent="Tech Tree"]
+offset_left = 958.0
+offset_top = 308.0
+offset_right = 1290.0
+offset_bottom = 482.0
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 35
+text = "Upgrade 1"
+
+[node name="Button3" type="Button" parent="Tech Tree"]
+offset_left = 566.0
+offset_top = 309.0
+offset_right = 898.0
+offset_bottom = 483.0
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 35
+text = "Upgrade 1"
+
+[node name="Button4" type="Button" parent="Tech Tree"]
+offset_left = 173.0
+offset_top = 307.0
+offset_right = 505.0
+offset_bottom = 481.0
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 35
+text = "Upgrade 1"
+
+[node name="Button5" type="Button" parent="Tech Tree"]
+offset_left = 958.0
+offset_top = 63.0
+offset_right = 1290.0
+offset_bottom = 237.0
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 35
+text = "Upgrade 1"
+
+[node name="Button6" type="Button" parent="Tech Tree"]
+offset_left = 572.0
+offset_top = 66.0
+offset_right = 904.0
+offset_bottom = 240.0
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 35
+text = "Upgrade 1"
+
+[node name="Resources" type="Label" parent="Tech Tree"]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 593.0
+offset_right = 543.0
+offset_bottom = 670.0
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 35
+text = "Resources"
+
+[node name="Food" type="Label" parent="Tech Tree"]
+layout_mode = 0
+offset_left = 796.0
+offset_top = 585.0
+offset_right = 1164.0
+offset_bottom = 651.0
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 35
+text = "Food"
+
+[node name="ErrorMessage" type="Label" parent="Tech Tree"]
+layout_mode = 0
+offset_left = 401.0
+offset_top = 695.0
+offset_right = 1003.0
+offset_bottom = 767.0
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 35
+text = "Insufficient Food/Resources!"
