@@ -118,6 +118,10 @@ func _process(delta: float) -> void:
 		food_amount -= ants
 		update_hud()
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		$Hud/base_menu_ui.visible = false
+
 func update_hud():
 	$Hud/HBoxContainer/VBoxContainer/Ants.text = "Ants: %d" % ants
 	$Hud/HBoxContainer/VBoxContainer/Ants2.text = "+1 every %d seconds" % ANT_INTERVAL

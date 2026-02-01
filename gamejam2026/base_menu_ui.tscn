@@ -1,17 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://bodtsshhxf3h6"]
+[gd_scene load_steps=2 format=3 uid="uid://bpt286u1dvbw1"]
 
-[ext_resource type="FontFile" uid="uid://l54s50lamel2" path="res://fonts/AntFont-Regular (1).ttf" id="1_6afh4"]
+[ext_resource type="FontFile" uid="uid://vtq2j2itl4j2" path="res://fonts/AntFont-Regular (1).ttf" id="1_6afh4"]
 
 [node name="base_menu_ui" type="TabContainer"]
 offset_right = 711.0
 offset_bottom = 428.0
 theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 25
 current_tab = 1
 
 [node name="Ants" type="TabBar" parent="."]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 0
+
+[node name="Label3" type="Label" parent="Ants"]
+layout_mode = 0
+offset_left = 1267.0
+offset_top = -27.0
+offset_right = 1439.0
+offset_bottom = -1.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 25
+text = "esc to close"
 
 [node name="Stats" type="TabBar" parent="."]
 layout_mode = 2
@@ -66,7 +78,29 @@ theme_override_fonts/normal_font = ExtResource("1_6afh4")
 theme_override_font_sizes/normal_font_size = 25
 text = "Resources:"
 
+[node name="Label4" type="Label" parent="Stats"]
+layout_mode = 0
+offset_left = 1267.0
+offset_top = -27.0
+offset_right = 1439.0
+offset_bottom = -1.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 25
+text = "esc to close"
+
 [node name="Tech Tree" type="TabBar" parent="."]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2
+
+[node name="Label2" type="Label" parent="Tech Tree"]
+layout_mode = 0
+offset_left = 1267.0
+offset_top = -31.0
+offset_right = 1439.0
+offset_bottom = -5.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_6afh4")
+theme_override_font_sizes/font_size = 25
+text = "esc to close"

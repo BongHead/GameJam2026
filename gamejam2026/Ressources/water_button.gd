@@ -4,6 +4,7 @@ extends Area2D
 
 func _on_button_pressed() -> void:
 	var _antcount = get_parent().ants
+	$Button/AudioStreamPlayer2D.play()
 	_pcon.visible = not _pcon.visible
 	
 	$Background/VBoxContainer/HSlider_worker.max_value = _antcount

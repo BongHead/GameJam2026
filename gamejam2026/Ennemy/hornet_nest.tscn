@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://ce2t4l3vm53ot"]
+[gd_scene load_steps=11 format=3 uid="uid://ce2t4l3vm53ot"]
 
 [ext_resource type="Script" path="res://Ennemy/hornet_nest.gd" id="1_kgd3h"]
 [ext_resource type="Texture2D" uid="uid://cjn3yv4yk0djp" path="res://assets/hornet hive.png" id="3_dpjoy"]
 [ext_resource type="Script" path="res://Ressources/leaf_sliders.gd" id="3_kh26g"]
+[ext_resource type="AudioStream" uid="uid://dekqwdomm8i6j" path="res://music_n_sounds/pencil hit table idk.wav" id="3_uk6p3"]
 [ext_resource type="FontFile" uid="uid://vtq2j2itl4j2" path="res://fonts/AntFont-Regular (1).ttf" id="4_n57c3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8mf6j"]
@@ -51,6 +52,10 @@ offset_top = -600.0
 offset_right = -592.0
 offset_bottom = -592.0
 scale = Vector2(150, 150)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Button"]
+stream = ExtResource("3_uk6p3")
+volume_db = 24.0
 
 [node name="Background" type="PanelContainer" parent="."]
 visible = false

@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://ck6haarhfovs3"]
+[gd_scene load_steps=11 format=3 uid="uid://ck6haarhfovs3"]
 
 [ext_resource type="Script" path="res://Ressources/leaf_button.gd" id="1_uku3g"]
 [ext_resource type="Texture2D" uid="uid://ycla8h2p6scs" path="res://assets/leaf.png" id="2_awd1x"]
 [ext_resource type="Script" path="res://Ressources/leaf_sliders.gd" id="3_uo7lf"]
+[ext_resource type="AudioStream" uid="uid://dekqwdomm8i6j" path="res://music_n_sounds/pencil hit table idk.wav" id="3_v6k2w"]
 [ext_resource type="FontFile" uid="uid://vtq2j2itl4j2" path="res://fonts/AntFont-Regular (1).ttf" id="4_q0tyj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vv4tg"]
@@ -51,6 +52,10 @@ offset_top = -12.0
 offset_right = -4.0
 offset_bottom = -4.0
 scale = Vector2(3, 3)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Button"]
+stream = ExtResource("3_v6k2w")
+volume_db = 24.0
 
 [node name="Background" type="PanelContainer" parent="."]
 visible = false

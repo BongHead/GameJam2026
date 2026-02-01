@@ -19,7 +19,3 @@ func _process(delta: float) -> void:
 func _on_h_slider_value_changed(value: float) -> void:
 	slider_label_worker.text = str(h_slider_worker.value)
 	slider_label_warrior.text = str(h_slider_warrior.value)
-
-
-func _on_button_pressed() -> void:
-	pass # Replace with function body.

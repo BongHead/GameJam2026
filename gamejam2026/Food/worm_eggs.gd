@@ -20,6 +20,8 @@ func _process(delta: float) -> void:
 
 func _on_button_pressed() -> void:
 	var _antcount = get_parent().ants
+	$Button/AudioStreamPlayer2D.play()
+	print("worm eggs pressed")
 	_pcon.visible = not _pcon.visible
 	
 	$Background/VBoxContainer/HSlider_worker.max_value = _antcount
