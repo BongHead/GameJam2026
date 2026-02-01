@@ -1,6 +1,6 @@
 extends Area2D
 
-const SPEED = 200
+const SPEED = 400
 var destination = Vector2(0, 0)
 var storage_capacity = 3
 var food = 0
@@ -40,6 +40,7 @@ func _process(delta: float) -> void:
 		materials = g[1]
 		if food == 0 and materials == 0:
 			queue_free()
+			return
 		destination = Vector2.ZERO
 		$Label.text = "food: %d\nmaterials: %d" % [food, materials]
 		$AnimatedSprite2D.play("carry")

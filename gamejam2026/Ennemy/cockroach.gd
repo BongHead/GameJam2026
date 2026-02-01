@@ -1,12 +1,12 @@
 extends Area2D
 
 @onready var _pcon = $Background
-@onready var enemy_hp=EnemyStats.HP.HIGH
-@onready var enemy_atk =EnemyStats.ATK.LOW
-@onready var enemy_dmg =EnemyStats.DMG.LOW
-@onready var enemy_tgh =EnemyStats.TGH.HIGH
+@onready var enemy_hp = EnemyStats.HP.HIGH
+@onready var enemy_atk = EnemyStats.ATK.LOW
+@onready var enemy_dmg = EnemyStats.DMG.LOW
+@onready var enemy_tgh = EnemyStats.TGH.HIGH
 @onready var enemy_str = EnemyStats.STR.LOW
-@onready var enemy_numb = 1 
+@onready var enemy_numb = 1
 @onready var food_count = enemy_hp * enemy_numb
 
 
@@ -32,7 +32,8 @@ func _on_gather_pressed() -> void:
 	var worker_count = $Background/VBoxContainer/HSlider_worker.value
 	var soldier_count = $Background/VBoxContainer/HSlider_warrior.value
 	var location = position
-	get_parent().send_ants(soldier_count, worker_count, location, self)
+	get_parent().send_ants(soldier_count, worker_count, location, self )
+	get_parent().boss_music(true)
 	#await get_tree().create_timer(5).timeout
 	
 	_pcon.visible = false
@@ -40,9 +41,10 @@ func _on_gather_pressed() -> void:
 
 func gather(num_warrior, num_worker):
 	if not await get_parent().combat_calculation(num_worker, num_warrior, enemy_hp, enemy_atk, enemy_numb, enemy_tgh, enemy_str):
+		get_parent().boss_music(false)
 		return [0, 0]
 
-	var food_count = enemy_hp*enemy_numb
+	var food_count = enemy_hp * enemy_numb
 	var ant_cap_worker = AntsStats.Worker_Ant["CRY"]
 	var ant_cap_warrior = AntsStats.Soldier_Ant["CRY"]
 	var total_taken = num_warrior * ant_cap_warrior + num_worker * ant_cap_worker
@@ -59,6 +61,7 @@ func gather(num_warrior, num_worker):
 		
 	
 	await get_tree().create_timer(time).timeout
+	get_parent().boss_music(false)
 	
 	food_count -= total_taken
 	

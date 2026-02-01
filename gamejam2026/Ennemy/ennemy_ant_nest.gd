@@ -5,7 +5,8 @@ extends Area2D
 @onready var enemy_atk = EnemyStats.ATK.LOW
 @onready var enemy_def = EnemyStats.DMG.LOW
 @onready var enemy_tgh = EnemyStats.TGH.LOW
-@onready var enemy_numb = 50
+@onready var enemy_numb = 25
+@onready var enemy_str = EnemyStats.STR.LOW
 @onready var material_count = MATERIAL_CONSTANT.MaterialCount.HIGH
 
 
@@ -19,16 +20,45 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_button_pressed() -> void:
-	var _antcount = get_parent().ants
-	_pcon.visible = not _pcon.visible
+	var worker_ants_count = get_parent().worker_ants
+	var soldier_ants_count = get_parent().soldier_ants
 	
-	$Background/VBoxContainer/HSlider_worker.max_value = _antcount
-	$Background/VBoxContainer/HSlider_warrior.max_value = 0
+	$Background/VBoxContainer/HSlider_worker.max_value = worker_ants_count
+	$Background/VBoxContainer/HSlider_warrior.max_value = soldier_ants_count
 
 func _on_gather_pressed() -> void:
-	var num_workers = $Background/VBoxContainer/HSlider_worker.value
-	var num_warriors = $Background/VBoxContainer/HSlider_warrior.value
+	var worker_count = $Background/VBoxContainer/HSlider_worker.value
+	var soldier_count = $Background/VBoxContainer/HSlider_warrior.value
 	var location = position
+	get_parent().send_ants(soldier_count, worker_count, location, self)
+	#await get_tree().create_timer(5).timeout
 	
-	get_parent().send_ants(num_warriors, num_workers, location, self )
-	_pcon.visible = not _pcon.visible
+	_pcon.visible = false
+func gather(num_warrior, num_worker):
+	if not await get_parent().combat_calculation(num_worker, num_warrior, enemy_hp, enemy_atk, enemy_numb, enemy_tgh, enemy_str):
+		return [0, 0]
+
+	var food_count = enemy_hp*enemy_numb
+	var ant_cap_worker = AntsStats.Worker_Ant["CRY"]
+	var ant_cap_warrior = AntsStats.Soldier_Ant["CRY"]
+	var total_taken = num_warrior * ant_cap_warrior + num_worker * ant_cap_worker
+	var total_ants = num_worker + num_warrior
+	var time = 0
+	if food_count < total_taken:
+		time = FoodConstants.FoodGatherTime.VERY_LOW
+	elif total_ants < 2:
+		time = FoodConstants.FoodGatherTime.MEDIUM
+	elif total_ants < 5:
+		time = FoodConstants.FoodGatherTime.LOW
+	elif total_ants < 10:
+		time = FoodConstants.FoodGatherTime.VERY_LOW
+		
+	
+	await get_tree().create_timer(time).timeout
+	
+	food_count -= total_taken
+	
+	if food_count <= 0:
+		queue_free()
+	
+	return [total_taken, 0] # food, materials

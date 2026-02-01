@@ -84,7 +84,7 @@ var FOOD_INTERVAL = 15
 
 var worker_ants = 10
 var soldier_ants = 0
-var worker_generation = 1
+var worker_generation = 10
 var soldier_generation = 0
 var total_generation = worker_generation + soldier_generation
 var worker_upkeep = 1
@@ -114,8 +114,8 @@ func new_game():
 	max_workers = worker_ants
 	max_soldiers = soldier_ants
 	next_ant = ANT_INTERVAL
-	food_amount = 2000
-	materials = 2000
+	food_amount = 200
+	materials = 200
 	next_food = FOOD_INTERVAL
 	AntsStats.Worker_Ant["STR"] = 2
 	AntsStats.Soldier_Ant["STR"] = 5
@@ -158,7 +158,7 @@ func _process(delta: float) -> void:
 	if next_food <= 0:
 		next_food += FOOD_INTERVAL
 		food_amount = max(food_amount - (max_workers * worker_upkeep + max_soldiers * soldier_upkeep) * upkeep_modifier, 0)
-		if food_amount < 2000 and not popped:
+		if food_amount < 150 and not popped:
 			popped = true
 			var p = popup.instantiate()
 			add_child(p)
@@ -174,11 +174,14 @@ func _unhandled_input(event: InputEvent) -> void:
 func update_hud():
 	ants = worker_ants + soldier_ants
 	$Hud/HBoxContainer/VBoxContainer/Ants.text = "Worker ants: %d" % worker_ants
-	$Hud/HBoxContainer/VBoxContainer/Ants2.text = "+%d every %d seconds" % [worker_generation, ANT_INTERVAL]
+	if Hatcheries_Level == 3:
+		$Hud/HBoxContainer/VBoxContainer/Ants2.text = "+5%% and %d every %d seconds" % [worker_generation, ANT_INTERVAL]
+	else:
+		$Hud/HBoxContainer/VBoxContainer/Ants2.text = "+%d every %d seconds" % [worker_generation, ANT_INTERVAL]
 	$Hud/HBoxContainer/VBoxContainer3/Ants.text = "Soldier ants: %d" % soldier_ants
 	$Hud/HBoxContainer/VBoxContainer3/Ants2.text = "+%d every %d seconds" % [soldier_generation, ANT_INTERVAL]
 	$Hud/HBoxContainer/VBoxContainer2/Food.text = "Food: %d" % food_amount
-	$Hud/HBoxContainer/VBoxContainer2/Food2.text = "-%d every %d seconds" % [ants, FOOD_INTERVAL]
+	$Hud/HBoxContainer/VBoxContainer2/Food2.text = "-%d every %d seconds" % [(max_workers * worker_upkeep + max_soldiers * soldier_upkeep) * upkeep_modifier, FOOD_INTERVAL]
 	$Hud/HBoxContainer/Materials.text = "Materials: %d" % materials
 	
 func update_tech():
@@ -327,30 +330,33 @@ func upgrade_Mandibles() -> void:
 		
 func combat_calculation(number_of_worker: int, number_of_soldier: int, enemy_hp: int, enemy_atk: int, enemy_numb: int, enemy_tgh: int, enemy_str: int) -> bool:
 		await get_tree().create_timer(2).timeout
-		while (number_of_soldier + number_of_soldier > 0 && enemy_hp * enemy_numb > 0):
+		while (number_of_worker + number_of_soldier > 0 && enemy_hp * enemy_numb > 0):
 			var combat_effectiveness_w_e = combat_effectiveness_calculator(AntsStats.Worker_Ant.STR, enemy_tgh)
 			for x in range(number_of_worker):
 				var result = DiceRollService.rollOneD6()
 				if (result >= combat_effectiveness_w_e):
 					enemy_hp -= AntsStats.Worker_Ant.DMG
+			print("worker done")
 			var combat_effectiveness_s_e = combat_effectiveness_calculator(AntsStats.Soldier_Ant.STR, enemy_tgh)
 			for x in range(number_of_soldier):
 				var result = DiceRollService.rollOneD6()
 				if (result >= combat_effectiveness_s_e):
 					enemy_hp -= AntsStats.Soldier_Ant.DMG
+			print("soldier done")
 			var combat_effectiveness_e_w = combat_effectiveness_calculator(enemy_str, AntsStats.Worker_Ant.TGH)
-			for x in range(enemy_numb * enemy_atk):
+			for total_enemy_attacks in range(enemy_numb * enemy_atk):
 				var result = DiceRollService.rollOneD6()
 				if (result >= combat_effectiveness_e_w):
 					if (number_of_worker > 0):
 						number_of_worker -= 1
 					else:
 						var combat_effectiveness_e_s = combat_effectiveness_calculator(enemy_str, AntsStats.Soldier_Ant.TGH)
-						while (x < enemy_atk * enemy_numb):
-							x += 1
+						while (total_enemy_attacks < enemy_atk * enemy_numb):
+							result = DiceRollService.rollOneD6()
+							total_enemy_attacks += 1
 							if (result >= combat_effectiveness_e_s):
 								number_of_soldier -= 1
-		return (number_of_soldier + number_of_worker) != 0
+		return (number_of_soldier + number_of_worker) > 0
 		
 func combat_effectiveness_calculator(my_str: int, enemy_tgh: int) -> int:
 	if (my_str > (int)(enemy_tgh / 2)):
@@ -361,5 +367,15 @@ func combat_effectiveness_calculator(my_str: int, enemy_tgh: int) -> int:
 		return 4
 	elif (my_str * 2 < enemy_tgh):
 		return 6
-	else:
+	elif (my_str < enemy_tgh):
 		return 5
+	else:
+		return 0
+
+func boss_music(b: bool):
+	if b:
+		$AudioStreamPlayer.stop()
+		$AudioStreamPlayer2.play()
+	else:
+		$AudioStreamPlayer.play()
+		$AudioStreamPlayer2.stop()

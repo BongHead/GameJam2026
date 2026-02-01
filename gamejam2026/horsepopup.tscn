@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://horsepopup.gd" id="1_l7ce2"]
 [ext_resource type="FontFile" uid="uid://vtq2j2itl4j2" path="res://fonts/AntFont-Regular (1).ttf" id="2_nb1fn"]
-[ext_resource type="Texture2D" uid="uid://dutp0c8op2p0a" path="res://assets/honse.jpg" id="2_wvjtv"]
+[ext_resource type="Texture2D" uid="uid://cqjc2kkyg3uhe" path="res://assets/honse.jpg" id="2_wvjtv"]
 [ext_resource type="Theme" uid="uid://c2yiyxsh5ytct" path="res://new_theme.tres" id="2_x4k8o"]
-[ext_resource type="AudioStream" uid="uid://bj17lwtb7wqvj" path="res://assets/ahhhh-37191 (1).mp3" id="5_2tdhp"]
-[ext_resource type="AudioStream" uid="uid://cu5e3xqmpiiqo" path="res://assets/horse-whinny-sound-effect-322958.mp3" id="6_hf1st"]
+[ext_resource type="AudioStream" uid="uid://cvupmkf41m13t" path="res://assets/ahhhh-37191 (1).mp3" id="5_2tdhp"]
+[ext_resource type="AudioStream" uid="uid://bqs5wp61cslb" path="res://assets/horse-whinny-sound-effect-322958.mp3" id="6_hf1st"]
 [ext_resource type="AudioStream" uid="uid://bivjthas2waeh" path="res://music_n_sounds/your ants are very hungry.mp3" id="7_xqap6"]
 [ext_resource type="AudioStream" uid="uid://c80vxf1bsemlb" path="res://music_n_sounds/so hungry.mp3" id="8_w4dvi"]
 [ext_resource type="AudioStream" uid="uid://dkerfi1yqdxl4" path="res://music_n_sounds/dont give up.mp3" id="9_43qc3"]
