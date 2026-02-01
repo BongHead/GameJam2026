@@ -4,7 +4,11 @@ const SPEED = 200
 var destination = Vector2(0, 0)
 var storage_capacity = 3
 var collected = 0
+var number_of_ants = 0
+
 @onready var target_material = $"./Ressources/"
+
+var target
 # Called when the node enters the scene tree for the first time.
 
 func _ready() -> void:
@@ -25,16 +29,21 @@ func _process(delta: float) -> void:
 		elif position.direction_to(destination).x <= 0:
 			$AnimatedSprite2D.flip_h = false
 		position += position.direction_to(destination) * distance_to_move
+	else:
+		for group in get_groups():
+			if not str(group).begins_with("_"):
+				print(group)
+				get_tree().call_group(group, "queue_free")
+		target.gather(number_of_ants)
 	
 		
-
 func set_destination(new_destination):
 	destination = new_destination
 	
 func gather(gathered):
 	if collected < storage_capacity:
-		collected += gathered 
+		collected += gathered
 	
 
 func attack():
-	pass		
+	pass

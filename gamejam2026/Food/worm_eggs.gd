@@ -10,7 +10,7 @@ func _ready() -> void:
 	pass
 	#print(FOOD_GATHER_TIME)
 	#print(FOOD_RESTORE_VALUE)
-func _get_start_up_number()-> int:
+func _get_start_up_number() -> int:
 	return food_spawn_number_on_start_up
 
 
@@ -30,5 +30,5 @@ func _on_button_pressed() -> void:
 func _on_gather_pressed() -> void:
 	var num = $Background/VBoxContainer/HSlider_worker.value
 	var location = position
-	get_parent().send_ants(num, location)
+	get_parent().send_ants(num, location, self )
 	_pcon.visible = false
