@@ -34,11 +34,12 @@ func gather(num):
 	if material_count < total_taken:
 		time = MATERIAL_CONSTANT.MaterialGatherTime.VERY_LOW
 	elif num < 2:
-		time = MATERIAL_CONSTANT.MaterialGatherTime.VERY_LOW
+		time = MATERIAL_CONSTANT.MaterialGatherTime.MEDIUM
 	elif num < 5:
 		time = MATERIAL_CONSTANT.MaterialGatherTime.LOW
 	elif num < 10:
-		time = MATERIAL_CONSTANT.MaterialGatherTime.MEDIUM
+		time = MATERIAL_CONSTANT.MaterialGatherTime.VERY_LOW
+		
 	
 	await get_tree().create_timer(time).timeout
 	
