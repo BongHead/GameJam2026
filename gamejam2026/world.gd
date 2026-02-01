@@ -320,30 +320,33 @@ func upgrade_Mandibles() -> void:
 		
 func combat_calculation(number_of_worker:int, number_of_soldier:int,enemy_hp:int,enemy_atk:int,enemy_numb:int, enemy_tgh:int,enemy_str:int)->bool:
 		await get_tree().create_timer(2).timeout
-		while (number_of_soldier+number_of_soldier>0 && enemy_hp*enemy_numb>0):
+		while (number_of_worker+number_of_soldier>0 && enemy_hp*enemy_numb>0):
 			var combat_effectiveness_w_e = combat_effectiveness_calculator(AntsStats.Worker_Ant.STR,enemy_tgh)
 			for x in range(number_of_worker):
 				var result = DiceRollService.rollOneD6()
 				if (result >= combat_effectiveness_w_e):
 					enemy_hp -= AntsStats.Worker_Ant.DMG
+			print ("worker done")
 			var combat_effectiveness_s_e = combat_effectiveness_calculator(AntsStats.Soldier_Ant.STR, enemy_tgh)
 			for x in range(number_of_soldier):
 				var result = DiceRollService.rollOneD6()
 				if (result >= combat_effectiveness_s_e):
 					enemy_hp -= AntsStats.Soldier_Ant.DMG
+			print("soldier done")
 			var combat_effectiveness_e_w = combat_effectiveness_calculator(enemy_str, AntsStats.Worker_Ant.TGH)
-			for x in range(enemy_numb * enemy_atk):
+			for total_enemy_attacks in range(enemy_numb * enemy_atk):
 				var result = DiceRollService.rollOneD6()
 				if (result >= combat_effectiveness_e_w):
 					if (number_of_worker > 0):
 						number_of_worker -= 1
 					else:
 						var combat_effectiveness_e_s = combat_effectiveness_calculator(enemy_str, AntsStats.Soldier_Ant.TGH)
-						while (x < enemy_atk * enemy_numb):
-							x += 1
+						while (total_enemy_attacks < enemy_atk * enemy_numb):
+							result = DiceRollService.rollOneD6()
+							total_enemy_attacks += 1
 							if (result >= combat_effectiveness_e_s):
 								number_of_soldier -= 1
-		return (number_of_soldier + number_of_worker) != 0
+		return (number_of_soldier + number_of_worker) > 0
 		
 func combat_effectiveness_calculator(my_str: int, enemy_tgh: int) -> int:
 	if (my_str > (int)(enemy_tgh / 2)):
@@ -354,5 +357,7 @@ func combat_effectiveness_calculator(my_str: int, enemy_tgh: int) -> int:
 		return 4
 	elif (my_str * 2 < enemy_tgh):
 		return 6
-	else:
+	elif (my_str < enemy_tgh):
 		return 5
+	else: 
+		return 0

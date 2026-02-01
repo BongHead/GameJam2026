@@ -39,6 +39,7 @@ func _on_gather_pressed() -> void:
 
 
 func gather(num_warrior, num_worker):
+
 	if not await get_parent().combat_calculation(num_worker, num_warrior, enemy_hp, enemy_atk, enemy_numb, enemy_tgh, enemy_str):
 		return [0, 0]
 
