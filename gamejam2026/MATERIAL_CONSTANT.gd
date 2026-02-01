@@ -1,6 +1,6 @@
 class_name MATERIAL_CONSTANT extends RefCounted
 # value 
-enum MatherialGatherValue {
+enum MaterialGatherValue {
 	VERY_LOW = 1,
 	LOW = 3,
 	MEDIUM = 5,
@@ -13,8 +13,11 @@ enum MaterialGatherTime {
 	MEDIUM = 10,
 	HIGH = 15
 }
-enum MaterialSpawnRate {
-	LOW = 3,
-	MEDIUM = 6,
-	HIGH = 12,
+enum MaterialCount {
+	#LEAF
+	LOW = 5,
+	#STICK
+	MEDIUM = 10,
+	#WATER
+	HIGH = 15
 }
