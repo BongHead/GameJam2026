@@ -19,6 +19,7 @@ func _on_gather_pressed() -> void:
 	var num = $Background/VBoxContainer/HSlider_worker.value
 	var location = position
 	get_parent().send_ants(num, location)
+	_pcon.visible = false
 
 func take_material(take_amount):
 	if material_count - take_amount <= 0:
@@ -28,3 +29,4 @@ func take_material(take_amount):
 		material_count -= take_amount
 	
 	return take_amount
+	

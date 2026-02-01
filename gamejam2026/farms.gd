@@ -12,5 +12,5 @@ func _process(delta: float) -> void:
 
 
 func _on_pressed() -> void:
-	var parent=get_parent().get_parent().get_parent().get_parent()
-	parent.upgrade_farms()# Replace with function body.
+	var node2d = $"../../../../../Node2D2"
+	node2d.upgrade_farms()# Replace with function body.

@@ -106,8 +106,8 @@ func new_game():
 	ants = worker_ants + soldier_ants
 	max_ants = ants
 	next_ant = ANT_INTERVAL
-	food_amount = 200
-	materials = 200
+	food_amount = 2000
+	materials = 2000
 	next_food = FOOD_INTERVAL
 	AntsStats.Worker_Ant["STR"] = 2
 	AntsStats.Soldier_Ant["STR"] = 5
@@ -167,9 +167,15 @@ func update_tech():
 	$Hud/base_menu_ui/TechTree/MandibleLevel.text = "%d/%d" % [Mandible_Level, TechTree.Crushing_Mandibles.max_level]
 	
 func send_ants(num: int, location: Vector2) -> void:
-	var instance = active_ant.instantiate()
-	add_child(instance)
-	instance.set_destination(location)
+	if (num > ants):
+		return
+	ants -= num
+	update_hud()
+	for i in range(min(num, 20)):
+		var instance = active_ant.instantiate()
+		add_child(instance)
+		instance.set_destination(location)
+		await get_tree().create_timer(0.4).timeout
 
 func upgrade_hatchery()->void:
 		print("hit")
