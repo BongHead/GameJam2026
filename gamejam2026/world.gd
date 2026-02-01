@@ -164,6 +164,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		$Hud/base_menu_ui.visible = false
 
 func update_hud():
+	ants = worker_ants + soldier_ants
 	$Hud/HBoxContainer/VBoxContainer/Ants.text = "Ants: %d" % ants
 	$Hud/HBoxContainer/VBoxContainer/Ants2.text = "+%d every %d seconds" % [total_generation, ANT_INTERVAL]
 	$Hud/HBoxContainer/VBoxContainer2/Food.text = "Food: %d" % food_amount
@@ -179,21 +180,19 @@ func update_tech():
 	$Hud/base_menu_ui/TechTree/MandibleLevel.text = "%d/%d" % [Mandible_Level, TechTree.Crushing_Mandibles.max_level]
 	
 func send_ants(num_warrior: int, num_worker, location: Vector2, target) -> void:
-	var worker = num_worker
-	var warrior = num_warrior
-	var num = num_warrior + num_worker
-	if (num > ants):
+	if (num_warrior > soldier_ants and num_worker > worker_ants):
 		return
-	ants -= num
+	worker_ants -= num_worker
+	soldier_ants -= num_warrior
 	update_hud()
 	var this_id = ant_id
 	ant_id += 1
 	# for i in range(min(num, 20)):
-	if worker + warrior > 0: # send 1 ant
+	if num_worker + num_warrior > 0: # send 1 ant
 		var instance = active_ant.instantiate()
 		add_child(instance)
 		instance.set_destination(location)
-		instance.set_num(warrior, worker)
+		instance.set_num(num_warrior, num_worker)
 		instance.target = target
 		instance.add_to_group("ant%d" % this_id)
 		await get_tree().create_timer(0.4).timeout
